@@ -88,6 +88,11 @@
 - 新增首頁 chart shell / tooltip / meta cards 的品牌化 dark theme 樣式
 - 安裝 `@visx/axis`、`@visx/event`、`@visx/group`、`@visx/responsive`、`@visx/scale`、`@visx/shape`、`@visx/tooltip`
 - 再次驗證 `pnpm build` 通過（含 visx 導入後）
+- 進一步降低 chart 背景紅色 overlay 透明度，減少對閱讀的干擾
+- 將首頁 team trend 主線收細，降低圖表重量感
+- 以低對比、虛線的方式加入兩位 Cadillac 車手 score traces，保留 team line 作為主視覺焦點
+- tooltip 補充每站兩位車手 score，讓細節進入 hover 層而不是常駐搶畫面
+- 再次驗證 `pnpm build` 通過（細化 chart 視覺後）
 
 ---
 

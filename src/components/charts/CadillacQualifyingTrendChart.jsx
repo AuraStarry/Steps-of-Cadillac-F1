@@ -14,6 +14,8 @@ const chartTheme = {
   axis: '#5f5f5f',
   grid: '#1c1c1c',
   line: '#d21b1e',
+  lineSoft: 'rgba(210, 27, 30, 0.22)',
+  lineSoftAlt: 'rgba(245, 245, 245, 0.16)',
   point: '#f5f5f5',
   pointActive: '#d21b1e',
   text: '#f5f5f5',
@@ -56,10 +58,34 @@ function TrendChartSvg({ rounds, width, height }) {
     );
   }
 
-  const scores = data.map((round) => round.teamScore);
+  const scores = data.flatMap((round) => [
+    round.teamScore,
+    ...(round.drivers || []).map((driver) => driver.score),
+  ]).filter((score) => score != null);
   const minScore = Math.min(...scores);
   const maxScore = Math.max(...scores);
   const padding = Math.max((maxScore - minScore) * 0.2, 0.08);
+
+  const driverCodes = Array.from(
+    new Set(data.flatMap((round) => (round.drivers || []).map((driver) => driver.driverCode)).filter(Boolean)),
+  );
+
+  const driverSeries = driverCodes
+    .map((driverCode) => ({
+      driverCode,
+      points: data
+        .map((round) => {
+          const driver = (round.drivers || []).find((entry) => entry.driverCode === driverCode);
+          if (!driver || driver.score == null) return null;
+          return {
+            round: round.round,
+            label: round.label,
+            score: driver.score,
+          };
+        })
+        .filter(Boolean),
+    }))
+    .filter((series) => series.points.length > 1);
 
   const xScale = scalePoint({
     domain: data.map((round) => round.label),
@@ -160,12 +186,25 @@ function TrendChartSvg({ rounds, width, height }) {
             })}
           />
 
+          {driverSeries.map((series, index) => (
+            <LinePath
+              key={series.driverCode}
+              data={series.points}
+              x={(datum) => xScale(datum.label) ?? 0}
+              y={(datum) => yScale(datum.score) ?? 0}
+              stroke={index % 2 === 0 ? chartTheme.lineSoft : chartTheme.lineSoftAlt}
+              strokeWidth={1.05}
+              strokeDasharray="4 6"
+              curve={null}
+            />
+          ))}
+
           <LinePath
             data={data}
             x={(datum) => xScale(datum.label) ?? 0}
             y={(datum) => yScale(datum.teamScore) ?? 0}
             stroke="url(#cadillac-line-glow)"
-            strokeWidth={2.5}
+            strokeWidth={1.8}
             curve={null}
           />
 
@@ -178,15 +217,15 @@ function TrendChartSvg({ rounds, width, height }) {
             return (
               <g key={datum.round}>
                 {(isActive || isLatest) && (
-                  <circle cx={x} cy={y} r={isLatest ? 8 : 7} fill="rgba(210, 27, 30, 0.14)" />
+                  <circle cx={x} cy={y} r={isLatest ? 7 : 6} fill="rgba(210, 27, 30, 0.12)" />
                 )}
                 <circle
                   cx={x}
                   cy={y}
-                  r={isActive || isLatest ? 4.5 : 3.2}
+                  r={isActive || isLatest ? 3.8 : 2.8}
                   fill={isActive || isLatest ? chartTheme.pointActive : chartTheme.point}
                   stroke={chartTheme.line}
-                  strokeWidth={isActive || isLatest ? 1.5 : 1}
+                  strokeWidth={isActive || isLatest ? 1.25 : 0.9}
                 />
               </g>
             );
@@ -207,6 +246,18 @@ function TrendChartSvg({ rounds, width, height }) {
                 {scoreLabel(tooltipData.teamScore)}
               </strong>
             </div>
+            {(tooltipData.drivers || []).length ? (
+              <div className="mt-3 space-y-2 border-t border-[var(--cad-line-soft)] pt-3">
+                {(tooltipData.drivers || []).map((driver) => (
+                  <div key={driver.driverCode} className="flex items-end justify-between gap-4 text-xs">
+                    <span className="heading-cadillac text-[11px] font-medium tracking-[0.12rem] text-[var(--cad-text-dim)]">
+                      {driver.driverCode}
+                    </span>
+                    <strong className="font-semibold text-[var(--cad-text)]">{scoreLabel(driver.score)}</strong>
+                  </div>
+                ))}
+              </div>
+            ) : null}
           </div>
         </TooltipWithBounds>
       ) : null}
