@@ -2,10 +2,33 @@
 
 :root {
   color-scheme: dark;
+  --cad-bg: #050505;
+  --cad-bg-soft: #111111;
+  --cad-panel: #151515;
+  --cad-text: #f4f4f4;
+  --cad-text-dim: #a1a1aa;
+  --cad-line: #2a2a2a;
+  --cad-accent: #e61c1f;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
+  background: var(--cad-bg);
+  color: var(--cad-text);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+.heading-cadillac {
+  font-family: var(--font-heading), var(--font-body), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }

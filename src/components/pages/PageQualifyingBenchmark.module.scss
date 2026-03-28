@@ -1,4 +1,23 @@
 .scoreAccent {
-  background: linear-gradient(90deg, rgba(56, 189, 248, 0.2), rgba(59, 130, 246, 0.15));
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  border: 1px solid color-mix(in srgb, var(--cad-accent) 45%, transparent);
+  background: linear-gradient(135deg, #1a0b0b 0%, #111 70%);
+}
+
+.sectionTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.16rem;
+  text-transform: uppercase;
+
+  &::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    background: var(--cad-accent);
+  }
+}
+
+.cardFrame {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, calc(100% - 10px) 100%, 10px 100%, 0 88%);
 }

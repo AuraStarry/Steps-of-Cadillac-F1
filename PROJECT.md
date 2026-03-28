@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 依 Gore 決策從 TypeScript 降級為純 JavaScript，保留 Tailwind + SCSS Module 策略
-- **最後更新**: 2026-03-28 Session 11（TS → JS）
+- **DOING**: 依 Cadillac 官網視覺語言建立基礎品牌樣式 token（字體、色彩、幾何卡片、排版節奏）
+- **最後更新**: 2026-03-28 Session 12（Cadillac style baseline）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -72,6 +72,11 @@
 - 依 Gore 決策將前端程式碼改為純 JavaScript：`layout/page/component/lib` 全部從 TS/TSX 轉為 JS/JSX
 - 移除 TypeScript 設定檔與相依（`tsconfig.json`、`next-env.d.ts`、`typescript` 與 `@types/*`）
 - `next.config.ts` 改為 `next.config.mjs`，維持同等設定與行為
+- 參照 https://www.cadillacf1team.com/ 萃取視覺邏輯並落地：
+  - Typography：Heading 改為 condensed uppercase 系（`Barlow Condensed`），Body 為 `Montserrat`
+  - Color System：建立黑/灰層次 + Cadillac 紅（`--cad-accent: #e61c1f`）
+  - UI Grammar：卡片改為硬邊框 + 幾何斜角切邊（clip-path）+ 小方塊 section tag 語彙
+  - 保留 Tailwind 為主，SCSS Module 用於品牌細節效果（accent panel / frame）
 
 ---
 
