@@ -1,6 +1,6 @@
 .scoreAccent {
-  border: 1px solid color-mix(in srgb, var(--cad-accent) 45%, transparent);
-  background: linear-gradient(135deg, #1a0b0b 0%, #111 70%);
+  border: 1px solid var(--cad-accent-soft);
+  background: linear-gradient(135deg, #190c0d 0%, #121212 68%);
 }
 
 .sectionTag {

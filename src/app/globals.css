@@ -2,20 +2,29 @@
 
 :root {
   color-scheme: dark;
-  --cad-bg: #050505;
-  --cad-bg-soft: #111111;
-  --cad-panel: #151515;
-  --cad-text: #f4f4f4;
-  --cad-text-dim: #a1a1aa;
+
+  /* Data-first dark tokens */
+  --cad-bg: #030303;
+  --cad-bg-soft: #0a0a0a;
+  --cad-panel: #121212;
+  --cad-panel-2: #181818;
+
+  --cad-text: #f5f5f5;
+  --cad-text-strong: #ffffff;
+  --cad-text-dim: #a3a3a3;
+
   --cad-line: #2a2a2a;
-  --cad-accent: #e61c1f;
+  --cad-line-soft: #1f1f1f;
+
+  --cad-accent: #c41215;
+  --cad-accent-soft: #5b1112;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--cad-bg);
+  background: radial-gradient(circle at top, #0a0a0a 0%, var(--cad-bg) 45%);
   color: var(--cad-text);
   font-family: var(--font-body), system-ui, sans-serif;
 }

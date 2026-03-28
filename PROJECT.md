@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 依 Cadillac 官網視覺語言建立基礎品牌樣式 token（字體、色彩、幾何卡片、排版節奏）
-- **最後更新**: 2026-03-28 Session 12（Cadillac style baseline）
+- **DOING**: 強化 Data-first Dark Theme（以黑底高可讀性為主，保留 Cadillac 風格語彙）
+- **最後更新**: 2026-03-28 Session 13（dark-first data readability tuning）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -77,6 +77,10 @@
   - Color System：建立黑/灰層次 + Cadillac 紅（`--cad-accent: #e61c1f`）
   - UI Grammar：卡片改為硬邊框 + 幾何斜角切邊（clip-path）+ 小方塊 section tag 語彙
   - 保留 Tailwind 為主，SCSS Module 用於品牌細節效果（accent panel / frame）
+- 依 Gore 指示進一步改為 Dark-first 數據導向：
+  - 背景改為更深黑階（`--cad-bg: #030303`）與 3 層面板對比（bg / panel / panel-2）
+  - 文字層級分離（`text / text-strong / text-dim`）提升表格型資訊可讀性
+  - accent 紅改為更克制，只保留在 score 焦點與 section marker
 
 ---
 
