@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 強化 Data-first Dark Theme（以黑底高可讀性為主，保留 Cadillac 風格語彙）
-- **最後更新**: 2026-03-28 Session 17（helmet-adapted driver colors + chart legend + cleaner chart background）
+- **DOING**: 建立 Cadillac race-card 記者模式（補齊階段事件 / 特殊事件的研究工作流）
+- **最後更新**: 2026-03-28 Session 18（cadillac-reporter-mode skill + source map）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -15,7 +15,8 @@
 2. [ ] 定義目標受眾與主要使用情境
 3. [x] 收斂 MVP 範圍（先做什麼、先不做什麼）
    - MVP 先做：每站 `qualifying` / `race` / `cadillac` 狀態
-4. [ ] 建立資訊來源清單（官方公告、F1 新聞來源）
+4. [x] 建立資訊來源清單（官方公告、F1 新聞來源）
+   - 已整理 Cadillac 官方、FIA documents、OpenF1、Jolpica 與媒體補位的 source ladder，並落地 `skills/cadillac-reporter-mode/`
 5. [ ] 決定內容更新節奏（daily / race-week / ad-hoc）
 
 ### Phase 1 — 基礎建置
@@ -98,6 +99,10 @@
 - 完全移除 chart 背景的紅色漸層干擾，保留更純淨的 dark panel 閱讀體驗
 - tooltip 內的 driver code 也與圖表 driver line 保持同色系映射，提升一致性
 - 再次驗證 `pnpm build` 通過（legend + driver color system 調整後）
+- 研究 Cadillac race-card 敘事資料來源，確認可分成 5 層 source ladder：Cadillac 官方、FIA documents、OpenF1、Jolpica、媒體補位
+- 新增 `skills/cadillac-reporter-mode/SKILL.md`，定義記者模式的研究流程、證據優先級、輸出 schema 與 confidence 規則
+- 新增 `skills/cadillac-reporter-mode/references/source-map.md`，整理實際可用網址、端點、用途與 sanity rules
+- 使用 `quick_validate.py` 驗證新 skill 結構通過
 
 ---
 
