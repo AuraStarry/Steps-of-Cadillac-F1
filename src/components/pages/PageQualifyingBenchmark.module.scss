@@ -21,3 +21,49 @@
 .cardFrame {
   clip-path: polygon(0 0, 100% 0, 100% 88%, calc(100% - 10px) 100%, 10px 100%, 0 88%);
 }
+
+.chartShell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--cad-line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(135deg, #101010 0%, #0a0a0a 100%);
+}
+
+.chartShell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(196, 18, 21, 0.08) 0%, rgba(196, 18, 21, 0) 28%);
+}
+
+.chartFrame {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, calc(100% - 14px) 100%, 14px 100%, 0 90%);
+}
+
+.chartMeta {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.chartMetaItem {
+  border: 1px solid var(--cad-line-soft);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.chartTooltip {
+  min-width: 160px;
+  border: 1px solid var(--cad-line);
+  background: rgba(10, 10, 10, 0.94);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 640px) {
+  .chartMeta {
+    grid-template-columns: 1fr;
+  }
+}

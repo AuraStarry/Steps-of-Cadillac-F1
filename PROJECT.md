@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 強化 Data-first Dark Theme（以黑底高可讀性為主，保留 Cadillac 風格語彙）
-- **最後更新**: 2026-03-28 Session 14（Next.js security upgrade for Vercel deploy）
+- **最後更新**: 2026-03-28 Session 15（visx trend chart on homepage + latest-first round list）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -83,6 +83,11 @@
   - accent 紅改為更克制，只保留在 score 焦點與 section marker
 - 因 Vercel 阻擋「Vulnerable version of Next.js」：升級 `next` 到 `16.2.1`、`eslint-config-next` 到 `16.2.1`
 - 驗證 `pnpm build` 通過（Next.js 16.2.1）
+- 首頁在 round 列表上方導入 visx 折線圖：新增 team score season trend，latest round 以 Cadillac red 強調
+- round 卡片列表改為最新在上，保留圖表使用時間正序呈現趨勢
+- 新增首頁 chart shell / tooltip / meta cards 的品牌化 dark theme 樣式
+- 安裝 `@visx/axis`、`@visx/event`、`@visx/group`、`@visx/responsive`、`@visx/scale`、`@visx/shape`、`@visx/tooltip`
+- 再次驗證 `pnpm build` 通過（含 visx 導入後）
 
 ---
 

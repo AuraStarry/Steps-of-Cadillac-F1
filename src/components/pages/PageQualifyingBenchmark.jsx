@@ -1,4 +1,5 @@
 import { loadQualifyingBenchmarks } from '@/lib/qualifying/loadQualifyingBenchmarks';
+import CadillacQualifyingTrendChart from '@/components/charts/CadillacQualifyingTrendChart';
 import styles from '@/components/pages/PageQualifyingBenchmark.module.scss';
 
 function scoreLabel(score) {
@@ -8,6 +9,7 @@ function scoreLabel(score) {
 
 export default async function PageQualifyingBenchmark() {
   const rounds = await loadQualifyingBenchmarks();
+  const roundsDescending = [...rounds].reverse();
 
   return (
     <main className="mx-auto min-h-screen w-full max-w-6xl px-5 py-14 text-[var(--cad-text)]">
@@ -17,12 +19,16 @@ export default async function PageQualifyingBenchmark() {
           Qualifying Benchmark Dashboard
         </h1>
         <p className="max-w-4xl text-sm text-[var(--cad-text-dim)] md:text-base">
-          指標公式：score = (Q1EliminatedAvg - CadillacTime) / (Q1EliminatedAvg - Q2EliminatedAvg)
+          Formula: score = (Q1EliminatedAvg - CadillacTime) / (Q1EliminatedAvg - Q2EliminatedAvg)
         </p>
       </section>
 
+      <section className="mt-7">
+        <CadillacQualifyingTrendChart rounds={rounds} />
+      </section>
+
       <section className="mt-7 grid gap-4">
-        {rounds.map((round) => (
+        {roundsDescending.map((round) => (
           <article
             key={round.round}
             className={`${styles.cardFrame} rounded-none border border-[var(--cad-line)] bg-[var(--cad-panel)] p-5`}
