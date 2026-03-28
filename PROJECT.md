@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 0 / Phase 1 交界 — Discovery 收斂中
-- **DOING**: 定義 Cadillac qualifying benchmark 指標，並補進資料模型與 importer 設計
-- **最後更新**: 2026-03-28 Session 5（benchmark 規格落地）
+- **DOING**: 補完 2026 賽季至今排位賽資料，並建立 season/round JSON 資料骨架
+- **最後更新**: 2026-03-28 Session 6（2026 R1-R3 qualifying data）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -60,6 +60,7 @@
 - 驗證 Jolpica 即時性：2026-03-28 日本站（Round 3）排位賽已可於當日取得結果
 - 建立 `DATA_FETCH_SKILL.md`，整理資料抓取端點、即時性判斷與 mapping 規則
 - 定義 Cadillac qualifying benchmark：採 score normalization、teamAverage / driver 可切換、方案 B 清洗樣本
+- 補完 2026 賽季至今（R1~R3）排位賽資料：新增 `src/data/seasons/2026/season.json` 與 `rounds/01~03` JSON
 
 ---
 

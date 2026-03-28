@@ -1,0 +1,34 @@
+{
+  "year": 2026,
+  "slug": "f1-2026",
+  "name": "Formula 1 2026 Season",
+  "cadillac": {
+    "teamName": "Cadillac Formula 1 Team",
+    "entryYear": 2026,
+    "seasonGoal": "待補",
+    "seasonNarrative": "待補"
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "slug": "australian",
+      "name": "Australian Grand Prix",
+      "date": "2026-03-08",
+      "file": "./rounds/01-australian.json"
+    },
+    {
+      "round": 2,
+      "slug": "chinese",
+      "name": "Chinese Grand Prix",
+      "date": "2026-03-15",
+      "file": "./rounds/02-chinese.json"
+    },
+    {
+      "round": 3,
+      "slug": "japanese",
+      "name": "Japanese Grand Prix",
+      "date": "2026-03-29",
+      "file": "./rounds/03-japanese.json"
+    }
+  ]
+}
