@@ -152,6 +152,62 @@ Jolpica 欄位：
 
 ---
 
+## D. Cadillac qualifying benchmark 計算規則
+
+### 指標目的
+衡量 Cadillac 在排位賽中，相對於：
+- Q1 淘汰組平均
+- Q2 淘汰組平均
+
+之間的位置。
+
+### Score 公式
+```txt
+score = (Q1EliminatedAvg - CadillacTime) / (Q1EliminatedAvg - Q2EliminatedAvg)
+```
+
+### 解讀
+- `0`：等於 Q1 淘汰組平均
+- `1`：等於 Q2 淘汰組平均
+- `< 0`：比 Q1 淘汰組平均還慢
+- `> 1`：比 Q2 淘汰組平均更快
+
+### UI 需要支援的兩種視角
+1. `teamAverage`
+   - 兩位 Cadillac 車手代表時間平均
+2. `driver`
+   - 個別 Cadillac 車手分數
+
+因此資料輸出時要同時產出：
+- `benchmarks.q1EliminatedAvg`
+- `benchmarks.q2EliminatedAvg`
+- `teamAverage.cadillacTime`
+- `teamAverage.score`
+- `drivers[]`
+
+### 樣本清洗規則（方案 B）
+對 benchmark 平均值的樣本：
+- 只納入有有效 Q1 / Q2 成績者
+- 排除未發車、無有效圈
+- 排除事故、紅旗、機械故障導致無代表性的樣本
+- 排除顯著失真的保底圈 / 放棄圈
+- 必須記錄到 `excludedEntries[]`
+
+### Cadillac 代表時間規則
+- 止步 Q1 → 用 `Q1`
+- 止步 Q2 → 用 `Q2`
+- 進 Q3 → 仍以 `Q2` 作為這個 benchmark 的比較時間
+
+### importer 實作步驟
+1. 從 `qualifying.entries` 推出 `Q1Eliminated` / `Q2Eliminated`
+2. 依清洗規則得到有效樣本
+3. 轉為秒數後計算平均
+4. 找出 Cadillac 車手代表時間
+5. 算出 `teamAverage` 與各 driver 的 score
+6. 轉回字串時間並寫入 `cadillac.qualifyingBenchmark`
+
+---
+
 ## 建議抓取流程（每個比賽週）
 
 ### 排位賽後

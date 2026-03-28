@@ -241,7 +241,39 @@ src/
       "單圈速度明顯落後中段集團",
       "輪胎管理仍不成熟"
     ],
-    "outlook": "短期目標仍是穩定完賽與縮小與 Haas / Williams 的差距。"
+    "outlook": "短期目標仍是穩定完賽與縮小與 Haas / Williams 的差距。",
+    "qualifyingBenchmark": {
+      "metric": "cadillac-progress-index",
+      "samplePolicy": "clean-average",
+      "viewMode": "teamAverage",
+      "benchmarks": {
+        "q1EliminatedAvg": "1:31.000",
+        "q2EliminatedAvg": "1:30.400"
+      },
+      "teamAverage": {
+        "cadillacTime": "1:30.700",
+        "score": 0.5
+      },
+      "drivers": [
+        {
+          "driverCode": "CAD1",
+          "cadillacTime": "1:30.620",
+          "score": 0.6333
+        },
+        {
+          "driverCode": "CAD2",
+          "cadillacTime": "1:30.780",
+          "score": 0.3667
+        }
+      ],
+      "excludedEntries": [
+        {
+          "driverCode": "LAW",
+          "session": "Q1",
+          "reason": "crash / no representative lap"
+        }
+      ]
+    }
   }
 }
 ```
@@ -262,6 +294,55 @@ src/
 - `midfield`
 - `upper-midfield`
 - `front-runner`
+
+---
+
+## 4. Cadillac qualifying benchmark
+這是用來量化 Cadillac 在排位賽相對整體中後段競爭力的核心指標。
+
+### 指標目的
+把 Cadillac 的排位表現，放進「Q1 淘汰組平均」到「Q2 淘汰組平均」之間做標準化比較。
+
+### Score 公式
+```txt
+score = (Q1EliminatedAvg - CadillacTime) / (Q1EliminatedAvg - Q2EliminatedAvg)
+```
+
+### 解讀
+- `0`：等於 Q1 淘汰組平均
+- `1`：等於 Q2 淘汰組平均
+- `< 0`：比 Q1 淘汰組平均還慢
+- `0 ~ 1`：介於 Q1 / Q2 淘汰組之間
+- `> 1`：比 Q2 淘汰組平均還快
+
+### UI / 資料層要求
+未來前端需可切換：
+- `teamAverage`：Cadillac 兩位車手平均
+- `driver`：個別車手視角
+
+因此資料層要同時保存：
+- benchmark 基準值
+- teamAverage score
+- 各 Cadillac driver score
+
+### 有效樣本規則（採方案 B：平均 + 先清洗）
+對 `Q1EliminatedAvg` / `Q2EliminatedAvg` 的樣本採納規則：
+- 必須有有效該節時間（Q1 或 Q2）
+- 排除未發車、未做出有效圈、DNS / DSQ 類情況
+- 排除事故、紅旗、機械故障造成的明顯失真樣本
+- 排除「只有極慢保底圈、無代表性 competitive lap」的特殊案例
+- 需保留 `excludedEntries[]` 供日後稽核
+
+### CadillacTime 取值規則
+- `teamAverage.cadillacTime`：Cadillac 兩位車手該節代表時間的平均
+- `drivers[].cadillacTime`：個別車手自己的代表時間
+
+### 代表時間選取
+- 若車手止步 Q1：取 `Q1`
+- 若車手止步 Q2：取 `Q2`
+- 若車手進 Q3：預設仍以 `Q2` 作為本指標比較基準
+  - 因為此指標的語意是「相對 Q2 門檻 / Q2 淘汰層的距離」
+  - 若未來要增加 Q3 benchmark，另立新指標，不混用
 
 ---
 
@@ -313,6 +394,34 @@ export interface RaceEntry {
   note?: string
 }
 
+export interface ExcludedBenchmarkEntry {
+  driverCode: string
+  session: 'Q1' | 'Q2'
+  reason: string
+}
+
+export interface CadillacBenchmarkDriverView {
+  driverCode: string
+  cadillacTime: string | null
+  score: number | null
+}
+
+export interface CadillacQualifyingBenchmark {
+  metric: 'cadillac-progress-index'
+  samplePolicy: 'clean-average'
+  viewMode: 'teamAverage' | 'driver'
+  benchmarks: {
+    q1EliminatedAvg: string | null
+    q2EliminatedAvg: string | null
+  }
+  teamAverage: {
+    cadillacTime: string | null
+    score: number | null
+  }
+  drivers: CadillacBenchmarkDriverView[]
+  excludedEntries: ExcludedBenchmarkEntry[]
+}
+
 export interface CadillacRoundState {
   phase: CadillacPhase
   phaseLabel: string
@@ -321,6 +430,7 @@ export interface CadillacRoundState {
   progress: string[]
   problems: string[]
   outlook: string
+  qualifyingBenchmark?: CadillacQualifyingBenchmark
 }
 
 export interface RoundData {

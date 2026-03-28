@@ -3,9 +3,9 @@
 > 開發流程：使用 PROJECT.md 作為唯一開發狀態真相來源；每次 session 結束前都要更新。
 
 ## ⚡ 快速入口
-- **階段**: Phase 0 — Discovery / Scope 定義
-- **DOING**: 研究最適合抓取 F1 排位 / 正賽資料的來源，作為後續資料匯入基礎
-- **最後更新**: 2026-03-28 Session 3（完成資料來源初步比較與建議）
+- **階段**: Phase 0 / Phase 1 交界 — Discovery 收斂中
+- **DOING**: 定義 Cadillac qualifying benchmark 指標，並補進資料模型與 importer 設計
+- **最後更新**: 2026-03-28 Session 5（benchmark 規格落地）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -23,6 +23,7 @@
 7. [ ] 初始化首頁與共用版型
 8. [x] 建立內容資料模型（文章 / 時間線 / 引用來源）
    - 已完成初版 `DATA_MODEL.md`：年度/分站 JSON 結構 + TypeScript 型別草案
+   - 已補充 Cadillac qualifying benchmark：score 公式、teamAverage / driver 雙視角、方案 B 清洗規則
 9. [ ] 建立基本部署流程
 
 ### Phase 2 — 功能迭代
@@ -49,6 +50,7 @@
 - 研究資料來源：初步比較 Jolpica/Ergast、OpenF1、官方/商業 API，結論先以 Jolpica/Ergast 作為主資料來源
 - 驗證 Jolpica 即時性：2026-03-28 日本站（Round 3）排位賽已可於當日取得結果
 - 建立 `DATA_FETCH_SKILL.md`，整理資料抓取端點、即時性判斷與 mapping 規則
+- 定義 Cadillac qualifying benchmark：採 score normalization、teamAverage / driver 可切換、方案 B 清洗樣本
 
 ---
 
