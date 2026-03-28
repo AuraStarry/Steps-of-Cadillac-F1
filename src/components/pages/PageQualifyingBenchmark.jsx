@@ -19,7 +19,7 @@ export default async function PageQualifyingBenchmark() {
           Qualifying Benchmark Dashboard
         </h1>
         <p className="max-w-4xl text-sm text-[var(--cad-text-dim)] md:text-base">
-          Formula: score = (Q1EliminatedAvg - CadillacTime) / (Q1EliminatedAvg - Q2EliminatedAvg)
+          Formula: Score = (Q1 Eliminated AvgT - Cadillac Time) / (Q1 Eliminated AvgT - Q2 Eliminated AvgT)
         </p>
       </section>
 

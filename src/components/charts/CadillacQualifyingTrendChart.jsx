@@ -329,7 +329,7 @@ export default function CadillacQualifyingTrendChart({ rounds }) {
               <span className={styles.chartLegendDash} />
             </span>
             <span>
-              <strong className="font-medium text-[var(--cad-text)]">BOT</strong> · driver score trace
+              <strong className="font-medium text-[var(--cad-text)]">BOT</strong>
             </span>
           </div>
           <div className={`${styles.chartLegendItem} px-3 py-2`}>
@@ -337,7 +337,7 @@ export default function CadillacQualifyingTrendChart({ rounds }) {
               <span className={styles.chartLegendDash} />
             </span>
             <span>
-              <strong className="font-medium text-[var(--cad-text)]">PER</strong> · driver score trace
+              <strong className="font-medium text-[var(--cad-text)]">PER</strong>
             </span>
           </div>
         </div>
