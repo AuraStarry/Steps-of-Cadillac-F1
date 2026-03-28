@@ -6,6 +6,9 @@
   "circuit": "Albert Park Grand Prix Circuit",
   "country": "Australia",
   "date": "2026-03-08",
+  "cadillac": {
+    "historicalContext": "Melbourne was the baseline weekend: Cadillac arrived as a true new entrant and the main significance of the result was not where Perez and Bottas qualified, but how clearly the team was still in pure data-gathering mode, with the first race weekend exposing the size of the gap it would need to close before it could think about fighting the midfield."
+  },
   "qualifying": {
     "sessionDate": "2026-03-07",
     "entries": [

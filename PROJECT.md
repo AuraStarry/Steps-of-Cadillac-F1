@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 將 reporter mode 直接接入 round data 與首頁卡片（改為 `historicalContext` / Key Context）
-- **最後更新**: 2026-03-28 Session 22（historicalContext wording + card layout fix）
+- **DOING**: 補齊前 3 站 round data 的 `historicalContext`（Key Context）
+- **最後更新**: 2026-03-28 Session 23（R1-R3 Key Context completed）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -109,6 +109,8 @@
 - 依 Gore 最新需求再縮成最小落地格式：直接寫入 round data，並接到首頁卡片顯示
 - 進一步修正文案語義：將欄位改名為 `cadillac.historicalContext`，卡片標題使用 `Key Context`，並將區塊移到 Drivers 下方、標題置於灰色內容區塊外
 - 再次驗證 `pnpm build` 通過（historicalContext + card layout 調整後）
+- 補完 R1 澳洲與 R2 中國的 `cadillac.historicalContext`，讓首頁前 3 站卡片都已有 Key Context 文案
+- 再次驗證 `pnpm build` 通過（R1-R3 historicalContext 全覆蓋後）
 
 ---
 
