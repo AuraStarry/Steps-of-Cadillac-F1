@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 0 / Phase 1 交界 — Discovery 收斂中
-- **DOING**: 抽離 Cadillac qualifying benchmark 為可重用 JS function（對齊目前 round JSON）
-- **最後更新**: 2026-03-28 Session 7（benchmark function 抽離）
+- **DOING**: 補強 benchmark function 註解規格，並新增 AGENT.md 保護註解維護規則
+- **最後更新**: 2026-03-28 Session 8（comment policy + AGENT.md）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -62,6 +62,8 @@
 - 定義 Cadillac qualifying benchmark：採 score normalization、teamAverage / driver 可切換、方案 B 清洗樣本
 - 補完 2026 賽季至今（R1~R3）排位賽資料：新增 `src/data/seasons/2026/season.json` 與 `rounds/01~03` JSON
 - 新增 `src/lib/cadillacQualifyingBenchmark.js`：抽離 benchmark 計算邏輯（含 `compute...` 與 `attach...`）
+- 補強 `src/lib/cadillacQualifyingBenchmark.js` 註解與規格說明，降低後續維護誤改風險
+- 新增 `AGENT.md`：明確規範 AI 不得任意刪除註解，除非對應程式邏輯已移除
 
 ---
 
