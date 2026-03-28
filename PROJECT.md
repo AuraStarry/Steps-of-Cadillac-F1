@@ -24,7 +24,16 @@
 8. [x] 建立內容資料模型（文章 / 時間線 / 引用來源）
    - 已完成初版 `DATA_MODEL.md`：年度/分站 JSON 結構 + TypeScript 型別草案
    - 已補充 Cadillac qualifying benchmark：score 公式、teamAverage / driver 雙視角、方案 B 清洗規則
-9. [ ] 建立基本部署流程
+9. [!] 建立基本部署流程（中斷：下一步應開始 importer / 資料目錄骨架）
+<!-- CONTEXT
+- 已完成 benchmark 規格落地：DATA_MODEL.md + DATA_FETCH_SKILL.md 都已同步。
+- 最新 commit: 2c27109 docs: define cadillac qualifying benchmark
+- 中斷原因：目前 session 仍在超級模式（gpt-5.4），依 staged-dev 規則先停止到這裡。
+- 下一步優先事項：
+  1. 初始化技術棧（建議 Next.js + TypeScript）與 src/data/seasons/... 目錄
+  2. 寫 importer 設計 / 首版 script，把 Jolpica qualifying/results 轉成 round JSON
+  3. 用 2026 round 3 日本站做第一筆實測資料
+-->
 
 ### Phase 2 — 功能迭代
 10. [ ] 時間線視圖（Cadillac F1 發展節點）
