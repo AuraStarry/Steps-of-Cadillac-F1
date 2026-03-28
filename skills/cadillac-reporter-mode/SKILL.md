@@ -9,7 +9,7 @@ description: Research workflow for enriching Steps of Cadillac F1 race cards wit
 
 Use this skill when a round needs more than raw results. It tells an agent how to build a **Cadillac point-of-view event log** by combining official team narrative, FIA decision documents, timing/control data, and selective media reporting.
 
-This skill is for **research and evidence collection**. It does not replace the main importer in `DATA_FETCH_SKILL.md`; instead, it fills the narrative layer that APIs alone cannot explain.
+This skill is for **research and evidence collection**, but the output should stay **small and high-signal**. It does not replace the main importer in `DATA_FETCH_SKILL.md`; instead, it fills the narrative layer that APIs alone cannot explain.
 
 ## When to use this skill
 
@@ -287,6 +287,18 @@ Bad:
 Good:
 - `Cadillac's qualifying ceiling was capped by outright pace, while the race story was further distorted by teammate contact and floor damage.`
 
+### This is not a report — it is a turning-point layer
+The goal is **not** to summarize the whole weekend.
+The goal is to identify the few things a reader must know so the data gains historical meaning.
+
+Default target per round:
+- `1-2` stage events
+- `1-2` special session events
+- `0-2` open questions
+- total reading time: roughly `20-40 seconds`
+
+If an item does not change how the reader interprets the result, cut it.
+
 ### Distinguish four confidence levels
 - `official` → team site or FIA document directly states it
 - `observed` → strongly supported by timing / race control / weather data
@@ -295,8 +307,7 @@ Good:
 
 ### Keep event granularity tight
 A round card should usually end up with:
-- `2-4` stage events
-- `1-4` special session events
+- `2-4` total key items across all buckets
 - `0-3` open questions
 
 If everything becomes an event, the story loses shape.
@@ -304,12 +315,35 @@ If everything becomes an event, the story loses shape.
 ## Fast checklist
 
 For each round, ask:
-- What did Cadillac bring or change?
-- What was the key operational context entering the weekend?
-- What materially affected each Cadillac driver?
-- Which effects were self-inflicted, external, or environmental?
+- What is the **single most important progress signal** for Cadillac here?
+- What is the **single most important disruption** that shaped the outcome?
+- What background context makes this moment historically meaningful?
 - Which claims are official, observed, reported, or corroborated?
 - What belongs in the card, and what is only background noise?
+
+## Recommended compact output
+
+When in doubt, compress to this format:
+
+```json
+{
+  "cadillacReporter": {
+    "headline": "One-sentence reading of the weekend from Cadillac's point of view.",
+    "keyTurns": [
+      {
+        "type": "progress",
+        "title": "What changed",
+        "whyItMatters": "Why this is the key historical signal"
+      },
+      {
+        "type": "disruption",
+        "title": "What got in the way",
+        "whyItMatters": "Why the result needs this context"
+      }
+    ]
+  }
+}
+```
 
 ## References
 

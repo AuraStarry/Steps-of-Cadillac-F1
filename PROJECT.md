@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 建立 Cadillac race-card 記者模式（補齊階段事件 / 特殊事件的研究工作流）
-- **最後更新**: 2026-03-28 Session 18（cadillac-reporter-mode skill + source map）
+- **DOING**: 收斂 Cadillac race-card 記者模式輸出（從研究工作流縮成高訊號關鍵轉折）
+- **最後更新**: 2026-03-28 Session 19（compact turning-point reporter mode + Japanese GP example）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -103,6 +103,8 @@
 - 新增 `skills/cadillac-reporter-mode/SKILL.md`，定義記者模式的研究流程、證據優先級、輸出 schema 與 confidence 規則
 - 新增 `skills/cadillac-reporter-mode/references/source-map.md`，整理實際可用網址、端點、用途與 sanity rules
 - 使用 `quick_validate.py` 驗證新 skill 結構通過
+- 依 Gore 的需求微調記者模式：從較完整事件筆記收斂為「關鍵轉折層」，預設只保留最重要的 progress / disruption，避免膨脹成大報告
+- 為 skill 補上 compact output 建議格式（headline + keyTurns），方便直接嵌入 race card
 
 ---
 
