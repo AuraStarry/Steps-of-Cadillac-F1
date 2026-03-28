@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 0 — Discovery / Scope 定義
-- **DOING**: 依 Gore 需求定義長期賽事資料模型（year-aware、Next.js 可直接使用）
-- **最後更新**: 2026-03-28 Session 2（完成專案定位與初版資料模型）
+- **DOING**: 研究最適合抓取 F1 排位 / 正賽資料的來源，作為後續資料匯入基礎
+- **最後更新**: 2026-03-28 Session 3（完成資料來源初步比較與建議）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -46,6 +46,9 @@
 - 建立 `PROJECT.md` 協作開發模式
 - 根據 Gore 定義專案主軸：以 Cadillac F1 為主角，長期記錄其向上挑戰歷程
 - 建立 `DATA_MODEL.md`，定義 year-aware 的 Next.js 用 JSON 資料結構
+- 研究資料來源：初步比較 Jolpica/Ergast、OpenF1、官方/商業 API，結論先以 Jolpica/Ergast 作為主資料來源
+- 驗證 Jolpica 即時性：2026-03-28 日本站（Round 3）排位賽已可於當日取得結果
+- 建立 `DATA_FETCH_SKILL.md`，整理資料抓取端點、即時性判斷與 mapping 規則
 
 ---
 
