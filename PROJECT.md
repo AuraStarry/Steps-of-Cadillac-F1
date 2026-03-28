@@ -4,22 +4,25 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 0 — Discovery / Scope 定義
-- **DOING**: 建立專案骨架與研究目標（Cadillac F1 相關內容方向）
-- **最後更新**: 2026-03-28 Session 1（repo 初始化 + PROJECT.md 協作模式導入）
+- **DOING**: 依 Gore 需求定義長期賽事資料模型（year-aware、Next.js 可直接使用）
+- **最後更新**: 2026-03-28 Session 2（完成專案定位與初版資料模型）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
 ### Phase 0 — Discovery
-1. [ ] 定義專案目標（資訊站 / 內容企劃 / 工具型網站）
+1. [x] 定義專案目標（資訊站 / 內容企劃 / 工具型網站）
+   - 定位：長期追蹤型 F1 資訊 / 敘事網站，以 Cadillac F1 作為主角
 2. [ ] 定義目標受眾與主要使用情境
-3. [ ] 收斂 MVP 範圍（先做什麼、先不做什麼）
+3. [x] 收斂 MVP 範圍（先做什麼、先不做什麼）
+   - MVP 先做：每站 `qualifying` / `race` / `cadillac` 狀態
 4. [ ] 建立資訊來源清單（官方公告、F1 新聞來源）
 5. [ ] 決定內容更新節奏（daily / race-week / ad-hoc）
 
 ### Phase 1 — 基礎建置
 6. [ ] 建立技術棧與目錄結構
 7. [ ] 初始化首頁與共用版型
-8. [ ] 建立內容資料模型（文章 / 時間線 / 引用來源）
+8. [x] 建立內容資料模型（文章 / 時間線 / 引用來源）
+   - 已完成初版 `DATA_MODEL.md`：年度/分站 JSON 結構 + TypeScript 型別草案
 9. [ ] 建立基本部署流程
 
 ### Phase 2 — 功能迭代
@@ -41,6 +44,8 @@
 ### 2026-03-28
 - 初始化 GitHub repo：`AuraStarry/Steps-of-Cadillac-F1`
 - 建立 `PROJECT.md` 協作開發模式
+- 根據 Gore 定義專案主軸：以 Cadillac F1 為主角，長期記錄其向上挑戰歷程
+- 建立 `DATA_MODEL.md`，定義 year-aware 的 Next.js 用 JSON 資料結構
 
 ---
 
