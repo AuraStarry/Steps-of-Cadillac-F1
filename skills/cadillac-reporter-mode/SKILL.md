@@ -287,17 +287,17 @@ Bad:
 Good:
 - `Cadillac's qualifying ceiling was capped by outright pace, while the race story was further distorted by teammate contact and floor damage.`
 
-### This is not a report — it is a turning-point layer
+### This is not a report — it is a single-turning-point layer
 The goal is **not** to summarize the whole weekend.
-The goal is to identify the few things a reader must know so the data gains historical meaning.
+The goal is to identify the **one** thing a reader must know so the data gains historical meaning.
 
 Default target per round:
-- `1-2` stage events
-- `1-2` special session events
-- `0-2` open questions
-- total reading time: roughly `20-40 seconds`
+- exactly `1` key narrative
+- optional `0-1` supporting note only if absolutely necessary
+- total reading time: roughly `10-20 seconds`
 
-If an item does not change how the reader interprets the result, cut it.
+If two ideas compete, choose the one that best changes how the result is interpreted.
+If an item does not change interpretation, cut it.
 
 ### Distinguish four confidence levels
 - `official` → team site or FIA document directly states it
@@ -305,23 +305,23 @@ If an item does not change how the reader interprets the result, cut it.
 - `reported` → stated by one reputable media source
 - `corroborated` → supported by 2+ independent sources or official + data
 
-### Keep event granularity tight
+### Keep event granularity severe
 A round card should usually end up with:
-- `2-4` total key items across all buckets
-- `0-3` open questions
+- `1` total key item
+- optional `0-1` open question
 
 If everything becomes an event, the story loses shape.
 
 ## Fast checklist
 
 For each round, ask:
-- What is the **single most important progress signal** for Cadillac here?
-- What is the **single most important disruption** that shaped the outcome?
-- What background context makes this moment historically meaningful?
+- What is the **single most important narrative** that changes how this result should be read?
+- Is that narrative mainly about progress, disruption, or both at once?
+- What background context makes this one point historically meaningful?
 - Which claims are official, observed, reported, or corroborated?
-- What belongs in the card, and what is only background noise?
+- What is the one sentence worth keeping after everything else is forgotten?
 
-## Recommended compact output
+## Recommended ultra-compact output
 
 When in doubt, compress to this format:
 
@@ -329,18 +329,11 @@ When in doubt, compress to this format:
 {
   "cadillacReporter": {
     "headline": "One-sentence reading of the weekend from Cadillac's point of view.",
-    "keyTurns": [
-      {
-        "type": "progress",
-        "title": "What changed",
-        "whyItMatters": "Why this is the key historical signal"
-      },
-      {
-        "type": "disruption",
-        "title": "What got in the way",
-        "whyItMatters": "Why the result needs this context"
-      }
-    ]
+    "keyNarrative": {
+      "title": "The one thing that mattered most",
+      "whyItMatters": "Why this is the right historical reading of the result",
+      "confidence": "official | observed | reported | corroborated"
+    }
   }
 }
 ```

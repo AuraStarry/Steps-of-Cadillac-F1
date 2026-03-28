@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 收斂 Cadillac race-card 記者模式輸出（從研究工作流縮成高訊號關鍵轉折）
-- **最後更新**: 2026-03-28 Session 19（compact turning-point reporter mode + Japanese GP example）
+- **DOING**: 收斂 Cadillac race-card 記者模式輸出（每站只保留唯一關鍵敘事）
+- **最後更新**: 2026-03-28 Session 20（single-key-narrative reporter mode）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -105,6 +105,7 @@
 - 使用 `quick_validate.py` 驗證新 skill 結構通過
 - 依 Gore 的需求微調記者模式：從較完整事件筆記收斂為「關鍵轉折層」，預設只保留最重要的 progress / disruption，避免膨脹成大報告
 - 為 skill 補上 compact output 建議格式（headline + keyTurns），方便直接嵌入 race card
+- 再次收斂記者模式：每站只保留唯一一個 `keyNarrative`，不再並列 progress / disruption，避免內容發水
 
 ---
 
