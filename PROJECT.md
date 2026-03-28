@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 收斂 Cadillac race-card 記者模式輸出（每站只保留唯一關鍵敘事）
-- **最後更新**: 2026-03-28 Session 20（single-key-narrative reporter mode）
+- **DOING**: 將 reporter mode 直接接入 round data 與首頁卡片（只保留英文 `whyItMatters`）
+- **最後更新**: 2026-03-28 Session 21（whyItMatters field wired into round card）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -106,6 +106,10 @@
 - 依 Gore 的需求微調記者模式：從較完整事件筆記收斂為「關鍵轉折層」，預設只保留最重要的 progress / disruption，避免膨脹成大報告
 - 為 skill 補上 compact output 建議格式（headline + keyTurns），方便直接嵌入 race card
 - 再次收斂記者模式：每站只保留唯一一個 `keyNarrative`，不再並列 progress / disruption，避免內容發水
+
+---
+
+*⚠️ 此檔案是本專案開發狀態的唯一真相來源。*`（英文），並接到首頁卡片顯示
 
 ---
 

@@ -6,6 +6,9 @@
   "circuit": "Suzuka Circuit",
   "country": "Japan",
   "date": "2026-03-29",
+  "cadillac": {
+    "whyItMatters": "Suzuka was Cadillac's first clearly encouraging weekend for car direction: the team repeatedly pointed to gains in load, stability, and upgrade integration, so the real significance of P19 and P20 is not the grid positions themselves but that Cadillac finally showed evidence its early development path may be working, even if that progress was not yet cleanly converted into results."
+  },
   "qualifying": {
     "sessionDate": "2026-03-28",
     "entries": [

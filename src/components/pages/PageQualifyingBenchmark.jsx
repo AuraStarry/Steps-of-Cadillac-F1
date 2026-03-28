@@ -73,6 +73,13 @@ export default async function PageQualifyingBenchmark() {
               </div>
             </div>
 
+            {round.whyItMatters ? (
+              <div className="mt-4 rounded-none border border-[var(--cad-line-soft)] bg-[var(--cad-panel-2)] p-4">
+                <h3 className="heading-cadillac text-sm font-medium text-zinc-300">Why It Matters</h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--cad-text-dim)]">{round.whyItMatters}</p>
+              </div>
+            ) : null}
+
             <div className="mt-4">
               <h3 className="heading-cadillac text-sm font-medium text-zinc-300">Drivers</h3>
               <ul className="mt-2 grid gap-2">

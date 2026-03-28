@@ -323,17 +323,12 @@ For each round, ask:
 
 ## Recommended ultra-compact output
 
-When in doubt, compress to this format:
+Write directly into round data when possible.
 
 ```json
 {
-  "cadillacReporter": {
-    "headline": "One-sentence reading of the weekend from Cadillac's point of view.",
-    "keyNarrative": {
-      "title": "The one thing that mattered most",
-      "whyItMatters": "Why this is the right historical reading of the result",
-      "confidence": "official | observed | reported | corroborated"
-    }
+  "cadillac": {
+    "whyItMatters": "One short English paragraph explaining the single most important historical reading of Cadillac's weekend."
   }
 }
 ```

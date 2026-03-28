@@ -21,6 +21,7 @@ export async function loadQualifyingBenchmarks() {
         round: withBenchmark.round,
         grandPrixName: withBenchmark.grandPrixName,
         date: withBenchmark.date,
+        whyItMatters: withBenchmark.cadillac?.whyItMatters ?? null,
         teamScore: benchmark?.teamAverage?.score ?? null,
         teamCadillacTime: benchmark?.teamAverage?.cadillacTime ?? null,
         q1EliminatedAvg: benchmark?.benchmarks?.q1EliminatedAvg ?? null,
