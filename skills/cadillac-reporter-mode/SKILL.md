@@ -315,8 +315,8 @@ If everything becomes an event, the story loses shape.
 ## Fast checklist
 
 For each round, ask:
-- What is the **single most important narrative** that changes how this result should be read?
-- Is that narrative mainly about progress, disruption, or both at once?
+- What is the **single most important piece of historical context** that changes how this result should be read?
+- Is that context mainly about progress, disruption, or both at once?
 - What background context makes this one point historically meaningful?
 - Which claims are official, observed, reported, or corroborated?
 - What is the one sentence worth keeping after everything else is forgotten?
@@ -328,7 +328,7 @@ Write directly into round data when possible.
 ```json
 {
   "cadillac": {
-    "whyItMatters": "One short English paragraph explaining the single most important historical reading of Cadillac's weekend."
+    "historicalContext": "One short English paragraph capturing the key historical background that changes how Cadillac's result should be read."
   }
 }
 ```

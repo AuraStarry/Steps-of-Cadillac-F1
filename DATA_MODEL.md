@@ -229,7 +229,7 @@ src/
 ```json
 {
   "cadillac": {
-    "whyItMatters": "This round mattered because ...",
+    "historicalContext": "One short English paragraph capturing the key historical background that changes how the result should be read.",
     "phase": "entry-build",
     "phaseLabel": "新軍起步期",
     "competitiveTier": "backmarker",
@@ -424,7 +424,7 @@ export interface CadillacQualifyingBenchmark {
 }
 
 export interface CadillacRoundState {
-  whyItMatters?: string
+  historicalContext?: string
   phase: CadillacPhase
   phaseLabel: string
   competitiveTier: CompetitiveTier
