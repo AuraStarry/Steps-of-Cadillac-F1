@@ -287,7 +287,7 @@ export default function CadillacQualifyingTrendChart({ rounds }) {
               Team Score Trend
             </h2>
             <p className="mt-1 max-w-2xl text-sm text-[var(--cad-text-dim)]">
-              Team score is centered at 0: values above 0 mean Cadillac is faster than benchmark, values below 0 mean slower than benchmark.
+              Team score benchmarks Cadillac’s qualifying pace against the field baseline, where 0 is parity, positive values are faster, and negative values are slower.
             </p>
           </div>
         </div>
