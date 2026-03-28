@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 與 Gore 確認前端架構與技術採用細節（首頁先掛載 PageQualifyingBenchmark，後續可搬遷 route）
-- **最後更新**: 2026-03-28 Session 9（Next.js scaffold + PageQualifyingBenchmark）
+- **DOING**: 依 Gore 決策整合 Tailwind（主樣式）+ SCSS Module 支援，globals.css 僅保留全域樣式
+- **最後更新**: 2026-03-28 Session 10（Tailwind + SCSS module policy）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,10 @@
 - 新增 `src/components/pages/PageQualifyingBenchmark.tsx`，將排位 Benchmark 首頁內容獨立成可搬遷頁面組件
 - 新增 `src/lib/qualifying/loadQualifyingBenchmarks.ts`，統一讀取 round JSON 並掛載 benchmark 計算
 - 完成 `pnpm lint`、`pnpm build` 驗證（皆通過）
+- 與 Gore 確認前端策略：App Router 保持、首頁 route 先不規劃搬遷、資料層先維持本地 JSON
+- 導入 Tailwind CSS（主樣式）並新增 PostCSS 設定：`postcss.config.mjs`
+- 精簡 `globals.css` 為全域樣式用途（含 tailwind import + reset）
+- 安裝 `sass` 並新增 `PageQualifyingBenchmark.module.scss`，保留 SCSS Module 客製化能力
 
 ---
 
