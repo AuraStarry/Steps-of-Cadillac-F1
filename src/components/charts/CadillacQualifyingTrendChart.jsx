@@ -287,7 +287,7 @@ export default function CadillacQualifyingTrendChart({ rounds }) {
               Team Score Trend
             </h2>
             <p className="mt-1 max-w-2xl text-sm text-[var(--cad-text-dim)]">
-              Team score benchmarks Cadillac’s qualifying pace against the field baseline, where 0 is parity, positive values are faster, and negative values are slower.
+              Team score measures Cadillac’s qualifying pace versus the field-average baseline, so higher numbers indicate more positive progress.
             </p>
           </div>
         </div>

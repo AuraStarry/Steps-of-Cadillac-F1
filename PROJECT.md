@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 補完 SEO metadata/robots/sitemap 欄位（已完成，待下一步）
-- **最後更新**: 2026-03-28 Session 29（Team Score Trend 說明文案精簡）
+- **最後更新**: 2026-03-28 Session 30（Team Score Trend baseline 語義修正）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -126,6 +126,8 @@
 - 驗證 `pnpm build` 通過（文案更新後）
 - 依 Gore 回饋將 Team Score Trend 說明收斂為單句：同時定義 benchmark 基準、0 的意義與正負值方向
 - 驗證 `pnpm build` 通過（單句文案版）
+- 依 Gore 回饋修正 Team Score Trend baseline 語義：改為直接點出是對 field-average baseline 的相對衡量，並收斂成「數字越大＝正面進展越多」
+- 驗證 `pnpm build` 通過（baseline 語義修正版）
 
 ---
 
