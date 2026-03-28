@@ -14,12 +14,17 @@ const chartTheme = {
   axis: '#5f5f5f',
   grid: '#1c1c1c',
   line: '#d21b1e',
-  lineSoft: 'rgba(210, 27, 30, 0.22)',
-  lineSoftAlt: 'rgba(245, 245, 245, 0.16)',
+  bot: '#4E8FBA',
+  per: '#A9BE57',
   point: '#f5f5f5',
   pointActive: '#d21b1e',
   text: '#f5f5f5',
   textDim: '#a3a3a3',
+};
+
+const driverColorMap = {
+  BOT: chartTheme.bot,
+  PER: chartTheme.per,
 };
 
 function scoreLabel(score) {
@@ -186,13 +191,14 @@ function TrendChartSvg({ rounds, width, height }) {
             })}
           />
 
-          {driverSeries.map((series, index) => (
+          {driverSeries.map((series) => (
             <LinePath
               key={series.driverCode}
               data={series.points}
               x={(datum) => xScale(datum.label) ?? 0}
               y={(datum) => yScale(datum.score) ?? 0}
-              stroke={index % 2 === 0 ? chartTheme.lineSoft : chartTheme.lineSoftAlt}
+              stroke={driverColorMap[series.driverCode] ?? chartTheme.textDim}
+              opacity={0.58}
               strokeWidth={1.05}
               strokeDasharray="4 6"
               curve={null}
@@ -250,7 +256,10 @@ function TrendChartSvg({ rounds, width, height }) {
               <div className="mt-3 space-y-2 border-t border-[var(--cad-line-soft)] pt-3">
                 {(tooltipData.drivers || []).map((driver) => (
                   <div key={driver.driverCode} className="flex items-end justify-between gap-4 text-xs">
-                    <span className="heading-cadillac text-[11px] font-medium tracking-[0.12rem] text-[var(--cad-text-dim)]">
+                    <span
+                      className="heading-cadillac text-[11px] font-medium tracking-[0.12rem]"
+                      style={{ color: driverColorMap[driver.driverCode] ?? 'var(--cad-text-dim)' }}
+                    >
                       {driver.driverCode}
                     </span>
                     <strong className="font-semibold text-[var(--cad-text)]">{scoreLabel(driver.score)}</strong>
@@ -304,6 +313,35 @@ export default function CadillacQualifyingTrendChart({ rounds }) {
           </div>
         </div>
       </header>
+
+      <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-[var(--cad-text-dim)]">
+        <div className={`${styles.chartLegend} w-full`}>
+          <div className={`${styles.chartLegendItem} px-3 py-2`}>
+            <span className={styles.chartLegendSwatch} style={{ color: chartTheme.line }}>
+              <span className={styles.chartLegendLine} />
+            </span>
+            <span>
+              <strong className="font-medium text-[var(--cad-text)]">Team</strong> · Cadillac average score
+            </span>
+          </div>
+          <div className={`${styles.chartLegendItem} px-3 py-2`}>
+            <span className={styles.chartLegendSwatch} style={{ color: chartTheme.bot }}>
+              <span className={styles.chartLegendDash} />
+            </span>
+            <span>
+              <strong className="font-medium text-[var(--cad-text)]">BOT</strong> · driver score trace
+            </span>
+          </div>
+          <div className={`${styles.chartLegendItem} px-3 py-2`}>
+            <span className={styles.chartLegendSwatch} style={{ color: chartTheme.per }}>
+              <span className={styles.chartLegendDash} />
+            </span>
+            <span>
+              <strong className="font-medium text-[var(--cad-text)]">PER</strong> · driver score trace
+            </span>
+          </div>
+        </div>
+      </div>
 
       <div className="mt-5 h-[320px] w-full md:h-[380px]">
         <ParentSize>

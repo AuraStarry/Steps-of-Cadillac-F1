@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 強化 Data-first Dark Theme（以黑底高可讀性為主，保留 Cadillac 風格語彙）
-- **最後更新**: 2026-03-28 Session 15（visx trend chart on homepage + latest-first round list）
+- **最後更新**: 2026-03-28 Session 17（helmet-adapted driver colors + chart legend + cleaner chart background）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -93,6 +93,11 @@
 - 以低對比、虛線的方式加入兩位 Cadillac 車手 score traces，保留 team line 作為主視覺焦點
 - tooltip 補充每站兩位車手 score，讓細節進入 hover 層而不是常駐搶畫面
 - 再次驗證 `pnpm build` 通過（細化 chart 視覺後）
+- 依 Gore 決策改採 helmet-inspired driver identity：BOT / PER 不直接使用原始安全帽色，而是轉為適配 Cadillac dark theme 的 muted blue / muted chartreuse
+- 圖表新增簡潔 legend，讓閱讀者一眼辨識 Team / BOT / PER 三條線段的所屬與意義
+- 完全移除 chart 背景的紅色漸層干擾，保留更純淨的 dark panel 閱讀體驗
+- tooltip 內的 driver code 也與圖表 driver line 保持同色系映射，提升一致性
+- 再次驗證 `pnpm build` 通過（legend + driver color system 調整後）
 
 ---
 
