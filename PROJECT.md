@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 微調 reporter mode 的 Key Context 長度規則（更短、更俐落）
-- **最後更新**: 2026-03-28 Session 25（tightened Key Context length guidance in skill）
+- **DOING**: 微調 Key Context 卡片內文區塊 spacing（左右與 Drivers 對齊）
+- **最後更新**: 2026-03-28 Session 26（Key Context horizontal padding aligned with Drivers）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -114,6 +114,10 @@
 - 依 Gore 指示調整 research weighting：改以外部新聞 / paddock 視角作為 Key Context 主敘事，官方文案降為補充來源
 - 重寫 R1-R3 的 `historicalContext`，讓卡片更接近當時外界真正關注的事情，而不是 Cadillac 自我描述
 - 小幅優化 `cadillac-reporter-mode`：將 Key Context 預設字數進一步壓短，要求首稿後再壓縮一次，刪去 setup / hedging / 無效子句，讓卡片更俐落
+- 依新版 skill 規則重寫 R1-R3 的 `historicalContext`，拿掉機械式的固定句首（如 `From the outside`），並統一成更短、更像專欄摘要的卡片文案
+- 再次驗證 `pnpm build` 通過（R1-R3 Key Context tighten rewrite 後）
+- UI 微調：`Key Context` 內容框左右 padding 改為與 Drivers 一致（`calc(var(--spacing) * 2)` 對應 `px-2`），上下 padding 維持不變
+- 再次驗證 `pnpm build` 通過（Key Context spacing alignment 後）
 
 ---
 

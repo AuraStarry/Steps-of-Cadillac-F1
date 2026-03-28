@@ -94,7 +94,7 @@ export default async function PageQualifyingBenchmark() {
             {round.historicalContext ? (
               <div className="mt-4">
                 <h3 className="heading-cadillac text-sm font-medium text-zinc-300">Key Context</h3>
-                <div className="mt-2 rounded-none border border-[var(--cad-line-soft)] bg-[var(--cad-panel-2)] p-4">
+                <div className="mt-2 rounded-none border border-[var(--cad-line-soft)] bg-[var(--cad-panel-2)] px-2 py-4">
                   <p className="text-sm leading-6 text-[var(--cad-text-dim)]">{round.historicalContext}</p>
                 </div>
               </div>
