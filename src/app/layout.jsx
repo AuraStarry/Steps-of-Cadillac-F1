@@ -13,9 +13,59 @@ const barlowCondensed = Barlow_Condensed({
   variable: '--font-heading',
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://steps-of-cadillac-f1.vercel.app';
+const siteName = 'Steps of Cadillac F1';
+const defaultTitle = 'Cadillac F1 Qualifying Benchmark Dashboard';
+const defaultDescription =
+  'Track Cadillac F1 qualifying performance with race-by-race benchmark scores, driver deltas, and narrative context.';
+
 export const metadata = {
-  title: 'Steps of Cadillac F1',
-  description: 'Cadillac F1 long-term benchmark tracker',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${defaultTitle} | ${siteName}`,
+    template: `%s | ${siteName}`,
+  },
+  description: defaultDescription,
+  applicationName: siteName,
+  referrer: 'origin-when-cross-origin',
+  keywords: [
+    'Cadillac F1',
+    'Formula 1',
+    'qualifying benchmark',
+    'F1 analytics',
+    'Cadillac race performance',
+  ],
+  authors: [{ name: 'Aura / Gore' }],
+  creator: 'Aura',
+  publisher: siteName,
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'zh_TW',
+    url: '/',
+    siteName,
+    title: `${defaultTitle} | ${siteName}`,
+    description: defaultDescription,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${defaultTitle} | ${siteName}`,
+    description: defaultDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  category: 'sports analytics',
 };
 
 export default function RootLayout({ children }) {

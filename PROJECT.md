@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 微調 Key Context 卡片內文區塊 spacing（左右與 Drivers 對齊）
-- **最後更新**: 2026-03-28 Session 26（Key Context horizontal padding aligned with Drivers）
+- **DOING**: 補完 SEO metadata/robots/sitemap 欄位（已完成，待下一步）
+- **最後更新**: 2026-03-28 Session 27（SEO metadata + robots + sitemap）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -118,6 +118,10 @@
 - 再次驗證 `pnpm build` 通過（R1-R3 Key Context tighten rewrite 後）
 - UI 微調：`Key Context` 內容框左右 padding 改為與 Drivers 一致（`calc(var(--spacing) * 2)` 對應 `px-2`），上下 padding 維持不變
 - 再次驗證 `pnpm build` 通過（Key Context spacing alignment 後）
+- 補完全站 SEO 欄位：`layout metadata` 新增 `metadataBase/title template/keywords/alternates/openGraph/twitter/robots`
+- 首頁補上 page-level metadata 與 JSON-LD（`WebSite` + `SportsTeam` about）
+- 新增 `src/app/robots.js` 與 `src/app/sitemap.js`，確保搜尋引擎 crawl/discovery 路徑完整
+- 驗證 `pnpm build` 通過（含 `/robots.txt`、`/sitemap.xml` 靜態輸出）
 
 ---
 
