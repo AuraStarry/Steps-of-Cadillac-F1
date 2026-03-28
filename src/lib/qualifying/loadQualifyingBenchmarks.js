@@ -3,60 +3,13 @@ import path from 'node:path';
 import season2026 from '@/data/seasons/2026/season.json';
 import { attachCadillacQualifyingBenchmark } from '@/lib/cadillacQualifyingBenchmark';
 
-type QualifyingEntry = {
-  driver: string;
-  driverCode: string;
-  team: string;
-};
-
-type RoundData = {
-  round: number;
-  grandPrixName: string;
-  date: string;
-  qualifying: {
-    entries: QualifyingEntry[];
-  };
-  cadillac?: {
-    qualifyingBenchmark?: {
-      teamAverage?: {
-        score: number | null;
-        cadillacTime: string | null;
-      };
-      benchmarks?: {
-        q1EliminatedAvg: string | null;
-        q2EliminatedAvg: string | null;
-      };
-      drivers?: Array<{
-        driverCode: string;
-        score: number | null;
-        cadillacTime: string | null;
-      }>;
-    };
-  };
-};
-
-export type QualifyingBenchmarkCard = {
-  round: number;
-  grandPrixName: string;
-  date: string;
-  teamScore: number | null;
-  teamCadillacTime: string | null;
-  q1EliminatedAvg: string | null;
-  q2EliminatedAvg: string | null;
-  drivers: Array<{
-    driverCode: string;
-    score: number | null;
-    cadillacTime: string | null;
-  }>;
-};
-
-async function loadRound(filePath: string): Promise<RoundData> {
+async function loadRound(filePath) {
   const absolutePath = path.join(process.cwd(), 'src/data/seasons/2026/rounds', filePath);
   const raw = await fs.readFile(absolutePath, 'utf8');
-  return JSON.parse(raw) as RoundData;
+  return JSON.parse(raw);
 }
 
-export async function loadQualifyingBenchmarks(): Promise<QualifyingBenchmarkCard[]> {
+export async function loadQualifyingBenchmarks() {
   const cards = await Promise.all(
     season2026.rounds.map(async (roundMeta) => {
       const fileName = path.basename(roundMeta.file);

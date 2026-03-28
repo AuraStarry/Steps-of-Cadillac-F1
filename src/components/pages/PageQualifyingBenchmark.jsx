@@ -1,7 +1,7 @@
 import { loadQualifyingBenchmarks } from '@/lib/qualifying/loadQualifyingBenchmarks';
 import styles from '@/components/pages/PageQualifyingBenchmark.module.scss';
 
-function scoreLabel(score: number | null) {
+function scoreLabel(score) {
   if (score == null) return 'N/A';
   return score.toFixed(3);
 }

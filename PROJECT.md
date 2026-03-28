@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 依 Gore 決策整合 Tailwind（主樣式）+ SCSS Module 支援，globals.css 僅保留全域樣式
-- **最後更新**: 2026-03-28 Session 10（Tailwind + SCSS module policy）
+- **DOING**: 依 Gore 決策從 TypeScript 降級為純 JavaScript，保留 Tailwind + SCSS Module 策略
+- **最後更新**: 2026-03-28 Session 11（TS → JS）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -69,6 +69,9 @@
 - 導入 Tailwind CSS（主樣式）並新增 PostCSS 設定：`postcss.config.mjs`
 - 精簡 `globals.css` 為全域樣式用途（含 tailwind import + reset）
 - 安裝 `sass` 並新增 `PageQualifyingBenchmark.module.scss`，保留 SCSS Module 客製化能力
+- 依 Gore 決策將前端程式碼改為純 JavaScript：`layout/page/component/lib` 全部從 TS/TSX 轉為 JS/JSX
+- 移除 TypeScript 設定檔與相依（`tsconfig.json`、`next-env.d.ts`、`typescript` 與 `@types/*`）
+- `next.config.ts` 改為 `next.config.mjs`，維持同等設定與行為
 
 ---
 
