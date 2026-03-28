@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 將 Key Context 的研究方法從官方視角改為外部新聞主導
-- **最後更新**: 2026-03-28 Session 24（media-first Key Context rewrite for R1-R3）
+- **DOING**: 微調 reporter mode 的 Key Context 長度規則（更短、更俐落）
+- **最後更新**: 2026-03-28 Session 25（tightened Key Context length guidance in skill）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -111,11 +111,9 @@
 - 再次驗證 `pnpm build` 通過（historicalContext + card layout 調整後）
 - 補完 R1 澳洲與 R2 中國的 `cadillac.historicalContext`，讓首頁前 3 站卡片都已有 Key Context 文案
 - 再次驗證 `pnpm build` 通過（R1-R3 historicalContext 全覆蓋後）
-
----
-
-*⚠️ 此檔案是本專案開發狀態的唯一真相來源。*y Context 主敘事，官方文案降為補充來源
+- 依 Gore 指示調整 research weighting：改以外部新聞 / paddock 視角作為 Key Context 主敘事，官方文案降為補充來源
 - 重寫 R1-R3 的 `historicalContext`，讓卡片更接近當時外界真正關注的事情，而不是 Cadillac 自我描述
+- 小幅優化 `cadillac-reporter-mode`：將 Key Context 預設字數進一步壓短，要求首稿後再壓縮一次，刪去 setup / hedging / 無效子句，讓卡片更俐落
 
 ---
 

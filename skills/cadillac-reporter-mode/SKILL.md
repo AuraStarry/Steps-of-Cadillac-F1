@@ -281,19 +281,21 @@ Bad:
 - `Cadillac had a difficult weekend.`
 
 Good:
-- `Cadillac's qualifying ceiling was capped by outright pace, while the race story was further distorted by teammate contact and floor damage.`
+- `Cadillac looked fragile because teammate contact and deployment trouble turned an already slow weekend into a messy one.`
 
 ### This is not a report — it is a single-turning-point layer
 The goal is **not** to summarize the whole weekend.
-The goal is to identify the **one** thing a reader must know so the data gains historical meaning.
+The goal is to identify the **one** piece of historical context a reader must know so the data gains meaning.
 
 Default target per round:
 - exactly `1` key narrative
 - optional `0-1` supporting note only if absolutely necessary
-- total reading time: roughly `10-20 seconds`
+- total reading time: roughly `8-15 seconds`
+- target length: about `35-55` words, and usually `15-25%` shorter than your first draft
 
 If two ideas compete, choose the one that best changes how the result is interpreted.
 If an item does not change interpretation, cut it.
+After drafting, compress once more by removing setup language, hedging, and any clause that does not change the reading.
 
 ### Distinguish four confidence levels
 - `official` → team site or FIA document directly states it
@@ -316,6 +318,7 @@ For each round, ask:
 - What background context makes this one point historically meaningful?
 - Which claims are official, observed, reported, or corroborated?
 - What is the one sentence worth keeping after everything else is forgotten?
+- Can the draft be cut by another `15-25%` without losing the point?
 
 ## Recommended ultra-compact output
 
@@ -324,7 +327,7 @@ Write directly into round data when possible.
 ```json
 {
   "cadillac": {
-    "historicalContext": "One short English paragraph capturing the key historical background that changes how Cadillac's result should be read."
+    "historicalContext": "One short English paragraph, ideally 35-55 words, capturing the key historical background that changes how Cadillac's result should be read."
   }
 }
 ```
@@ -334,36 +337,4 @@ Write directly into round data when possible.
 Load these when you need more detail:
 - `references/source-map.md`
 - `../DATA_FETCH_SKILL.md`
-ackground that changes how Cadillac's result should be read."
-  }
-}
-```
 
-## References
-
-Load these when you need more detail:
-- `references/source-map.md`
-- `../DATA_FETCH_SKILL.md`
-d?
-- Is that context mainly about progress, disruption, or both at once?
-- What background context makes this one point historically meaningful?
-- Which claims are official, observed, reported, or corroborated?
-- What is the one sentence worth keeping after everything else is forgotten?
-
-## Recommended ultra-compact output
-
-Write directly into round data when possible.
-
-```json
-{
-  "cadillac": {
-    "historicalContext": "One short English paragraph capturing the key historical background that changes how Cadillac's result should be read."
-  }
-}
-```
-
-## References
-
-Load these when you need more detail:
-- `references/source-map.md`
-- `../DATA_FETCH_SKILL.md`
