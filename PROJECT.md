@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 補完 SEO metadata/robots/sitemap 欄位（已完成，待下一步）
-- **最後更新**: 2026-03-28 Session 27（SEO metadata + robots + sitemap）
+- **最後更新**: 2026-03-28 Session 28（Team Score Trend 說明文案更新）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -122,6 +122,8 @@
 - 首頁補上 page-level metadata 與 JSON-LD（`WebSite` + `SportsTeam` about）
 - 新增 `src/app/robots.js` 與 `src/app/sitemap.js`，確保搜尋引擎 crawl/discovery 路徑完整
 - 驗證 `pnpm build` 通過（含 `/robots.txt`、`/sitemap.xml` 靜態輸出）
+- 依 Gore 回饋更新 Team Score Trend 標題下方說明：改為明確解釋 `score=0` 基準與正負值意義（>0 較快、<0 較慢）
+- 驗證 `pnpm build` 通過（文案更新後）
 
 ---
 
