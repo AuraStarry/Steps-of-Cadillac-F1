@@ -3,9 +3,9 @@
 > 開發流程：使用 PROJECT.md 作為唯一開發狀態真相來源；每次 session 結束前都要更新。
 
 ## ⚡ 快速入口
-- **階段**: Phase 0 / Phase 1 交界 — Discovery 收斂中
-- **DOING**: 補強 benchmark function 註解規格，並新增 AGENT.md 保護註解維護規則
-- **最後更新**: 2026-03-28 Session 8（comment policy + AGENT.md）
+- **階段**: Phase 1 進行中（前端骨架已啟動）
+- **DOING**: 與 Gore 確認前端架構與技術採用細節（首頁先掛載 PageQualifyingBenchmark，後續可搬遷 route）
+- **最後更新**: 2026-03-28 Session 9（Next.js scaffold + PageQualifyingBenchmark）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -19,21 +19,17 @@
 5. [ ] 決定內容更新節奏（daily / race-week / ad-hoc）
 
 ### Phase 1 — 基礎建置
-6. [ ] 建立技術棧與目錄結構
-7. [ ] 初始化首頁與共用版型
+6. [x] 建立技術棧與目錄結構
+   - 採用 Next.js App Router + TypeScript + pnpm
+   - 建立 `src/app`、`src/components/pages`、`src/lib/qualifying` 目錄
+7. [x] 初始化首頁與共用版型
+   - `src/app/page.tsx` 目前僅引入 `PageQualifyingBenchmark`
+   - `PageQualifyingBenchmark` 獨立為頁面級 component，方便未來 route 搬遷
 8. [x] 建立內容資料模型（文章 / 時間線 / 引用來源）
    - 已完成初版 `DATA_MODEL.md`：年度/分站 JSON 結構 + TypeScript 型別草案
    - 已補充 Cadillac qualifying benchmark：score 公式、teamAverage / driver 雙視角、方案 B 清洗規則
-9. [!] 建立基本部署流程（中斷：下一步應開始 importer / 資料目錄骨架）
-<!-- CONTEXT
-- 已完成 benchmark 規格落地：DATA_MODEL.md + DATA_FETCH_SKILL.md 都已同步。
-- 最新 commit: 2c27109 docs: define cadillac qualifying benchmark
-- 中斷原因：目前 session 仍在超級模式（gpt-5.4），依 staged-dev 規則先停止到這裡。
-- 下一步優先事項：
-  1. 初始化技術棧（建議 Next.js + TypeScript）與 src/data/seasons/... 目錄
-  2. 寫 importer 設計 / 首版 script，把 Jolpica qualifying/results 轉成 round JSON
-  3. 用 2026 round 3 日本站做第一筆實測資料
--->
+9. [ ] 建立基本部署流程
+   - 備註：本輪依 Gore 指示先啟動前端頁面，部署與 importer 稍後銜接
 
 ### Phase 2 — 功能迭代
 10. [ ] 時間線視圖（Cadillac F1 發展節點）
@@ -64,6 +60,11 @@
 - 新增 `src/lib/cadillacQualifyingBenchmark.js`：抽離 benchmark 計算邏輯（含 `compute...` 與 `attach...`）
 - 補強 `src/lib/cadillacQualifyingBenchmark.js` 註解與規格說明，降低後續維護誤改風險
 - 新增 `AGENT.md`：明確規範 AI 不得任意刪除註解，除非對應程式邏輯已移除
+- 初始化 Next.js + TypeScript + App Router 專案骨架（含 `package.json`、`tsconfig.json`、`next.config.ts`）
+- 建立首頁架構：`src/app/page.tsx` 只做 `PageQualifyingBenchmark` 引入，便於後續改 route
+- 新增 `src/components/pages/PageQualifyingBenchmark.tsx`，將排位 Benchmark 首頁內容獨立成可搬遷頁面組件
+- 新增 `src/lib/qualifying/loadQualifyingBenchmarks.ts`，統一讀取 round JSON 並掛載 benchmark 計算
+- 完成 `pnpm lint`、`pnpm build` 驗證（皆通過）
 
 ---
 
