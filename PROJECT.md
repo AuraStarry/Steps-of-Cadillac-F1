@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 0 / Phase 1 交界 — Discovery 收斂中
-- **DOING**: 補完 2026 賽季至今排位賽資料，並建立 season/round JSON 資料骨架
-- **最後更新**: 2026-03-28 Session 6（2026 R1-R3 qualifying data）
+- **DOING**: 抽離 Cadillac qualifying benchmark 為可重用 JS function（對齊目前 round JSON）
+- **最後更新**: 2026-03-28 Session 7（benchmark function 抽離）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -61,6 +61,7 @@
 - 建立 `DATA_FETCH_SKILL.md`，整理資料抓取端點、即時性判斷與 mapping 規則
 - 定義 Cadillac qualifying benchmark：採 score normalization、teamAverage / driver 可切換、方案 B 清洗樣本
 - 補完 2026 賽季至今（R1~R3）排位賽資料：新增 `src/data/seasons/2026/season.json` 與 `rounds/01~03` JSON
+- 新增 `src/lib/cadillacQualifyingBenchmark.js`：抽離 benchmark 計算邏輯（含 `compute...` 與 `attach...`）
 
 ---
 
