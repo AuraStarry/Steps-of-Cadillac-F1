@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 補齊前 3 站 round data 的 `historicalContext`（Key Context）
-- **最後更新**: 2026-03-28 Session 23（R1-R3 Key Context completed）
+- **DOING**: 將 Key Context 的研究方法從官方視角改為外部新聞主導
+- **最後更新**: 2026-03-28 Session 24（media-first Key Context rewrite for R1-R3）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -111,6 +111,11 @@
 - 再次驗證 `pnpm build` 通過（historicalContext + card layout 調整後）
 - 補完 R1 澳洲與 R2 中國的 `cadillac.historicalContext`，讓首頁前 3 站卡片都已有 Key Context 文案
 - 再次驗證 `pnpm build` 通過（R1-R3 historicalContext 全覆蓋後）
+
+---
+
+*⚠️ 此檔案是本專案開發狀態的唯一真相來源。*y Context 主敘事，官方文案降為補充來源
+- 重寫 R1-R3 的 `historicalContext`，讓卡片更接近當時外界真正關注的事情，而不是 Cadillac 自我描述
 
 ---
 

@@ -200,19 +200,15 @@ Bad:
 Good:
 - `Qualifying ran in stable, dry conditions with low rain risk, so Cadillac's deficit is more likely pace-limited than weather-distorted.`
 
-## Step 5 — Use media only to close explanation gaps
-Only after official + data passes.
+## Step 5 — Read Cadillac official coverage last
+Only after media + FIA + data passes.
 
-Media is most useful for:
-- why an upgrade was meaningful aerodynamically
-- how the paddock interpreted an incident
-- operational background that the team mentions only partially
-- whether a driver clash or reliability issue was seen as systemic or isolated
+Use the official team site to:
+- confirm exact upgrade wording
+- collect direct driver or TP quotes
+- understand how Cadillac tried to frame the same weekend
 
-When using media:
-- prefer 2 independent outlets for consequential claims
-- store the claim with `confidence: reported`
-- upgrade to `confidence: corroborated` only if another independent source supports it
+Do **not** let official optimism overwrite the outside reading unless the external narrative is plainly wrong on facts.
 
 ## Step 6 — Distill into Cadillac card fields
 Final output should separate **Cadillac development story** from **weekend disruption story**.
@@ -316,6 +312,39 @@ If everything becomes an event, the story loses shape.
 
 For each round, ask:
 - What is the **single most important piece of historical context** that changes how this result should be read?
+- Is that context mainly about progress, disruption, or both at once?
+- What background context makes this one point historically meaningful?
+- Which claims are official, observed, reported, or corroborated?
+- What is the one sentence worth keeping after everything else is forgotten?
+
+## Recommended ultra-compact output
+
+Write directly into round data when possible.
+
+```json
+{
+  "cadillac": {
+    "historicalContext": "One short English paragraph capturing the key historical background that changes how Cadillac's result should be read."
+  }
+}
+```
+
+## References
+
+Load these when you need more detail:
+- `references/source-map.md`
+- `../DATA_FETCH_SKILL.md`
+ackground that changes how Cadillac's result should be read."
+  }
+}
+```
+
+## References
+
+Load these when you need more detail:
+- `references/source-map.md`
+- `../DATA_FETCH_SKILL.md`
+d?
 - Is that context mainly about progress, disruption, or both at once?
 - What background context makes this one point historically meaningful?
 - Which claims are official, observed, reported, or corroborated?
