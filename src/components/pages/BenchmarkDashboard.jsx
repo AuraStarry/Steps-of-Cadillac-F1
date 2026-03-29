@@ -6,22 +6,57 @@ const driverColorMap = {
   PER: '#A9BE57',
 };
 
+const modeHeadingMap = {
+  qualifying: 'Qualifying View',
+  race: 'Race View',
+};
+
 function scoreLabel(score) {
   if (score == null) return 'N/A';
   return score.toFixed(3);
 }
 
-export default function BenchmarkDashboard({ model }) {
+export default function BenchmarkDashboard({ model, mode, setMode, modeLabels }) {
   return (
     <main className="mx-auto min-h-screen w-full max-w-6xl px-5 py-14 text-[var(--cad-text)]">
-      <section className="space-y-4 border-b border-[var(--cad-line)] pb-6">
-        <div className={styles.siteSignature}>
-          <span className={styles.siteSignatureMark} aria-hidden="true" />
-          <span className="heading-cadillac text-[11px] text-[var(--cad-text-strong)]">STEPS OF CADILLAC</span>
+      <section className="space-y-5 border-b border-[var(--cad-line)] pb-6">
+        <div>
+          <div className={styles.siteSignature}>
+            <span className={styles.siteSignatureMark} aria-hidden="true" />
+            <span className="heading-cadillac text-[11px] text-[var(--cad-text-strong)]">STEPS OF CADILLAC</span>
+          </div>
+          <h1 className="heading-cadillac mt-4 text-4xl font-semibold leading-none text-[var(--cad-text-strong)] md:text-6xl">
+            STEPS OF CADILLAC
+          </h1>
         </div>
-        <p className={`${styles.sectionTag} text-xs text-zinc-300`}>{model.tag}</p>
-        <h1 className="heading-cadillac text-3xl font-semibold leading-tight text-[var(--cad-text-strong)] md:text-5xl">{model.title}</h1>
-        <p className="max-w-4xl text-sm text-[var(--cad-text-dim)] md:text-base">{model.description}</p>
+
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="inline-flex border border-[var(--cad-line)] bg-[var(--cad-panel)] p-1">
+            {['qualifying', 'race'].map((item) => {
+              const active = mode === item;
+              return (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => setMode(item)}
+                  className={`heading-cadillac px-4 py-2 text-xs tracking-[0.12rem] transition ${
+                    active
+                      ? 'bg-[var(--cad-accent)] text-[var(--cad-text-strong)]'
+                      : 'bg-transparent text-[var(--cad-text-dim)] hover:text-[var(--cad-text-strong)]'
+                  }`}
+                  aria-pressed={active}
+                >
+                  {modeLabels[item]}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <p className={`${styles.modeEyebrow} text-xs text-zinc-300`}>{modeHeadingMap[mode] ?? model.title}</p>
+          <p className="max-w-4xl text-sm text-[var(--cad-text-dim)] md:text-base">{model.description}</p>
+        </div>
       </section>
 
       <section className="mt-7">
@@ -57,7 +92,9 @@ export default function BenchmarkDashboard({ model }) {
                 {card.drivers.map((driver) => (
                   <li key={driver.driverCode} className="rounded-none border border-[var(--cad-line-soft)] bg-[var(--cad-panel-2)] px-3 py-2">
                     <div className="grid grid-cols-[64px_1fr_70px] items-center gap-2">
-                      <span className="heading-cadillac text-sm font-medium" style={{ color: driverColorMap[driver.driverCode] ?? 'var(--cad-text-strong)' }}>{driver.driverCode}</span>
+                      <span className="heading-cadillac text-sm font-medium" style={{ color: driverColorMap[driver.driverCode] ?? 'var(--cad-text-strong)' }}>
+                        {driver.driverCode}
+                      </span>
                       <span className="text-sm text-zinc-300">{driver.primaryValue ?? 'N/A'}</span>
                       <strong className="text-right text-sm font-semibold text-[var(--cad-text-strong)]">{scoreLabel(driver.score)}</strong>
                     </div>

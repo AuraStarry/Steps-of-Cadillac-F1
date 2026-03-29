@@ -51,7 +51,7 @@ export async function buildQualifyingBenchmarkPageModel() {
 
   return {
     mode: 'qualifying',
-    tag: 'Cadillac F1 / Benchmark',
+    tag: null,
     title: 'Qualifying Benchmark Dashboard',
     description: 'Formula: Score = (Q1 Eliminated AvgT - Cadillac Time) / (Q1 Eliminated AvgT - Q2 Eliminated AvgT)',
     chart: {

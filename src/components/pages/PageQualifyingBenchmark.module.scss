@@ -21,6 +21,21 @@
   background: linear-gradient(135deg, #190c0d 0%, #121212 68%);
 }
 
+.modeEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+
+  &::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    background: var(--cad-accent);
+  }
+}
+
 .sectionTag {
   display: inline-flex;
   align-items: center;
