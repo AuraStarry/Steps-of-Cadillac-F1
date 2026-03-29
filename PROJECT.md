@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: Race Benchmark data 接線與 mode switch 內容切換
-- **最後更新**: 2026-03-29 Session 34（race benchmark 規格落地 + qualifying 搬入 shared framework）
+- **DOING**: 補齊 race entries 資料與下一階段轉場視覺（數字翻牌）
+- **最後更新**: 2026-03-29 Session 35（首頁 mode switch 上線，Qualifying/Race 已可內容切換）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -42,10 +42,11 @@
    - [x] 定義 race benchmark data shape 與計算規格（最快 Cadillac classified finisher 對 P10，分母採 P10-P15）
    - [x] 抽出 shared benchmark page model / shell / chart / round-card framework
    - [x] 讓 Qualifying 頁先搬入 shared framework，確保現有功能不退化
-   - [ ] 建立 Race 頁資料 loader / benchmark 計算 / 英文欄位文案
-   - [ ] 在共用 surface 內加入 Qualifying / Race mode switch，先完成內容切換，不先做數字翻牌動畫
-   - [ ] 將 race driver rows 接上 `driverNotes` 呈現
-   - [ ] 驗證 `pnpm build` 與必要互動流程
+   - [x] 建立 Race 頁資料 loader / benchmark 計算 / 英文欄位文案
+   - [x] 在共用 surface 內加入 Qualifying / Race mode switch，先完成內容切換，不先做數字翻牌動畫
+   - [x] 將 race driver rows 接上 `driverNotes` 呈現
+   - [x] 驗證 `pnpm build` 與必要互動流程
+   - [!] 補齊 round `race.entries` 原始資料（目前 UI 與計算邏輯已接好，待 importer / data pass 寫入實際正賽資料）
    - [ ] 第二階段視覺增強：研究數字牌翻轉 transition（可延後到主要功能完成後）
 11. [ ] 時間線視圖（Cadillac F1 發展節點）
 12. [ ] 資料卡片（車隊、車手、市場傳聞）
@@ -64,6 +65,9 @@
 
 ## 📝 Change Log
 ### 2026-03-29
+- 首頁升級為單一 benchmark surface：新增 `BenchmarkModeSurface`，可在 Qualifying / Race 模式間切換內容
+- 完成 `src/app/page.jsx` 文案更新與 JSON-LD `inLanguage: en`，首頁 metadata 由 qualifying-only 改為 dual-mode benchmark 描述
+- 驗證 `pnpm build` 通過（mode switch + dual model 串接後）
 - 與 Gore 敲定 Race Benchmark 第一版產品 spec：主體改為 `Cadillac 最快的 classified finisher` 相對 `P10` 的接近程度，正規化分母採 `P10-P15`
 - 敲定內容架構方向：不新增獨立 driver reporter skill，改為升級既有 `cadillac-reporter-mode`，以單一 research workflow 同時支援 team-level `historicalContext` 與 race driver-level `driverNotes`
 - 敲定頁面架構方向：Qualifying / Race 不走兩張完全獨立頁，而是收斂為 shared benchmark framework + mode switch，先完成內容切換，再於後續研究數字牌翻轉 transition
