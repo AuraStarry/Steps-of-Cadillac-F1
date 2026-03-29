@@ -11,6 +11,11 @@ function scoreLabel(score) {
   return score.toFixed(3);
 }
 
+function shouldHideStatOnMobile(mode, label) {
+  if (mode !== 'race') return false;
+  return label === 'Best Cadillac vs P10 (Positions)' || label === 'P15 vs P10 Window (Positions)';
+}
+
 export default function BenchmarkDashboard({ model, mode, setMode, modeLabels }) {
   return (
     <main className="mx-auto min-h-screen w-full max-w-6xl px-5 py-14 text-[var(--cad-text)]">
@@ -70,12 +75,19 @@ export default function BenchmarkDashboard({ model, mode, setMode, modeLabels })
                 <span className="block text-[11px] uppercase tracking-[0.14rem] text-zinc-300">{card.heroMetric.label}</span>
                 <strong className="mt-1 block text-xl font-semibold text-[var(--cad-text-strong)]">{scoreLabel(card.heroMetric.value)}</strong>
               </div>
-              {card.supportingStats.map((stat) => (
-                <div key={stat.label} className="rounded-none border border-[var(--cad-line-soft)] bg-[var(--cad-panel-2)] p-3">
-                  <span className="block text-[11px] uppercase tracking-[0.14rem] text-[var(--cad-text-dim)]">{stat.label}</span>
-                  <strong className="mt-1 block text-base font-semibold text-[var(--cad-text-strong)]">{stat.value ?? 'N/A'}</strong>
-                </div>
-              ))}
+              {card.supportingStats.map((stat) => {
+                const hideOnMobile = shouldHideStatOnMobile(mode, stat.label);
+
+                return (
+                  <div
+                    key={stat.label}
+                    className={`rounded-none border border-[var(--cad-line-soft)] bg-[var(--cad-panel-2)] p-3 ${hideOnMobile ? 'hidden sm:block' : ''}`}
+                  >
+                    <span className="block text-[11px] uppercase tracking-[0.14rem] text-[var(--cad-text-dim)]">{stat.label}</span>
+                    <strong className="mt-1 block text-base font-semibold text-[var(--cad-text-strong)]">{stat.value ?? 'N/A'}</strong>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="mt-4">

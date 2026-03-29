@@ -68,7 +68,7 @@ export async function buildRaceBenchmarkPageModel() {
   return {
     mode: 'race',
     tag: null,
-    title: 'Race Benchmark Dashboard',
+    title: 'Race Benchmark',
     description: 'Formula: Score = (P15 Gap to P10 - Best Cadillac Gap to P10) / (P15 Gap to P10)',
     chart: {
       title: 'Race Score Trend',

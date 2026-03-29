@@ -240,7 +240,7 @@ export default function CadillacBenchmarkTrendChart({ chart }) {
           </div>
         </div>
 
-        <div className={`${styles.chartMeta} w-full md:max-w-lg`}>
+        <div className={`${styles.chartMeta} hidden w-full md:grid md:max-w-lg`}>
           <div className={`${styles.chartMetaItem} px-3 py-3`}>
             <span className="block text-[11px] uppercase tracking-[0.14rem] text-[var(--cad-text-dim)]">{chart.latestLabel}</span>
             <strong className="mt-1 block text-lg font-semibold text-[var(--cad-text-strong)]">{scoreLabel(stats.latest?.teamScore ?? null)}</strong>
