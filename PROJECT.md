@@ -37,9 +37,20 @@
 
 ### Phase 2 — 功能迭代
 10. [ ] 共用 Benchmark Framework（Qualifying / Race） ← DOING
-   - [ ] 在 `PROJECT.md` 固化本輪 spec：shared page shell、mode switch、Race Benchmark 公式、reporter-mode 雙輸出
-   - [ ] 更新 `skills/cadillac-reporter-mode/`：單一 research workflow 支援 `historicalContext` + `driverNotes`
-   - [ ] 定義 race benchmark data shape 與計算規格（最快 Cadillac classified finisher 對 P10，分母採 P10-P15）
+   - [x] 在 `PROJECT.md` 固化本輪 spec：shared page shell、mode switch、Race Benchmark 公式、reporter-mode 雙輸出
+   - [x] 更新 `skills/cadillac-reporter-mode/`：單一 research workflow 支援 `historicalContext` + `driverNotes`
+   - [!] 定義 race benchmark data shape 與計算規格（最快 Cadillac classified finisher 對 P10，分母採 P10-P15）
+     <!-- CONTEXT
+     已完成：
+     1. `PROJECT.md` 已寫入產品 spec、英文內容規則、shared framework / mode switch 方向。
+     2. `skills/cadillac-reporter-mode/SKILL.md` 已升級為單一 research workflow、雙輸出（team `historicalContext` + race `driverNotes`）。
+
+     下一步：
+     1. 先新增 race benchmark 計算模組，建議命名 `src/lib/cadillacRaceBenchmark.js`。
+     2. 其輸出 shape 應先對齊未來 shared UI：team 主指標 + drivers 陣列 + narrative-friendly 欄位。
+     3. 核心公式已定：以 Cadillac 最快的 classified finisher 對 P10 的 gap 做主線，normalized denominator 採 P15 對 P10 的 gap。
+     4. 建議同時保留原始 supporting fields：`bestCadillacGapToP10`、`p15GapToP10`、`p10TotalTime` / reference、`classifiedCount`，方便後續 card 文案與 tooltip 使用。
+     -->
    - [ ] 抽出 shared benchmark page model / shell / chart / round-card framework
    - [ ] 讓 Qualifying 頁先搬入 shared framework，確保現有功能不退化
    - [ ] 建立 Race 頁資料 loader / benchmark 計算 / 英文欄位文案
