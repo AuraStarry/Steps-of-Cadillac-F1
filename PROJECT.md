@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 補齊 R3 race entries 與數字翻牌 transition 規劃
-- **最後更新**: 2026-03-29 Session 36（R1-R2 race entries 補齊）
+- **DOING**: 補齊 R3 日本站正賽資料；數字翻牌 transition 規劃待續
+- **最後更新**: 2026-03-29 Session 37（R3 Japanese GP race data 補齊）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -46,7 +46,7 @@
    - [x] 在共用 surface 內加入 Qualifying / Race mode switch，先完成內容切換，不先做數字翻牌動畫
    - [x] 將 race driver rows 接上 `driverNotes` 呈現
    - [x] 驗證 `pnpm build` 與必要互動流程
-   - [!] 補齊 round `race.entries` 原始資料（R1-R2 已補齊；R3 待賽後資訊穩定再補）
+   - [x] 補齊 round `race.entries` 原始資料（R1-R3 已補齊）
    - [ ] 第二階段視覺增強：研究數字牌翻轉 transition（可延後到主要功能完成後）
 11. [ ] 時間線視圖（Cadillac F1 發展節點）
 12. [ ] 資料卡片（車隊、車手、市場傳聞）
@@ -65,6 +65,8 @@
 
 ## 📝 Change Log
 ### 2026-03-29
+- 補齊 2026 R3 日本站 round JSON 的 `race.entries`（來源：Jolpica Ergast-compatible results），並新增 Cadillac `driverNotes`
+- 驗證 `pnpm build` 通過（R3 Japanese GP race data 補齊後）
 - 補齊 2026 R1-R2 round JSON 的 `race.entries`（來源：Jolpica Ergast-compatible results），R3 暫不寫入以避免賽後早期資料波動
 - `race.entries` 新增欄位規格：`status`（normalized）、`officialStatus`、`finishTime`、`gapToLeaderSeconds`，供 Race Benchmark 計算與 UI 呈現
 - 補上 R1-R2 `cadillac.driverNotes`（BOT / PER 英文短註），Race mode 車手列可直接顯示 driver-level narrative
