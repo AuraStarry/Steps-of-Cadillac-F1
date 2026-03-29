@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { scaleLinear, scalePoint } from '@visx/scale';
 import { LinePath } from '@visx/shape';
 import { Group } from '@visx/group';
@@ -45,6 +45,7 @@ function buildChartStats(rounds) {
 
 function TrendChartSvg({ rounds, width, height }) {
   const { showTooltip, hideTooltip, tooltipData, tooltipLeft = 0, tooltipTop = 0 } = useTooltip();
+  const [pinnedTooltip, setPinnedTooltip] = useState(null);
 
   const margin = { top: 20, right: 20, bottom: 42, left: 48 };
   const innerWidth = Math.max(width - margin.left - margin.right, 10);
@@ -112,11 +113,11 @@ function TrendChartSvg({ rounds, width, height }) {
     padding: 0,
   };
 
-  const handlePointerMove = (event) => {
+  const findNearestDatum = (event) => {
     const coords = localPoint(event);
-    if (!coords) return;
+    if (!coords) return null;
 
-    const nearest = data.reduce(
+    return data.reduce(
       (best, datum) => {
         const x = xScale(datum.label) ?? 0;
         const distance = Math.abs(x - (coords.x - margin.left));
@@ -127,7 +128,9 @@ function TrendChartSvg({ rounds, width, height }) {
       },
       null,
     );
+  };
 
+  const showDatumTooltip = (nearest) => {
     if (!nearest) return;
 
     showTooltip({
@@ -137,11 +140,44 @@ function TrendChartSvg({ rounds, width, height }) {
     });
   };
 
+  const handlePointerMove = (event) => {
+    if (pinnedTooltip) return;
+    showDatumTooltip(findNearestDatum(event));
+  };
+
+  const handlePointerLeave = () => {
+    if (pinnedTooltip) return;
+    hideTooltip();
+  };
+
+  const handleChartClick = (event) => {
+    const nearest = findNearestDatum(event);
+    if (!nearest) return;
+
+    const nextPinnedRound = pinnedTooltip?.datum.round === nearest.datum.round ? null : nearest;
+    setPinnedTooltip(nextPinnedRound);
+
+    if (nextPinnedRound) {
+      showDatumTooltip(nextPinnedRound);
+      return;
+    }
+
+    hideTooltip();
+  };
+
+  const activeTooltip = pinnedTooltip
+    ? {
+        tooltipData: pinnedTooltip.datum,
+        tooltipLeft: pinnedTooltip.x + margin.left,
+        tooltipTop: (yScale(pinnedTooltip.datum.teamScore) ?? 0) + margin.top,
+      }
+    : { tooltipData, tooltipLeft, tooltipTop };
+
   const latestRound = data.at(-1);
 
   return (
-    <div className="relative h-full w-full" onPointerLeave={hideTooltip}>
-      <svg width={width} height={height} onPointerMove={handlePointerMove}>
+    <div className="relative h-full w-full" onPointerLeave={handlePointerLeave}>
+      <svg width={width} height={height} onPointerMove={handlePointerMove} onClick={handleChartClick}>
         <defs>
           <linearGradient id="cadillac-line-glow" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#8a1214" />
@@ -216,7 +252,7 @@ function TrendChartSvg({ rounds, width, height }) {
 
           {data.map((datum) => {
             const isLatest = datum.round === latestRound.round;
-            const isActive = tooltipData?.round === datum.round;
+            const isActive = activeTooltip.tooltipData?.round === datum.round;
             const x = xScale(datum.label) ?? 0;
             const y = yScale(datum.teamScore) ?? 0;
 
@@ -239,22 +275,22 @@ function TrendChartSvg({ rounds, width, height }) {
         </Group>
       </svg>
 
-      {tooltipData ? (
-        <TooltipWithBounds left={tooltipLeft} top={tooltipTop} style={tooltipStyles}>
+      {activeTooltip.tooltipData ? (
+        <TooltipWithBounds left={activeTooltip.tooltipLeft} top={activeTooltip.tooltipTop} style={tooltipStyles}>
           <div className={`${styles.chartTooltip} px-3 py-2`}>
             <div className="heading-cadillac text-sm font-medium text-[var(--cad-text-strong)]">
-              R{String(tooltipData.round).padStart(2, '0')} · {tooltipData.grandPrixName}
+              R{String(activeTooltip.tooltipData.round).padStart(2, '0')} · {activeTooltip.tooltipData.grandPrixName}
             </div>
-            <div className="mt-1 text-xs text-[var(--cad-text-dim)]">{tooltipData.date}</div>
+            <div className="mt-1 text-xs text-[var(--cad-text-dim)]">{activeTooltip.tooltipData.date}</div>
             <div className="mt-3 flex items-end justify-between gap-4">
               <span className="text-[11px] uppercase tracking-[0.14rem] text-[var(--cad-text-dim)]">Team Score</span>
               <strong className="text-base font-semibold text-[var(--cad-text-strong)]">
-                {scoreLabel(tooltipData.teamScore)}
+                {scoreLabel(activeTooltip.tooltipData.teamScore)}
               </strong>
             </div>
-            {(tooltipData.drivers || []).length ? (
+            {(activeTooltip.tooltipData.drivers || []).length ? (
               <div className="mt-3 space-y-2 border-t border-[var(--cad-line-soft)] pt-3">
-                {(tooltipData.drivers || []).map((driver) => (
+                {(activeTooltip.tooltipData.drivers || []).map((driver) => (
                   <div key={driver.driverCode} className="flex items-end justify-between gap-4 text-xs">
                     <span
                       className="heading-cadillac text-[11px] font-medium tracking-[0.12rem]"

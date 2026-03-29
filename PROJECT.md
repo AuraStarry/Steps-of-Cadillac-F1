@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 補完 SEO metadata/robots/sitemap 欄位（已完成，待下一步）
-- **最後更新**: 2026-03-28 Session 30（Team Score Trend baseline 語義修正）
+- **最後更新**: 2026-03-29 Session 31（手機版 chart 節點點擊 tooltip 修正）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -48,6 +48,10 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-03-29
+- 修正手機版 Team Score Trend 圖表互動：點擊節點後會鎖定並顯示資料卡，再次點擊同節點可關閉，桌機 hover 行為維持不變
+- 驗證 `pnpm build` 通過（mobile tap tooltip fix 後）
+
 ### 2026-03-28
 - 初始化 GitHub repo：`AuraStarry/Steps-of-Cadillac-F1`
 - 建立 `PROJECT.md` 協作開發模式
