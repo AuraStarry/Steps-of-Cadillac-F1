@@ -68,6 +68,9 @@
 - 補齊 2026 R1-R2 round JSON 的 `race.entries`（來源：Jolpica Ergast-compatible results），R3 暫不寫入以避免賽後早期資料波動
 - `race.entries` 新增欄位規格：`status`（normalized）、`officialStatus`、`finishTime`、`gapToLeaderSeconds`，供 Race Benchmark 計算與 UI 呈現
 - 補上 R1-R2 `cadillac.driverNotes`（BOT / PER 英文短註），Race mode 車手列可直接顯示 driver-level narrative
+- 修正 Race Benchmark 計算邏輯：當 `gapToLeaderSeconds` 在分類成績中不具單調性（典型於 lapped 顯示）時，自動改用 `position-gap-fallback`，避免出現 P10 之外卻 >1 的錯誤分數
+- Race card 會依 `scaleMode` 切換顯示秒差或 position gap，確保指標語意一致
+- 驗證 `pnpm build` 通過（race score fallback 修正後）
 - 驗證 `pnpm build` 通過（R1-R2 driver notes 補齊後）
 - 驗證 `pnpm build` 通過（R1-R2 race data 補齊後）
 - 首頁升級為單一 benchmark surface：新增 `BenchmarkModeSurface`，可在 Qualifying / Race 模式間切換內容

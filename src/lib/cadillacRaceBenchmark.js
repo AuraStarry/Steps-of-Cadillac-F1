@@ -64,8 +64,22 @@ function normalizeDriverEntry(entry, p10GapSeconds) {
     status: entry?.status ?? null,
     gapToLeaderSeconds: gapToLeader,
     gapToP10Seconds: gapToP10,
+    gapToP10Positions: null,
     raceScore: null,
   };
+}
+
+function hasMonotonicLeaderGaps(classifiedEntries) {
+  let prev = -Infinity;
+
+  for (const entry of classifiedEntries) {
+    const gap = toNumber(entry?.gapToLeaderSeconds);
+    if (gap == null) return false;
+    if (gap < prev) return false;
+    prev = gap;
+  }
+
+  return true;
 }
 
 export function computeCadillacRaceBenchmark(roundData, userOptions = {}) {
@@ -80,15 +94,27 @@ export function computeCadillacRaceBenchmark(roundData, userOptions = {}) {
 
   const p10GapSeconds = toNumber(p10?.gapToLeaderSeconds);
   const p15GapSeconds = toNumber(p15?.gapToLeaderSeconds);
-  const denominator = p10GapSeconds != null && p15GapSeconds != null
+  const timeDenominator = p10GapSeconds != null && p15GapSeconds != null
     ? p15GapSeconds - p10GapSeconds
     : null;
+
+  const hasReliableTimeScale = hasMonotonicLeaderGaps(classified)
+    && timeDenominator != null
+    && timeDenominator > 0;
+
+  const positionDenominator = 5; // P10 -> P15 window
 
   const drivers = cadillacAll.map((entry) => {
     const normalized = normalizeDriverEntry(entry, p10GapSeconds);
 
-    if (normalized.gapToP10Seconds != null && denominator != null && denominator !== 0) {
-      normalized.raceScore = roundScore((denominator - normalized.gapToP10Seconds) / denominator);
+    if (hasReliableTimeScale && normalized.gapToP10Seconds != null) {
+      normalized.raceScore = roundScore((timeDenominator - normalized.gapToP10Seconds) / timeDenominator);
+      return normalized;
+    }
+
+    if (normalized.finishPosition != null) {
+      normalized.gapToP10Positions = normalized.finishPosition - 10;
+      normalized.raceScore = roundScore((positionDenominator - normalized.gapToP10Positions) / positionDenominator);
     }
 
     return normalized;
@@ -108,15 +134,18 @@ export function computeCadillacRaceBenchmark(roundData, userOptions = {}) {
     benchmark: {
       targetPosition: 10,
       denominatorPosition: 15,
+      scaleMode: hasReliableTimeScale ? 'time-gap' : 'position-gap-fallback',
       p10GapToLeaderSeconds: p10GapSeconds,
       p15GapToLeaderSeconds: p15GapSeconds,
-      p15GapToP10Seconds: denominator != null ? roundScore(denominator) : null,
+      p15GapToP10Seconds: timeDenominator != null ? roundScore(timeDenominator) : null,
+      p15GapToP10Positions: positionDenominator,
       classifiedCount: classified.length,
     },
     bestCadillac: {
       driverCode: bestCadillac?.driverCode ?? null,
       finishPosition: bestCadillac?.finishPosition ?? null,
       gapToP10Seconds: bestCadillac?.gapToP10Seconds ?? null,
+      gapToP10Positions: bestCadillac?.gapToP10Positions ?? null,
       raceScore: bestCadillac?.raceScore ?? null,
     },
     drivers,

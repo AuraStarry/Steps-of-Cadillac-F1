@@ -12,6 +12,8 @@ function mapRoundToCard(round) {
   const benchmark = withBenchmark.cadillac?.raceBenchmark;
   const driverNotes = withBenchmark.cadillac?.driverNotes ?? {};
 
+  const isPositionFallback = benchmark?.benchmark?.scaleMode === 'position-gap-fallback';
+
   return {
     id: `${withBenchmark.year}-r-${String(withBenchmark.round).padStart(2, '0')}`,
     round: withBenchmark.round,
@@ -24,12 +26,16 @@ function mapRoundToCard(round) {
     },
     supportingStats: [
       {
-        label: 'Best Cadillac vs P10',
-        value: formatGap(benchmark?.bestCadillac?.gapToP10Seconds),
+        label: isPositionFallback ? 'Best Cadillac vs P10 (Positions)' : 'Best Cadillac vs P10',
+        value: isPositionFallback
+          ? (benchmark?.bestCadillac?.finishPosition != null ? `${benchmark.bestCadillac.finishPosition - 10 >= 0 ? '+' : ''}${benchmark.bestCadillac.finishPosition - 10}` : 'N/A')
+          : formatGap(benchmark?.bestCadillac?.gapToP10Seconds),
       },
       {
-        label: 'P15 vs P10 Window',
-        value: formatGap(benchmark?.benchmark?.p15GapToP10Seconds),
+        label: isPositionFallback ? 'P15 vs P10 Window (Positions)' : 'P15 vs P10 Window',
+        value: isPositionFallback
+          ? `+${benchmark?.benchmark?.p15GapToP10Positions ?? 5}`
+          : formatGap(benchmark?.benchmark?.p15GapToP10Seconds),
       },
       {
         label: 'Best Cadillac Finish',
@@ -38,7 +44,9 @@ function mapRoundToCard(round) {
     ],
     drivers: (benchmark?.drivers ?? []).map((driver) => ({
       driverCode: driver.driverCode,
-      primaryValue: driver.finishPosition != null ? `P${driver.finishPosition} · ${formatGap(driver.gapToP10Seconds)}` : driver.status ?? 'N/A',
+      primaryValue: driver.finishPosition != null
+        ? `P${driver.finishPosition} · ${isPositionFallback ? `${driver.gapToP10Positions >= 0 ? '+' : ''}${driver.gapToP10Positions} pos` : formatGap(driver.gapToP10Seconds)}`
+        : driver.status ?? 'N/A',
       score: driver.raceScore,
       note: driverNotes?.[driver.driverCode]?.headline ?? null,
     })),
