@@ -1,6 +1,11 @@
 import CadillacBenchmarkTrendChart from '@/components/charts/CadillacBenchmarkTrendChart';
 import styles from '@/components/pages/PageQualifyingBenchmark.module.scss';
 
+const driverColorMap = {
+  BOT: '#4E8FBA',
+  PER: '#A9BE57',
+};
+
 function scoreLabel(score) {
   if (score == null) return 'N/A';
   return score.toFixed(3);
@@ -48,7 +53,7 @@ export default function BenchmarkDashboard({ model }) {
                 {card.drivers.map((driver) => (
                   <li key={driver.driverCode} className="rounded-none border border-[var(--cad-line-soft)] bg-[var(--cad-panel-2)] px-3 py-2">
                     <div className="grid grid-cols-[64px_1fr_70px] items-center gap-2">
-                      <span className="heading-cadillac text-sm font-medium text-[var(--cad-text-strong)]">{driver.driverCode}</span>
+                      <span className="heading-cadillac text-sm font-medium" style={{ color: driverColorMap[driver.driverCode] ?? 'var(--cad-text-strong)' }}>{driver.driverCode}</span>
                       <span className="text-sm text-zinc-300">{driver.primaryValue ?? 'N/A'}</span>
                       <strong className="text-right text-sm font-semibold text-[var(--cad-text-strong)]">{scoreLabel(driver.score)}</strong>
                     </div>

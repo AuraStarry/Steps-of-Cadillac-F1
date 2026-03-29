@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 升級 cadillac-reporter-mode 的敘事準則，並重寫 R1-R3 歷史敘事
-- **最後更新**: 2026-03-29 Session 39（race trend best-car fallback bug fix）
+- **最後更新**: 2026-03-29 Session 40（race cards ordering + driver row cleanup）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,10 @@
 
 ## 📝 Change Log
 ### 2026-03-29
+- Race card 調整：`Best Cadillac Finish` supporting stat 改為第一張，將核心完賽名次資訊前置
+- Race drivers row 調整：移除 `Pxx · +/-gap to P10` 複合顯示，改為僅顯示 finish position（`Pxx`）
+- Drivers 區塊視覺調整：driver code 顏色改為與 trend chart 一致（BOT 藍 / PER 綠）
+- 驗證 `pnpm build` 通過（race card order + driver row simplification + driver color alignment）
 - 修正 Race Trend team line 在 `position-gap-fallback` 模式下的 best Cadillac 選取邏輯：不再沿用失真的 `gapToP10Seconds` 排序，改依 `gapToP10Positions` / finish position 決定，避免 R3 Japanese GP 錯誤跟到 Bottas
 - 驗證 `pnpm build` 通過（race trend best-car fallback 修正後）
 - 重構 `skills/cadillac-reporter-mode/SKILL.md`：明確要求 driverNotes 以「當次遭遇 / 策略 / neutralisation timing」為主，將積分距離與泛用 pace 描述降級為 fallback

@@ -26,6 +26,10 @@ function mapRoundToCard(round) {
     },
     supportingStats: [
       {
+        label: 'Best Cadillac Finish',
+        value: benchmark?.bestCadillac?.finishPosition != null ? `P${benchmark.bestCadillac.finishPosition}` : 'N/A',
+      },
+      {
         label: isPositionFallback ? 'Best Cadillac vs P10 (Positions)' : 'Best Cadillac vs P10',
         value: isPositionFallback
           ? (benchmark?.bestCadillac?.finishPosition != null ? `${benchmark.bestCadillac.finishPosition - 10 >= 0 ? '+' : ''}${benchmark.bestCadillac.finishPosition - 10}` : 'N/A')
@@ -37,16 +41,10 @@ function mapRoundToCard(round) {
           ? `+${benchmark?.benchmark?.p15GapToP10Positions ?? 5}`
           : formatGap(benchmark?.benchmark?.p15GapToP10Seconds),
       },
-      {
-        label: 'Best Cadillac Finish',
-        value: benchmark?.bestCadillac?.finishPosition != null ? `P${benchmark.bestCadillac.finishPosition}` : 'N/A',
-      },
     ],
     drivers: (benchmark?.drivers ?? []).map((driver) => ({
       driverCode: driver.driverCode,
-      primaryValue: driver.finishPosition != null
-        ? `P${driver.finishPosition} · ${isPositionFallback ? `${driver.gapToP10Positions >= 0 ? '+' : ''}${driver.gapToP10Positions} pos` : formatGap(driver.gapToP10Seconds)}`
-        : driver.status ?? 'N/A',
+      primaryValue: driver.finishPosition != null ? `P${driver.finishPosition}` : driver.status ?? 'N/A',
       score: driver.raceScore,
       note: driverNotes?.[driver.driverCode]?.headline ?? null,
     })),
