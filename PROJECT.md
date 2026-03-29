@@ -65,6 +65,8 @@
 
 ## 📝 Change Log
 ### 2026-03-29
+- 補齊全站品牌字樣中的 `F1`：修正 layout metadata title、page metadata title、JSON-LD `name`、social share image alt，以及首頁頂部品牌簽名 `STEPS OF CADILLAC F1`
+- 驗證 `pnpm build` 通過（F1 branding backfill 後）
 - 將全站 `head title` / Open Graph / Twitter / JSON-LD 名稱統一收斂為 `STEPS OF CADILLAC`，並同步調整 description / keyword 語義
 - 首頁頂部新增獨立品牌簽名標籤 `STEPS OF CADILLAC`，與 Qualifying / Race mode 的內容切換層級分離，強化頁首優雅度與品牌辨識
 - 補修 `layout.jsx` metadata title template / `html lang` / `body` 呈現細節，讓全站 SEO 與語意設定一致

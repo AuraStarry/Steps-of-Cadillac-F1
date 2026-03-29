@@ -14,8 +14,8 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://steps-of-cadillac-f1.vercel.app';
-const siteName = 'STEPS OF CADILLAC';
-const defaultTitle = 'STEPS OF CADILLAC';
+const siteName = 'STEPS OF CADILLAC F1';
+const defaultTitle = 'STEPS OF CADILLAC F1';
 const defaultDescription =
   'Track Cadillac Formula 1 progress through race-by-race benchmark scores, driver deltas, and concise narrative context.';
 
@@ -53,7 +53,7 @@ export const metadata = {
     images: [
       {
         url: '/social-share.jpg',
-        alt: 'STEPS OF CADILLAC social share image',
+        alt: 'STEPS OF CADILLAC F1 social share image',
       },
     ],
   },

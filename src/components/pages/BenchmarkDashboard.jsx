@@ -23,7 +23,7 @@ export default function BenchmarkDashboard({ model, mode, setMode, modeLabels })
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className={styles.siteSignature}>
             <span className={styles.siteSignatureMark} aria-hidden="true" />
-            <span className="heading-cadillac text-[11px] text-[var(--cad-text-strong)]">STEPS OF CADILLAC</span>
+            <span className="heading-cadillac text-[11px] text-[var(--cad-text-strong)]">STEPS OF CADILLAC F1</span>
           </div>
 
           <div className="inline-flex border border-[var(--cad-line)] bg-[var(--cad-panel)] p-1">
