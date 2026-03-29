@@ -6,11 +6,6 @@ const driverColorMap = {
   PER: '#A9BE57',
 };
 
-const modeHeadingMap = {
-  qualifying: 'Qualifying View',
-  race: 'Race View',
-};
-
 function scoreLabel(score) {
   if (score == null) return 'N/A';
   return score.toFixed(3);
@@ -20,14 +15,9 @@ export default function BenchmarkDashboard({ model, mode, setMode, modeLabels })
   return (
     <main className="mx-auto min-h-screen w-full max-w-6xl px-5 py-14 text-[var(--cad-text)]">
       <section className="space-y-5 border-b border-[var(--cad-line)] pb-6">
-        <div>
-          <div className={styles.siteSignature}>
-            <span className={styles.siteSignatureMark} aria-hidden="true" />
-            <span className="heading-cadillac text-[11px] text-[var(--cad-text-strong)]">STEPS OF CADILLAC</span>
-          </div>
-          <h1 className="heading-cadillac mt-4 text-4xl font-semibold leading-none text-[var(--cad-text-strong)] md:text-6xl">
-            STEPS OF CADILLAC
-          </h1>
+        <div className={styles.siteSignature}>
+          <span className={styles.siteSignatureMark} aria-hidden="true" />
+          <span className="heading-cadillac text-[11px] text-[var(--cad-text-strong)]">STEPS OF CADILLAC</span>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
@@ -54,7 +44,9 @@ export default function BenchmarkDashboard({ model, mode, setMode, modeLabels })
         </div>
 
         <div className="space-y-2">
-          <p className={`${styles.modeEyebrow} text-xs text-zinc-300`}>{modeHeadingMap[mode] ?? model.title}</p>
+          <h1 className="heading-cadillac text-3xl font-semibold leading-tight text-[var(--cad-text-strong)] md:text-5xl">
+            {model.title}
+          </h1>
           <p className="max-w-4xl text-sm text-[var(--cad-text-dim)] md:text-base">{model.description}</p>
         </div>
       </section>
