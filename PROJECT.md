@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: Race Benchmark 頁面 spec / shared framework / reporter-mode 輸出重構
-- **最後更新**: 2026-03-29 Session 33（敲定 Race Benchmark spec 與共用框架方向）
+- **DOING**: Race Benchmark data 接線與 mode switch 內容切換
+- **最後更新**: 2026-03-29 Session 34（race benchmark 規格落地 + qualifying 搬入 shared framework）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -39,20 +39,9 @@
 10. [ ] 共用 Benchmark Framework（Qualifying / Race） ← DOING
    - [x] 在 `PROJECT.md` 固化本輪 spec：shared page shell、mode switch、Race Benchmark 公式、reporter-mode 雙輸出
    - [x] 更新 `skills/cadillac-reporter-mode/`：單一 research workflow 支援 `historicalContext` + `driverNotes`
-   - [!] 定義 race benchmark data shape 與計算規格（最快 Cadillac classified finisher 對 P10，分母採 P10-P15）
-     <!-- CONTEXT
-     已完成：
-     1. `PROJECT.md` 已寫入產品 spec、英文內容規則、shared framework / mode switch 方向。
-     2. `skills/cadillac-reporter-mode/SKILL.md` 已升級為單一 research workflow、雙輸出（team `historicalContext` + race `driverNotes`）。
-
-     下一步：
-     1. 先新增 race benchmark 計算模組，建議命名 `src/lib/cadillacRaceBenchmark.js`。
-     2. 其輸出 shape 應先對齊未來 shared UI：team 主指標 + drivers 陣列 + narrative-friendly 欄位。
-     3. 核心公式已定：以 Cadillac 最快的 classified finisher 對 P10 的 gap 做主線，normalized denominator 採 P15 對 P10 的 gap。
-     4. 建議同時保留原始 supporting fields：`bestCadillacGapToP10`、`p15GapToP10`、`p10TotalTime` / reference、`classifiedCount`，方便後續 card 文案與 tooltip 使用。
-     -->
-   - [ ] 抽出 shared benchmark page model / shell / chart / round-card framework
-   - [ ] 讓 Qualifying 頁先搬入 shared framework，確保現有功能不退化
+   - [x] 定義 race benchmark data shape 與計算規格（最快 Cadillac classified finisher 對 P10，分母採 P10-P15）
+   - [x] 抽出 shared benchmark page model / shell / chart / round-card framework
+   - [x] 讓 Qualifying 頁先搬入 shared framework，確保現有功能不退化
    - [ ] 建立 Race 頁資料 loader / benchmark 計算 / 英文欄位文案
    - [ ] 在共用 surface 內加入 Qualifying / Race mode switch，先完成內容切換，不先做數字翻牌動畫
    - [ ] 將 race driver rows 接上 `driverNotes` 呈現
@@ -79,6 +68,10 @@
 - 敲定內容架構方向：不新增獨立 driver reporter skill，改為升級既有 `cadillac-reporter-mode`，以單一 research workflow 同時支援 team-level `historicalContext` 與 race driver-level `driverNotes`
 - 敲定頁面架構方向：Qualifying / Race 不走兩張完全獨立頁，而是收斂為 shared benchmark framework + mode switch，先完成內容切換，再於後續研究數字牌翻轉 transition
 - 將網站內容規則寫入專案協作規範：所有對外網站內容一律使用英文
+- 新增 `src/lib/cadillacRaceBenchmark.js`，正式落地 Race Benchmark 第一版公式與 data shape（best Cadillac classified finisher vs P10，denominator = P15-P10）
+- 新增 `src/lib/benchmark/` page-model 層：抽出 season round loader、qualifying page model、race page model，開始把 domain logic 與 UI shell 分離
+- 新增共用 `BenchmarkDashboard` 與 `CadillacBenchmarkTrendChart`，讓 Qualifying 頁面先搬入 shared framework，保留既有卡片/趨勢圖表現
+- 驗證 `pnpm build` 通過（shared framework + race benchmark module 後）
 - 修正手機版 Team Score Trend 圖表互動：點擊節點後會鎖定並顯示資料卡，再次點擊同節點可關閉，桌機 hover 行為維持不變
 - 驗證 `pnpm build` 通過（mobile tap tooltip fix 後）
 - 依 Gore 指示將網站標題統一改為 `STEPS OF CADILLAC F1`（layout metadata + page metadata + JSON-LD）
