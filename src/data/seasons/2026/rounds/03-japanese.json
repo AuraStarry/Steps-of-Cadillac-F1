@@ -7,15 +7,15 @@
   "country": "Japan",
   "date": "2026-03-29",
   "cadillac": {
-    "historicalContext": "Suzuka was the first weekend where Cadillac stopped looking like a pure embarrassment: the car was still at the back, but the conversation began to shift toward whether the team had finally found a development direction worth taking seriously.",
+    "historicalContext": "Suzuka was Cadillac's first clear strategy split of the season: Bottas started as the only driver on hards, but Bearman's lap-22 Safety Car rewarded the frontrunners instead and left the team classified without leverage.",
     "driverNotes": {
-      "PER": {
-        "headline": "Perez led Cadillac home in P17 after running the full distance, but even a clean race left the team well outside the points conversation at Suzuka.",
-        "tag": "classified-but-adrift"
-      },
       "BOT": {
-        "headline": "Bottas finished behind Perez in P19 and was lapped, a reminder that Cadillac still lacked the race pace to turn its improved qualifying baseline into Sunday pressure.",
-        "tag": "double-finish-off-window"
+        "headline": "Bottas opened on the only hard-tyre start in the field, but the lap-22 Safety Car arrived after his stop and killed the offset Cadillac had tried to build.",
+        "tag": "hard-start-missed-window"
+      },
+      "PER": {
+        "headline": "Perez's conventional medium-to-hard one-stopper was protected by the lap-22 Safety Car, letting him jump Bottas in the team order even though Cadillac never found a real attacking phase.",
+        "tag": "sc-protected-one-stop"
       }
     }
   },

@@ -7,15 +7,15 @@
   "country": "Australia",
   "date": "2026-03-08",
   "cadillac": {
-    "historicalContext": "Melbourne set the baseline fast: Cadillac arrived with fresh-entry intrigue, but the debut was mostly read as a reality check, exposing how far the team still sat from the midfield and how little margin it had once the weekend became real.",
+    "historicalContext": "Cadillac's debut was less about pace than operational proof: Perez delivered the team's first classified finish while Bottas's fuel-system failure cut short a race that had effectively become a rolling systems check for a brand-new entrant.",
     "driverNotes": {
       "BOT": {
-        "headline": "Bottas retired after 15 laps, so Cadillac lost one side of its race plan before the opening stint phase had fully stabilized.",
-        "tag": "early-retirement"
+        "headline": "Bottas retired with a fuel-system problem on lap 16, turning Cadillac's first Grand Prix into a data-gathering run that ended before his strategy could play out.",
+        "tag": "fuel-system-dnf"
       },
       "PER": {
-        "headline": "Perez reached the flag but finished P16, underlining that Cadillac's cleaner race still lacked the pace to reach the points window.",
-        "tag": "distance-but-off-pace"
+        "headline": "Perez's main job became survival rather than attack, nursing the debut car from P18 to the flag to secure Cadillac's first race finish.",
+        "tag": "first-finish-banker"
       }
     }
   },

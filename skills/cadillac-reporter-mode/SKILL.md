@@ -245,6 +245,13 @@ Use for:
 - yellow / VSC / SC timing damage
 - any one-off condition that changes how the driver's result should be read
 
+Priority order for `driverNotes`:
+1. the driver's defining race event or setback
+2. the strategy shape that altered the race outcome
+3. the result only as supporting context
+
+That means the note should answer **why this finish happened**, not merely restate where the driver finished.
+
 ### C. Shared evidence packet
 Do not research team and driver stories separately unless the existing evidence is clearly insufficient.
 
@@ -317,9 +324,17 @@ Use this structure in notes or as a bridge before writing into round JSON:
 ### Prefer causal language over generic recap
 Bad:
 - `Cadillac had a difficult weekend.`
+- `Perez finished P16 and remained outside the points.`
+- `Bottas was P19 and the team still lacked pace.`
 
 Good:
 - `Cadillac looked fragile because teammate contact and deployment trouble turned an already slow weekend into a messy one.`
+- `Perez salvaged the race after first-lap contact and repeated deployment losses cost him more than 20 seconds.`
+- `Bottas started on hards to catch a neutralisation, but the Safety Car timing rewarded others instead.`
+
+Anti-pattern:
+- Do **not** make `points window`, `midfield gap`, or `off the pace` the main clause unless no more race-specific cause is supportable.
+- Season-long competitiveness can appear at the end of the sentence, but never replace the round-specific story.
 
 ### This is not a report — it is a compact interpretation layer
 The goal is **not** to summarize the whole weekend.
@@ -330,6 +345,11 @@ Default target per round:
 - exactly `1` driver note for `BOT`
 - exactly `1` driver note for `PER`
 - no extra supporting note unless absolutely necessary
+
+Driver-note fallback ladder:
+- first choice: race event, damage, reliability, safety-car timing, tyre offset, pit-window disruption
+- second choice: battle, recovery shape, or stint pattern that defined the race
+- last choice: bare finishing position or generic competitiveness summary
 
 Length targets:
 - `historicalContext`: about `35-55` words, usually `15-25%` shorter than your first draft
