@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 補齊 race entries 資料與下一階段轉場視覺（數字翻牌）
-- **最後更新**: 2026-03-29 Session 35（首頁 mode switch 上線，Qualifying/Race 已可內容切換）
+- **DOING**: 補齊 R3 race entries 與數字翻牌 transition 規劃
+- **最後更新**: 2026-03-29 Session 36（R1-R2 race entries 補齊）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -46,7 +46,7 @@
    - [x] 在共用 surface 內加入 Qualifying / Race mode switch，先完成內容切換，不先做數字翻牌動畫
    - [x] 將 race driver rows 接上 `driverNotes` 呈現
    - [x] 驗證 `pnpm build` 與必要互動流程
-   - [!] 補齊 round `race.entries` 原始資料（目前 UI 與計算邏輯已接好，待 importer / data pass 寫入實際正賽資料）
+   - [!] 補齊 round `race.entries` 原始資料（R1-R2 已補齊；R3 待賽後資訊穩定再補）
    - [ ] 第二階段視覺增強：研究數字牌翻轉 transition（可延後到主要功能完成後）
 11. [ ] 時間線視圖（Cadillac F1 發展節點）
 12. [ ] 資料卡片（車隊、車手、市場傳聞）
@@ -65,6 +65,9 @@
 
 ## 📝 Change Log
 ### 2026-03-29
+- 補齊 2026 R1-R2 round JSON 的 `race.entries`（來源：Jolpica Ergast-compatible results），R3 暫不寫入以避免賽後早期資料波動
+- `race.entries` 新增欄位規格：`status`（normalized）、`officialStatus`、`finishTime`、`gapToLeaderSeconds`，供 Race Benchmark 計算與 UI 呈現
+- 驗證 `pnpm build` 通過（R1-R2 race data 補齊後）
 - 首頁升級為單一 benchmark surface：新增 `BenchmarkModeSurface`，可在 Qualifying / Race 模式間切換內容
 - 完成 `src/app/page.jsx` 文案更新與 JSON-LD `inLanguage: en`，首頁 metadata 由 qualifying-only 改為 dual-mode benchmark 描述
 - 驗證 `pnpm build` 通過（mode switch + dual model 串接後）
