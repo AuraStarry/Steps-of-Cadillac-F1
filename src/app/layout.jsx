@@ -14,15 +14,15 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://steps-of-cadillac-f1.vercel.app';
-const siteName = 'STEPS OF CADILLAC F1';
-const defaultTitle = 'STEPS OF CADILLAC F1';
+const siteName = 'STEPS OF CADILLAC';
+const defaultTitle = 'STEPS OF CADILLAC';
 const defaultDescription =
-  'Track Cadillac F1 qualifying performance with race-by-race benchmark scores, driver deltas, and narrative context.';
+  'Track Cadillac Formula 1 progress through race-by-race benchmark scores, driver deltas, and concise narrative context.';
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${defaultTitle} | ${siteName}`,
+    default: defaultTitle,
     template: `%s | ${siteName}`,
   },
   description: defaultDescription,
@@ -30,8 +30,10 @@ export const metadata = {
   referrer: 'origin-when-cross-origin',
   keywords: [
     'Cadillac F1',
+    'Cadillac Formula 1',
     'Formula 1',
     'qualifying benchmark',
+    'race benchmark',
     'F1 analytics',
     'Cadillac race performance',
   ],
@@ -43,21 +45,21 @@ export const metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'zh_TW',
+    locale: 'en_US',
     url: '/',
     siteName,
-    title: `${defaultTitle} | ${siteName}`,
+    title: defaultTitle,
     description: defaultDescription,
     images: [
       {
         url: '/social-share.jpg',
-        alt: 'STEPS OF CADILLAC F1 social share image',
+        alt: 'STEPS OF CADILLAC social share image',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${defaultTitle} | ${siteName}`,
+    title: defaultTitle,
     description: defaultDescription,
     images: ['/social-share.jpg'],
   },
@@ -77,8 +79,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="zh-Hant" className={`${montserrat.variable} ${barlowCondensed.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${montserrat.variable} ${barlowCondensed.variable}`}>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

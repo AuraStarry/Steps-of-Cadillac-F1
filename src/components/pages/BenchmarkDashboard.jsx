@@ -14,7 +14,11 @@ function scoreLabel(score) {
 export default function BenchmarkDashboard({ model }) {
   return (
     <main className="mx-auto min-h-screen w-full max-w-6xl px-5 py-14 text-[var(--cad-text)]">
-      <section className="space-y-2 border-b border-[var(--cad-line)] pb-6">
+      <section className="space-y-4 border-b border-[var(--cad-line)] pb-6">
+        <div className={styles.siteSignature}>
+          <span className={styles.siteSignatureMark} aria-hidden="true" />
+          <span className="heading-cadillac text-[11px] text-[var(--cad-text-strong)]">STEPS OF CADILLAC</span>
+        </div>
         <p className={`${styles.sectionTag} text-xs text-zinc-300`}>{model.tag}</p>
         <h1 className="heading-cadillac text-3xl font-semibold leading-tight text-[var(--cad-text-strong)] md:text-5xl">{model.title}</h1>
         <p className="max-w-4xl text-sm text-[var(--cad-text-dim)] md:text-base">{model.description}</p>

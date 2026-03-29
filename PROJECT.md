@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 升級 cadillac-reporter-mode 的敘事準則，並重寫 R1-R3 歷史敘事
-- **最後更新**: 2026-03-29 Session 40（race cards ordering + driver row cleanup）
+- **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
+- **最後更新**: 2026-03-29 Session 41（site title + top branding tag refinement）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,10 @@
 
 ## 📝 Change Log
 ### 2026-03-29
+- 將全站 `head title` / Open Graph / Twitter / JSON-LD 名稱統一收斂為 `STEPS OF CADILLAC`，並同步調整 description / keyword 語義
+- 首頁頂部新增獨立品牌簽名標籤 `STEPS OF CADILLAC`，與 Qualifying / Race mode 的內容切換層級分離，強化頁首優雅度與品牌辨識
+- 補修 `layout.jsx` metadata title template / `html lang` / `body` 呈現細節，讓全站 SEO 與語意設定一致
+- 驗證 `pnpm build` 通過（site title + top branding tag + SEO metadata polish）
 - Race card 調整：`Best Cadillac Finish` supporting stat 改為第一張，將核心完賽名次資訊前置
 - Race drivers row 調整：移除 `Pxx · +/-gap to P10` 複合顯示，改為僅顯示 finish position（`Pxx`）
 - Drivers 區塊視覺調整：driver code 顏色改為與 trend chart 一致（BOT 藍 / PER 綠）

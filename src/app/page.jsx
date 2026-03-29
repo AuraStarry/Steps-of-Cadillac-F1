@@ -19,7 +19,7 @@ export const metadata = {
     images: [
       {
         url: '/social-share.jpg',
-        alt: 'STEPS OF CADILLAC F1 social share image',
+        alt: 'STEPS OF CADILLAC social share image',
       },
     ],
   },
