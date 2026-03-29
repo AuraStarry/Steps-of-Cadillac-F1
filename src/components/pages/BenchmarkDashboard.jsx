@@ -15,12 +15,12 @@ export default function BenchmarkDashboard({ model, mode, setMode, modeLabels })
   return (
     <main className="mx-auto min-h-screen w-full max-w-6xl px-5 py-14 text-[var(--cad-text)]">
       <section className="space-y-5 border-b border-[var(--cad-line)] pb-6">
-        <div className={styles.siteSignature}>
-          <span className={styles.siteSignatureMark} aria-hidden="true" />
-          <span className="heading-cadillac text-[11px] text-[var(--cad-text-strong)]">STEPS OF CADILLAC</span>
-        </div>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className={styles.siteSignature}>
+            <span className={styles.siteSignatureMark} aria-hidden="true" />
+            <span className="heading-cadillac text-[11px] text-[var(--cad-text-strong)]">STEPS OF CADILLAC</span>
+          </div>
 
-        <div className="flex flex-wrap items-center gap-3">
           <div className="inline-flex border border-[var(--cad-line)] bg-[var(--cad-panel)] p-1">
             {['qualifying', 'race'].map((item) => {
               const active = mode === item;
