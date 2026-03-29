@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-03-29 Session 41（site title + top branding tag refinement）
+- **最後更新**: 2026-03-29 Session 42（qualifying Key Context boundary fix + R1-R3 rewrite）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,9 @@
 
 ## 📝 Change Log
 ### 2026-03-29
+- 收斂 `cadillac-reporter-mode` 的搜尋與寫作邊界：Qualifying 的 `historicalContext` 明確只允許使用賽前 / 排位相關脈絡，禁止混入正賽事故、Safety Car、策略結果與完賽敘事
+- 依新邊界重寫 2026 R1-R3 的 `cadillac.historicalContext`，將 Australia / China / Japan 的 Key Context 改回 qualifying-surface 視角
+- 驗證 `pnpm build` 通過（qualifying Key Context boundary fix 後）
 - 補齊全站品牌字樣中的 `F1`：修正 layout metadata title、page metadata title、JSON-LD `name`、social share image alt，以及首頁頂部品牌簽名 `STEPS OF CADILLAC F1`
 - 驗證 `pnpm build` 通過（F1 branding backfill 後）
 - 將全站 `head title` / Open Graph / Twitter / JSON-LD 名稱統一收斂為 `STEPS OF CADILLAC`，並同步調整 description / keyword 語義

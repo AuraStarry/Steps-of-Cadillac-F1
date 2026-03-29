@@ -15,6 +15,12 @@ Use it as a **single research workflow with multiple export targets**. The same 
 - a team-level historical reading for the round
 - driver-level special notes for Bottas / Perez when the race view needs per-driver context
 
+Crucial boundary:
+- `cadillac.historicalContext` on the **Qualifying** surface must stop at the team state **before the race starts**.
+- It may include build-up, practice, sprint, qualifying execution, deleted laps, upgrades, and pre-race operational context.
+- It must **not** include race incidents, Safety Cars, opening-lap contact, tyre-strategy outcomes, finishing positions, or any explanation that only became true during Sunday's race.
+- Those Sunday consequences belong in `cadillac.driverNotes.*` for the **Race** surface.
+
 ## When to use this skill
 
 Trigger this skill when the task involves any of these:
@@ -223,12 +229,19 @@ Use this when the card needs the single Cadillac-wide historical reading.
 Target field:
 - `cadillac.historicalContext`
 
-Use for:
-- upgrade package introduced
-- revised setup direction
-- first double finish
-- new process milestone
-- operations context that explains present performance
+If the field is shown on the **Qualifying** surface, constrain it to:
+- upgrade package introduced before or during qualifying
+- revised setup direction seen before the race
+- qualifying-specific execution issue
+- practice / sprint / parc ferme context that shaped the grid position
+- operational milestone that was already true before lights-out
+
+Do not use `historicalContext` for:
+- first-lap collisions
+- Safety Car / VSC timing
+- tyre strategy outcome in the race
+- finish position interpretation
+- any Sunday race narrative that belongs to `driverNotes`
 
 ### B. Driver-level output
 Use this when the race card needs one special note per Cadillac driver.
@@ -326,11 +339,12 @@ Bad:
 - `Cadillac had a difficult weekend.`
 - `Perez finished P16 and remained outside the points.`
 - `Bottas was P19 and the team still lacked pace.`
+- `The Safety Car ruined Cadillac's plan.` in a qualifying `historicalContext`
 
 Good:
-- `Cadillac looked fragile because teammate contact and deployment trouble turned an already slow weekend into a messy one.`
-- `Perez salvaged the race after first-lap contact and repeated deployment losses cost him more than 20 seconds.`
-- `Bottas started on hards to catch a neutralisation, but the Safety Car timing rewarded others instead.`
+- `Cadillac's debut qualifying was disrupted by a red flag and a straight-line loss on Bottas's car, making execution more notable than raw grid position.`
+- `Shanghai still reflected an early-car cleanup weekend: sprint fuel and deployment issues framed a qualifying session where simply getting both cars out clean mattered.`
+- `Suzuka mattered because Cadillac could finally integrate upgrades and show a small pace step, even if the midfield remained out of reach over one lap.`
 
 Anti-pattern:
 - Do **not** make `points window`, `midfield gap`, or `off the pace` the main clause unless no more race-specific cause is supportable.
