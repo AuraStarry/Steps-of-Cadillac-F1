@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 升級 cadillac-reporter-mode 的敘事準則，並重寫 R1-R3 歷史敘事
-- **最後更新**: 2026-03-29 Session 38（reporter-mode 敘事優先級重構 + R1-R3 重寫）
+- **最後更新**: 2026-03-29 Session 39（race trend best-car fallback bug fix）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,8 @@
 
 ## 📝 Change Log
 ### 2026-03-29
+- 修正 Race Trend team line 在 `position-gap-fallback` 模式下的 best Cadillac 選取邏輯：不再沿用失真的 `gapToP10Seconds` 排序，改依 `gapToP10Positions` / finish position 決定，避免 R3 Japanese GP 錯誤跟到 Bottas
+- 驗證 `pnpm build` 通過（race trend best-car fallback 修正後）
 - 重構 `skills/cadillac-reporter-mode/SKILL.md`：明確要求 driverNotes 以「當次遭遇 / 策略 / neutralisation timing」為主，將積分距離與泛用 pace 描述降級為 fallback
 - 依新準則重寫 2026 R1-R3 的 `cadillac.historicalContext` 與 `driverNotes`，補入 China 首圈隊友碰撞 / deployment loss、Japan hard-tyre offset 與 lap-22 Safety Car timing 等敘事
 - 補齊 2026 R3 日本站 round JSON 的 `race.entries`（來源：Jolpica Ergast-compatible results），並新增 Cadillac `driverNotes`

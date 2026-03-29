@@ -123,9 +123,19 @@ export function computeCadillacRaceBenchmark(roundData, userOptions = {}) {
   const bestCadillac = drivers
     .filter((entry) => entry.status?.toLowerCase() === 'classified')
     .sort((a, b) => {
-      const aGap = a.gapToP10Seconds ?? Number.POSITIVE_INFINITY;
-      const bGap = b.gapToP10Seconds ?? Number.POSITIVE_INFINITY;
-      return aGap - bGap;
+      if (hasReliableTimeScale) {
+        const aGap = a.gapToP10Seconds ?? Number.POSITIVE_INFINITY;
+        const bGap = b.gapToP10Seconds ?? Number.POSITIVE_INFINITY;
+        return aGap - bGap;
+      }
+
+      const aPosGap = a.gapToP10Positions ?? Number.POSITIVE_INFINITY;
+      const bPosGap = b.gapToP10Positions ?? Number.POSITIVE_INFINITY;
+      if (aPosGap !== bPosGap) return aPosGap - bPosGap;
+
+      const aPos = a.finishPosition ?? Number.POSITIVE_INFINITY;
+      const bPos = b.finishPosition ?? Number.POSITIVE_INFINITY;
+      return aPos - bPos;
     })[0] ?? null;
 
   return {
