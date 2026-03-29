@@ -7,7 +7,17 @@
   "country": "China",
   "date": "2026-03-15",
   "cadillac": {
-    "historicalContext": "Shanghai made Cadillac feel alive for the first time: the weekend was messy, fragile, and full of small failures, but surviving a sprint format and getting both cars home gave the team its first hint of substance beyond anonymous back-row running."
+    "historicalContext": "Shanghai made Cadillac feel alive for the first time: the weekend was messy, fragile, and full of small failures, but surviving a sprint format and getting both cars home gave the team its first hint of substance beyond anonymous back-row running.",
+    "driverNotes": {
+      "BOT": {
+        "headline": "Bottas finished P13 and led Cadillac's race result, turning a difficult weekend into a cleaner benchmark run against the lower-midfield group.",
+        "tag": "best-cadillac-finish"
+      },
+      "PER": {
+        "headline": "Perez came home P15, giving Cadillac a double classified finish but still showing a clear pace gap to the edge of the points fight.",
+        "tag": "double-finish-off-pace"
+      }
+    }
   },
   "qualifying": {
     "sessionDate": "2026-03-14",

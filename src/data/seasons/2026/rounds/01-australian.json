@@ -7,7 +7,17 @@
   "country": "Australia",
   "date": "2026-03-08",
   "cadillac": {
-    "historicalContext": "Melbourne set the baseline fast: Cadillac arrived with fresh-entry intrigue, but the debut was mostly read as a reality check, exposing how far the team still sat from the midfield and how little margin it had once the weekend became real."
+    "historicalContext": "Melbourne set the baseline fast: Cadillac arrived with fresh-entry intrigue, but the debut was mostly read as a reality check, exposing how far the team still sat from the midfield and how little margin it had once the weekend became real.",
+    "driverNotes": {
+      "BOT": {
+        "headline": "Bottas retired after 15 laps, so Cadillac lost one side of its race plan before the opening stint phase had fully stabilized.",
+        "tag": "early-retirement"
+      },
+      "PER": {
+        "headline": "Perez reached the flag but finished P16, underlining that Cadillac's cleaner race still lacked the pace to reach the points window.",
+        "tag": "distance-but-off-pace"
+      }
+    }
   },
   "qualifying": {
     "sessionDate": "2026-03-07",
