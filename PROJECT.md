@@ -4,20 +4,23 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 社群分享圖（OG/Twitter）與網站標題品牌化（已完成，待下一步）
-- **最後更新**: 2026-03-29 Session 32（社群分享圖與網站標題更新）
+- **DOING**: Race Benchmark 頁面 spec / shared framework / reporter-mode 輸出重構
+- **最後更新**: 2026-03-29 Session 33（敲定 Race Benchmark spec 與共用框架方向）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
 ### Phase 0 — Discovery
 1. [x] 定義專案目標（資訊站 / 內容企劃 / 工具型網站）
    - 定位：長期追蹤型 F1 資訊 / 敘事網站，以 Cadillac F1 作為主角
-2. [ ] 定義目標受眾與主要使用情境
+2. [x] 定義目標受眾與主要使用情境
+   - 讀者預設為會看 F1、但未必持續追 Cadillac 的英文讀者；核心使用情境是用單一 dashboard 快速理解 Cadillac 在 `qualifying` / `race` 距離競爭帶與積分圈還有多遠
 3. [x] 收斂 MVP 範圍（先做什麼、先不做什麼）
    - MVP 先做：每站 `qualifying` / `race` / `cadillac` 狀態
+   - 呈現策略：首頁作為共用 benchmark surface，可在 Qualifying / Race 內容模式間切換
 4. [x] 建立資訊來源清單（官方公告、F1 新聞來源）
    - 已整理 Cadillac 官方、FIA documents、OpenF1、Jolpica 與媒體補位的 source ladder，並落地 `skills/cadillac-reporter-mode/`
-5. [ ] 決定內容更新節奏（daily / race-week / ad-hoc）
+5. [x] 決定內容更新節奏（daily / race-week / ad-hoc）
+   - 採 race-week / ad-hoc 為主：賽事週更新結果與敘事欄位，非賽事週只做必要補完與結構優化
 
 ### Phase 1 — 基礎建置
 6. [x] 建立技術棧與目錄結構
@@ -33,15 +36,27 @@
    - 備註：本輪依 Gore 指示先啟動前端頁面，部署與 importer 稍後銜接
 
 ### Phase 2 — 功能迭代
-10. [ ] 時間線視圖（Cadillac F1 發展節點）
-11. [ ] 資料卡片（車隊、車手、市場傳聞）
-12. [ ] 搜尋 / 篩選
-13. [ ] 手機版 UX 優化
+10. [ ] 共用 Benchmark Framework（Qualifying / Race） ← DOING
+   - [ ] 在 `PROJECT.md` 固化本輪 spec：shared page shell、mode switch、Race Benchmark 公式、reporter-mode 雙輸出
+   - [ ] 更新 `skills/cadillac-reporter-mode/`：單一 research workflow 支援 `historicalContext` + `driverNotes`
+   - [ ] 定義 race benchmark data shape 與計算規格（最快 Cadillac classified finisher 對 P10，分母採 P10-P15）
+   - [ ] 抽出 shared benchmark page model / shell / chart / round-card framework
+   - [ ] 讓 Qualifying 頁先搬入 shared framework，確保現有功能不退化
+   - [ ] 建立 Race 頁資料 loader / benchmark 計算 / 英文欄位文案
+   - [ ] 在共用 surface 內加入 Qualifying / Race mode switch，先完成內容切換，不先做數字翻牌動畫
+   - [ ] 將 race driver rows 接上 `driverNotes` 呈現
+   - [ ] 驗證 `pnpm build` 與必要互動流程
+   - [ ] 第二階段視覺增強：研究數字牌翻轉 transition（可延後到主要功能完成後）
+11. [ ] 時間線視圖（Cadillac F1 發展節點）
+12. [ ] 資料卡片（車隊、車手、市場傳聞）
+13. [ ] 搜尋 / 篩選
+14. [ ] 手機版 UX 優化
 
 ## 🧭 工作規則（協作開發模式）
 - 開工前先讀 `PROJECT.md`（先看快速入口 + DOING + 當前 TODO）
 - 僅從最前面的未完成項目往下做，不跳號
 - 若中途切換任務，需在 TODO 註記原因與中斷點
+- 網站對外內容一律使用英文（標題、說明、卡片文案、敘事欄位、driver notes）
 - 每次 session 結束前至少更新：
   1) 快速入口（階段 / DOING / 最後更新）
   2) TODO 勾選狀態與新拆分項
@@ -49,6 +64,10 @@
 
 ## 📝 Change Log
 ### 2026-03-29
+- 與 Gore 敲定 Race Benchmark 第一版產品 spec：主體改為 `Cadillac 最快的 classified finisher` 相對 `P10` 的接近程度，正規化分母採 `P10-P15`
+- 敲定內容架構方向：不新增獨立 driver reporter skill，改為升級既有 `cadillac-reporter-mode`，以單一 research workflow 同時支援 team-level `historicalContext` 與 race driver-level `driverNotes`
+- 敲定頁面架構方向：Qualifying / Race 不走兩張完全獨立頁，而是收斂為 shared benchmark framework + mode switch，先完成內容切換，再於後續研究數字牌翻轉 transition
+- 將網站內容規則寫入專案協作規範：所有對外網站內容一律使用英文
 - 修正手機版 Team Score Trend 圖表互動：點擊節點後會鎖定並顯示資料卡，再次點擊同節點可關閉，桌機 hover 行為維持不變
 - 驗證 `pnpm build` 通過（mobile tap tooltip fix 後）
 - 依 Gore 指示將網站標題統一改為 `STEPS OF CADILLAC F1`（layout metadata + page metadata + JSON-LD）

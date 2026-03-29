@@ -11,6 +11,10 @@ Use this skill when a round needs more than raw results. It tells an agent how t
 
 This skill is for **research and evidence collection**, but the output should stay **small and high-signal**. It does not replace the main importer in `DATA_FETCH_SKILL.md`; instead, it fills the narrative layer that APIs alone cannot explain.
 
+Use it as a **single research workflow with multiple export targets**. The same evidence pass should be able to support both:
+- a team-level historical reading for the round
+- driver-level special notes for Bottas / Perez when the race view needs per-driver context
+
 ## When to use this skill
 
 Trigger this skill when the task involves any of these:
@@ -211,10 +215,13 @@ Use the official team site to:
 Do **not** let official optimism overwrite the outside reading unless the external narrative is plainly wrong on facts.
 
 ## Step 6 — Distill into Cadillac card fields
-Final output should separate **Cadillac development story** from **weekend disruption story**.
+Treat the evidence notebook as one shared research packet, then export it into the field shape the product needs.
 
-### A. Stage events
-These are Cadillac-centric progress markers.
+### A. Team-level output
+Use this when the card needs the single Cadillac-wide historical reading.
+
+Target field:
+- `cadillac.historicalContext`
 
 Use for:
 - upgrade package introduced
@@ -223,16 +230,28 @@ Use for:
 - new process milestone
 - operations context that explains present performance
 
-### B. Special session events
-These are events that affected Cadillac during the weekend.
+### B. Driver-level output
+Use this when the race card needs one special note per Cadillac driver.
+
+Target fields:
+- `cadillac.driverNotes.BOT`
+- `cadillac.driverNotes.PER`
 
 Use for:
-- fuel system issue
-- deleted lap
-- teammate contact
-- red flag / yellow / VSC timing damage
-- rain or track evolution effect
-- pit / strategy distortion
+- damage or reliability issue
+- deleted lap / penalty / steward-linked effect
+- strategy distortion
+- tyre degradation pattern
+- yellow / VSC / SC timing damage
+- any one-off condition that changes how the driver's result should be read
+
+### C. Shared evidence packet
+Do not research team and driver stories separately unless the existing evidence is clearly insufficient.
+
+Default rule:
+- research once
+- classify evidence once
+- export twice if needed
 
 ## Output schema (recommended)
 
@@ -241,6 +260,25 @@ Use this structure in notes or as a bridge before writing into round JSON:
 ```json
 {
   "cadillacReporter": {
+    "teamNarrative": {
+      "historicalContext": "One short English paragraph that changes how the round should be read.",
+      "confidence": "official|observed|reported|corroborated",
+      "sources": ["team-or-media-url"]
+    },
+    "driverNotes": {
+      "BOT": {
+        "headline": "One short English note about Bottas's defining race condition.",
+        "tag": "damage-limited",
+        "confidence": "official|observed|reported|corroborated",
+        "sources": ["..."]
+      },
+      "PER": {
+        "headline": "One short English note about Perez's defining race condition.",
+        "tag": "strategy-faded",
+        "confidence": "official|observed|reported|corroborated",
+        "sources": ["..."]
+      }
+    },
     "stageEvents": [
       {
         "phase": "qualifying",
@@ -283,17 +321,21 @@ Bad:
 Good:
 - `Cadillac looked fragile because teammate contact and deployment trouble turned an already slow weekend into a messy one.`
 
-### This is not a report — it is a single-turning-point layer
+### This is not a report — it is a compact interpretation layer
 The goal is **not** to summarize the whole weekend.
-The goal is to identify the **one** piece of historical context a reader must know so the data gains meaning.
+The goal is to identify the smallest set of context that changes how the result should be read.
 
 Default target per round:
-- exactly `1` key narrative
-- optional `0-1` supporting note only if absolutely necessary
-- total reading time: roughly `8-15 seconds`
-- target length: about `35-55` words, and usually `15-25%` shorter than your first draft
+- exactly `1` team-level key narrative
+- exactly `1` driver note for `BOT`
+- exactly `1` driver note for `PER`
+- no extra supporting note unless absolutely necessary
 
-If two ideas compete, choose the one that best changes how the result is interpreted.
+Length targets:
+- `historicalContext`: about `35-55` words, usually `15-25%` shorter than your first draft
+- `driverNotes.*.headline`: about `18-35` words
+
+If two ideas compete, choose the one that best changes interpretation.
 If an item does not change interpretation, cut it.
 After drafting, compress once more by removing setup language, hedging, and any clause that does not change the reading.
 
@@ -327,7 +369,17 @@ Write directly into round data when possible.
 ```json
 {
   "cadillac": {
-    "historicalContext": "One short English paragraph, ideally 35-55 words, capturing the key historical background that changes how Cadillac's result should be read."
+    "historicalContext": "One short English paragraph, ideally 35-55 words, capturing the key historical background that changes how Cadillac's result should be read.",
+    "driverNotes": {
+      "BOT": {
+        "headline": "One short English note for Bottas.",
+        "tag": "damage-limited"
+      },
+      "PER": {
+        "headline": "One short English note for Perez.",
+        "tag": "strategy-faded"
+      }
+    }
   }
 }
 ```
