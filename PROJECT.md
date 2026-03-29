@@ -4,8 +4,8 @@
 
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
-- **DOING**: 補完 SEO metadata/robots/sitemap 欄位（已完成，待下一步）
-- **最後更新**: 2026-03-29 Session 31（手機版 chart 節點點擊 tooltip 修正）
+- **DOING**: 社群分享圖（OG/Twitter）與網站標題品牌化（已完成，待下一步）
+- **最後更新**: 2026-03-29 Session 32（社群分享圖與網站標題更新）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -51,6 +51,9 @@
 ### 2026-03-29
 - 修正手機版 Team Score Trend 圖表互動：點擊節點後會鎖定並顯示資料卡，再次點擊同節點可關閉，桌機 hover 行為維持不變
 - 驗證 `pnpm build` 通過（mobile tap tooltip fix 後）
+- 依 Gore 指示將網站標題統一改為 `STEPS OF CADILLAC F1`（layout metadata + page metadata + JSON-LD）
+- 新增社群分享圖：匯入 `public/social-share.jpg`，並接上 Open Graph / Twitter images metadata
+- 驗證 `pnpm build` 通過（title + social share image 更新後）
 
 ### 2026-03-28
 - 初始化 GitHub repo：`AuraStarry/Steps-of-Cadillac-F1`

@@ -16,10 +16,17 @@ export const metadata = {
     description: pageDescription,
     url: '/',
     type: 'website',
+    images: [
+      {
+        url: '/social-share.jpg',
+        alt: 'STEPS OF CADILLAC F1 social share image',
+      },
+    ],
   },
   twitter: {
     title: pageTitle,
     description: pageDescription,
+    images: ['/social-share.jpg'],
   },
 };
 
@@ -27,7 +34,7 @@ export default function HomePage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Steps of Cadillac F1',
+    name: 'STEPS OF CADILLAC F1',
     url: siteUrl,
     inLanguage: 'zh-Hant',
     description: pageDescription,

@@ -14,8 +14,8 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://steps-of-cadillac-f1.vercel.app';
-const siteName = 'Steps of Cadillac F1';
-const defaultTitle = 'Cadillac F1 Qualifying Benchmark Dashboard';
+const siteName = 'STEPS OF CADILLAC F1';
+const defaultTitle = 'STEPS OF CADILLAC F1';
 const defaultDescription =
   'Track Cadillac F1 qualifying performance with race-by-race benchmark scores, driver deltas, and narrative context.';
 
@@ -48,11 +48,18 @@ export const metadata = {
     siteName,
     title: `${defaultTitle} | ${siteName}`,
     description: defaultDescription,
+    images: [
+      {
+        url: '/social-share.jpg',
+        alt: 'STEPS OF CADILLAC F1 social share image',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${defaultTitle} | ${siteName}`,
     description: defaultDescription,
+    images: ['/social-share.jpg'],
   },
   robots: {
     index: true,
