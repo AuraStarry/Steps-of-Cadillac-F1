@@ -18,7 +18,8 @@ Use it as a **single research workflow with multiple export targets**. The same 
 Crucial boundary:
 - `cadillac.historicalContext` on the **Qualifying** surface must stop at the team state **before the race starts**.
 - It may include build-up, practice, sprint, qualifying execution, deleted laps, upgrades, and pre-race operational context.
-- It must **not** include race incidents, Safety Cars, opening-lap contact, tyre-strategy outcomes, finishing positions, or any explanation that only became true during Sunday's race.
+- It must **not** include race incidents, Safety Cars, opening-lap contact, tyre-strategy outcomes, finishing positions, in-race penalties, or any explanation that only became true during Sunday's race.
+- When updating a round after the Grand Prix, the default action is to update `race.entries` and `cadillac.driverNotes.*` only; do **not** rewrite `cadillac.historicalContext` unless the pre-race reading itself was wrong.
 - Those Sunday consequences belong in `cadillac.driverNotes.*` for the **Race** surface.
 
 ## When to use this skill
@@ -236,11 +237,16 @@ If the field is shown on the **Qualifying** surface, constrain it to:
 - practice / sprint / parc ferme context that shaped the grid position
 - operational milestone that was already true before lights-out
 
+Lock rule after race day:
+- once `historicalContext` has been written for a round, treat it as frozen during post-race backfill unless you are correcting a pre-race factual error
+- post-race data work should normally touch only `race.entries` and `cadillac.driverNotes`
+
 Do not use `historicalContext` for:
 - first-lap collisions
 - Safety Car / VSC timing
 - tyre strategy outcome in the race
 - finish position interpretation
+- in-race penalties or steward consequences served on Sunday
 - any Sunday race narrative that belongs to `driverNotes`
 
 ### B. Driver-level output
