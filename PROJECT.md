@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-03-29 Session 42（qualifying Key Context boundary fix + R1-R3 rewrite）
+- **最後更新**: 2026-05-04 Session 43（Miami GP race data + Cadillac narrative backfill）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -46,7 +46,7 @@
    - [x] 在共用 surface 內加入 Qualifying / Race mode switch，先完成內容切換，不先做數字翻牌動畫
    - [x] 將 race driver rows 接上 `driverNotes` 呈現
    - [x] 驗證 `pnpm build` 與必要互動流程
-   - [x] 補齊 round `race.entries` 原始資料（R1-R3 已補齊）
+   - [x] 補齊 round `race.entries` 原始資料（R1-R4 已補齊）
    - [ ] 第二階段視覺增強：研究數字牌翻轉 transition（可延後到主要功能完成後）
 11. [ ] 時間線視圖（Cadillac F1 發展節點）
 12. [ ] 資料卡片（車隊、車手、市場傳聞）
@@ -64,6 +64,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-05-04
+- 補齊 2026 R4 Miami GP `race.entries`：依正式完賽結果寫入 57-lap classified order 與 4 台退賽車（Hadjar / Gasly / Lawson / Hülkenberg）
+- 重寫 Miami 站 `cadillac.historicalContext`，將主軸改為主場週末帶升級卻被執行失誤與 Bottas pit-lane speeding penalty 拖垮
+- 新增 Miami 站 `cadillac.driverNotes`：補入 Bottas 的 drive-through 代價，以及 Perez 在 qualifying / race 都沒有把 deployment 與執行轉成 recovery 的敘事
+
 ### 2026-03-29
 - 收斂 `cadillac-reporter-mode` 的搜尋與寫作邊界：Qualifying 的 `historicalContext` 明確只允許使用賽前 / 排位相關脈絡，禁止混入正賽事故、Safety Car、策略結果與完賽敘事
 - 依新邊界重寫 2026 R1-R3 的 `cadillac.historicalContext`，將 Australia / China / Japan 的 Key Context 改回 qualifying-surface 視角
