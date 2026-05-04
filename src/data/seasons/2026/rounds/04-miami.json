@@ -10,12 +10,12 @@
     "historicalContext": "Cadillac introduced a substantial upgrade package in Miami, but the overall gain proved limited and the added complexity appeared to hurt execution rather than unlock clear pace. Bottas suffered an abnormally large drop-off in the Sprint before the team stripped back the setup to restore a more representative baseline for qualifying, while Perez admitted that, even with the new package, the overall progress remained underwhelming.",
     "driverNotes": {
       "BOT": {
-        "headline": "Bottas looked closer to the midfield after Cadillac reset the car for qualifying, but a drive-through for pit-lane speeding ruined the one race where the team's home weekend might at least have turned into a cleaner Sunday benchmark.",
-        "tag": "pit-lane-speeding-penalty"
+        "headline": "Bottas endured a difficult Miami race, with heavy tyre degradation still limiting Cadillac's pace before a drive-through penalty for pit-lane speeding added another setback to an already tough Sunday.",
+        "tag": "degradation-plus-drive-through"
       },
       "PER": {
-        "headline": "Perez lost qualifying to his own mistake and an energy-deployment issue, then spent Sunday boxed into a low-upside run to P16 with no strategic swing or neutralisation big enough to rescue Cadillac's headline weekend.",
-        "tag": "deployment-issue-no-recovery"
+        "headline": "Perez climbed from the back and fought Alonso late on, but Cadillac's home race still never developed into a genuine midfield contest despite the places gained.",
+        "tag": "recovery-run-no-midfield-fight"
       }
     }
   },
