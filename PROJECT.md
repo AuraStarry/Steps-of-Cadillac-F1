@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-05-04 Session 46（Miami race driver notes rewritten from external reporting）
+- **最後更新**: 2026-05-24 Session 47（Canadian GP qualifying data added for Round 5）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-05-24
+- 新增 2026 R5 Canadian GP round JSON：補入完整 qualifying order、Q1/Q2/Q3 cutoffs，以及 Montreal qualifying-only `cadillac.historicalContext`
+- 更新 `src/data/seasons/2026/season.json`，把 Canadian GP 納入 2026 賽季 round 清單
+- 先建立 Canadian GP `race` placeholder（empty `entries`），讓本輪只上線排位資料、不混入未完賽內容
+- 驗證 `pnpm build` 通過（R5 Canadian GP qualifying backfill 後）
+
 ### 2026-05-04
 - 補齊 2026 R4 Miami GP `race.entries`：依正式完賽結果寫入 57-lap classified order 與 4 台退賽車（Hadjar / Gasly / Lawson / Hülkenberg）
 - 回退 Miami 站 `cadillac.historicalContext` 到上一版 qualifying-surface 文案，移除誤混入的主場週末正賽敘事污染

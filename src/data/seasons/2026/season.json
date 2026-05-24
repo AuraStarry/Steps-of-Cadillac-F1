@@ -36,6 +36,13 @@
       "name": "Miami Grand Prix",
       "date": "2026-05-03",
       "file": "./rounds/04-miami.json"
+    },
+    {
+      "round": 5,
+      "slug": "canadian",
+      "name": "Canadian Grand Prix",
+      "date": "2026-05-24",
+      "file": "./rounds/05-canadian.json"
     }
   ]
 }
