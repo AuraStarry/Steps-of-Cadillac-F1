@@ -43,6 +43,35 @@ function isNonClassifiedDriverStatus(driver) {
   return ['retired', 'dns', 'dsq'].includes(status);
 }
 
+function renderStatusMarker({ driverCode, point, xScale, yScale }) {
+  const x = xScale(point.label) ?? 0;
+  const y = yScale(point.score) ?? 0;
+  const color = driverColorMap[driverCode] ?? chartTheme.textDim;
+  const status = String(point.status || '').toLowerCase();
+
+  if (status === 'retired') {
+    return (
+      <g key={`${driverCode}-${point.round}-status-drop`} opacity={0.96}>
+        <line x1={x - 4} y1={y - 4} x2={x + 4} y2={y + 4} stroke={color} strokeWidth={1.7} strokeLinecap="round" />
+        <line x1={x - 4} y1={y + 4} x2={x + 4} y2={y - 4} stroke={color} strokeWidth={1.7} strokeLinecap="round" />
+      </g>
+    );
+  }
+
+  return (
+    <circle
+      key={`${driverCode}-${point.round}-status-drop`}
+      cx={x}
+      cy={y}
+      r={3.6}
+      fill="var(--cad-panel)"
+      stroke={color}
+      strokeWidth={1.5}
+      opacity={0.96}
+    />
+  );
+}
+
 function buildChartStats(rounds) {
   const validScores = rounds.map((round) => round.teamScore).filter((score) => score != null);
   const latest = rounds.filter((round) => round.teamScore != null).at(-1) ?? null;
@@ -88,7 +117,7 @@ function TrendChartSvg({ rounds, width, height }) {
             return { round: round.round, label: round.label, score: driver.score, isStatusDrop: false };
           }
           if (isNonClassifiedDriverStatus(driver)) {
-            return { round: round.round, label: round.label, score: chartFloorScore, isStatusDrop: true };
+            return { round: round.round, label: round.label, score: chartFloorScore, isStatusDrop: true, status: driver.status };
           }
           return null;
         })
@@ -195,16 +224,7 @@ function TrendChartSvg({ rounds, width, height }) {
                 strokeDasharray="4 6"
                 curve={null}
               />
-              {series.points.filter((point) => point.isStatusDrop).map((point) => (
-                <circle
-                  key={`${series.driverCode}-${point.round}-status-drop`}
-                  cx={xScale(point.label) ?? 0}
-                  cy={yScale(point.score) ?? 0}
-                  r={3.1}
-                  fill={driverColorMap[series.driverCode] ?? chartTheme.textDim}
-                  opacity={0.92}
-                />
-              ))}
+              {series.points.filter((point) => point.isStatusDrop).map((point) => renderStatusMarker({ driverCode: series.driverCode, point, xScale, yScale }))}
             </g>
           ))}
 

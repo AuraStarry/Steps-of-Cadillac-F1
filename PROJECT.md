@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-05-27 Session 50（Race chart non-classified drivers now drop to chart floor）
+- **最後更新**: 2026-05-27 Session 51（Race chart non-classified markers refined with status symbols）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -75,6 +75,8 @@
 - 調整 Race trend driver line：當 Cadillac 車手是 `DNF` / `DNS` / `DSQ` 時，不再讓視覺上看似貼著 team line，而是將該 round 的 driver trace 直接拉到圖表底部，明確表現 non-classified 結果
 - 保留 race tooltip 的 result label，讓圖表底部落點仍可被解讀為 `DNF` / `DNS` / `DSQ`，而不是低 score
 - 驗證 `pnpm build` 通過（race chart status-drop floor 規則後）
+- 進一步強化 Race trend non-classified marker：`DNF` 改用叉記號、`DNS/DSQ` 改用空心圈，讓底部落點更像狀態事件而不是一般 score 點
+- 驗證 `pnpm build` 通過（race chart status marker refinement 後）
 
 ### 2026-05-24
 - 新增 2026 R5 Canadian GP round JSON：補入完整 qualifying order、Q1/Q2/Q3 cutoffs，以及 Montreal qualifying-only `cadillac.historicalContext`
