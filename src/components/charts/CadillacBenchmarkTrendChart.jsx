@@ -38,6 +38,11 @@ function shouldShowDriverScore(driver) {
   return !['retired', 'dns', 'dsq'].includes(status);
 }
 
+function isNonClassifiedDriverStatus(driver) {
+  const status = String(driver?.status || '').toLowerCase();
+  return ['retired', 'dns', 'dsq'].includes(status);
+}
+
 function buildChartStats(rounds) {
   const validScores = rounds.map((round) => round.teamScore).filter((score) => score != null);
   const latest = rounds.filter((round) => round.teamScore != null).at(-1) ?? null;
@@ -68,6 +73,8 @@ function TrendChartSvg({ rounds, width, height }) {
   const minScore = Math.min(...scores);
   const maxScore = Math.max(...scores);
   const padding = Math.max((maxScore - minScore) * 0.2, 0.08);
+  const statusDropDepth = Math.max((maxScore - minScore) * 0.35, 0.25);
+  const chartFloorScore = minScore - padding - statusDropDepth;
 
   const driverCodes = Array.from(new Set(data.flatMap((round) => (round.drivers || []).map((driver) => driver.driverCode)).filter(Boolean)));
   const driverSeries = driverCodes
@@ -76,15 +83,21 @@ function TrendChartSvg({ rounds, width, height }) {
       points: data
         .map((round) => {
           const driver = (round.drivers || []).find((entry) => entry.driverCode === driverCode);
-          if (!driver || driver.score == null) return null;
-          return { round: round.round, label: round.label, score: driver.score };
+          if (!driver) return null;
+          if (shouldShowDriverScore(driver)) {
+            return { round: round.round, label: round.label, score: driver.score, isStatusDrop: false };
+          }
+          if (isNonClassifiedDriverStatus(driver)) {
+            return { round: round.round, label: round.label, score: chartFloorScore, isStatusDrop: true };
+          }
+          return null;
         })
         .filter(Boolean),
     }))
     .filter((series) => series.points.length > 1);
 
   const xScale = scalePoint({ domain: data.map((round) => round.label), range: [0, innerWidth], padding: 0.5 });
-  const yScale = scaleLinear({ domain: [minScore - padding, maxScore + padding], range: [innerHeight, 0], nice: true });
+  const yScale = scaleLinear({ domain: [chartFloorScore, maxScore + padding], range: [innerHeight, 0], nice: true });
 
   const tooltipStyles = { ...defaultTooltipStyles, background: 'transparent', border: 'none', boxShadow: 'none', padding: 0 };
 
@@ -171,17 +184,28 @@ function TrendChartSvg({ rounds, width, height }) {
           />
 
           {driverSeries.map((series) => (
-            <LinePath
-              key={series.driverCode}
-              data={series.points}
-              x={(datum) => xScale(datum.label) ?? 0}
-              y={(datum) => yScale(datum.score) ?? 0}
-              stroke={driverColorMap[series.driverCode] ?? chartTheme.textDim}
-              opacity={0.58}
-              strokeWidth={1.05}
-              strokeDasharray="4 6"
-              curve={null}
-            />
+            <g key={series.driverCode}>
+              <LinePath
+                data={series.points}
+                x={(datum) => xScale(datum.label) ?? 0}
+                y={(datum) => yScale(datum.score) ?? 0}
+                stroke={driverColorMap[series.driverCode] ?? chartTheme.textDim}
+                opacity={0.58}
+                strokeWidth={1.05}
+                strokeDasharray="4 6"
+                curve={null}
+              />
+              {series.points.filter((point) => point.isStatusDrop).map((point) => (
+                <circle
+                  key={`${series.driverCode}-${point.round}-status-drop`}
+                  cx={xScale(point.label) ?? 0}
+                  cy={yScale(point.score) ?? 0}
+                  r={3.1}
+                  fill={driverColorMap[series.driverCode] ?? chartTheme.textDim}
+                  opacity={0.92}
+                />
+              ))}
+            </g>
           ))}
 
           <LinePath data={data} x={(datum) => xScale(datum.label) ?? 0} y={(datum) => yScale(datum.teamScore) ?? 0} stroke="url(#cadillac-line-glow)" strokeWidth={1.8} curve={null} />
