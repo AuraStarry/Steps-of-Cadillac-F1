@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-05-24 Session 47（Canadian GP qualifying data added for Round 5）
+- **最後更新**: 2026-05-27 Session 48（Canadian GP race data + Cadillac driver notes added for Round 5）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -46,7 +46,7 @@
    - [x] 在共用 surface 內加入 Qualifying / Race mode switch，先完成內容切換，不先做數字翻牌動畫
    - [x] 將 race driver rows 接上 `driverNotes` 呈現
    - [x] 驗證 `pnpm build` 與必要互動流程
-   - [x] 補齊 round `race.entries` 原始資料（R1-R4 已補齊）
+   - [x] 補齊 round `race.entries` 原始資料（R1-R5 已補齊）
    - [ ] 第二階段視覺增強：研究數字牌翻轉 transition（可延後到主要功能完成後）
 11. [ ] 時間線視圖（Cadillac F1 發展節點）
 12. [ ] 資料卡片（車隊、車手、市場傳聞）
@@ -64,6 +64,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-05-27
+- 補齊 2026 R5 Canadian GP `race.entries`：依正式完賽結果寫入 68-lap classification、Perez 退賽與 Lindblad DNS
+- 新增 Canadian GP `cadillac.driverNotes`：Perez 的 intermediate 起跑誤判 + lap 39 suspension failure，以及 Bottas 的 race-long oversteer / sole-finisher 敘事
+- 驗證 `pnpm build` 通過（R5 Canadian GP race backfill 後）
+
 ### 2026-05-24
 - 新增 2026 R5 Canadian GP round JSON：補入完整 qualifying order、Q1/Q2/Q3 cutoffs，以及 Montreal qualifying-only `cadillac.historicalContext`
 - 更新 `src/data/seasons/2026/season.json`，把 Canadian GP 納入 2026 賽季 round 清單
