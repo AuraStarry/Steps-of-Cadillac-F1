@@ -32,6 +32,12 @@ function scoreLabel(score) {
   return score.toFixed(3);
 }
 
+function shouldShowDriverScore(driver) {
+  if (driver?.score == null) return false;
+  const status = String(driver?.status || '').toLowerCase();
+  return !['retired', 'dns', 'dsq'].includes(status);
+}
+
 function buildChartStats(rounds) {
   const validScores = rounds.map((round) => round.teamScore).filter((score) => score != null);
   const latest = rounds.filter((round) => round.teamScore != null).at(-1) ?? null;
@@ -211,10 +217,13 @@ function TrendChartSvg({ rounds, width, height }) {
               <div className="mt-3 space-y-2 border-t border-[var(--cad-line-soft)] pt-3">
                 {(activeTooltip.tooltipData.drivers || []).map((driver) => (
                   <div key={driver.driverCode} className="flex items-end justify-between gap-4 text-xs">
-                    <span className="heading-cadillac text-[11px] font-medium tracking-[0.12rem]" style={{ color: driverColorMap[driver.driverCode] ?? 'var(--cad-text-dim)' }}>
-                      {driver.driverCode}
-                    </span>
-                    <strong className="font-semibold text-[var(--cad-text)]">{scoreLabel(driver.score)}</strong>
+                    <div className="flex items-end gap-2">
+                      <span className="heading-cadillac text-[11px] font-medium tracking-[0.12rem]" style={{ color: driverColorMap[driver.driverCode] ?? 'var(--cad-text-dim)' }}>
+                        {driver.driverCode}
+                      </span>
+                      {driver.resultLabel ? <span className="text-[10px] uppercase tracking-[0.12rem] text-[var(--cad-text-dim)]">{driver.resultLabel}</span> : null}
+                    </div>
+                    <strong className="font-semibold text-[var(--cad-text)]">{shouldShowDriverScore(driver) ? scoreLabel(driver.score) : 'N/A'}</strong>
                   </div>
                 ))}
               </div>

@@ -107,6 +107,10 @@ export function computeCadillacRaceBenchmark(roundData, userOptions = {}) {
   const drivers = cadillacAll.map((entry) => {
     const normalized = normalizeDriverEntry(entry, p10GapSeconds);
 
+    if (!isClassified(entry)) {
+      return normalized;
+    }
+
     if (hasReliableTimeScale && normalized.gapToP10Seconds != null) {
       normalized.raceScore = roundScore((timeDenominator - normalized.gapToP10Seconds) / timeDenominator);
       return normalized;

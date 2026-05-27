@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-05-27 Session 48（Canadian GP race data + Cadillac driver notes added for Round 5）
+- **最後更新**: 2026-05-27 Session 49（Canadian GP race DNF display fix for Perez + race chart status handling）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -68,6 +68,10 @@
 - 補齊 2026 R5 Canadian GP `race.entries`：依正式完賽結果寫入 68-lap classification、Perez 退賽與 Lindblad DNS
 - 新增 Canadian GP `cadillac.driverNotes`：Perez 的 intermediate 起跑誤判 + lap 39 suspension failure，以及 Bottas 的 race-long oversteer / sole-finisher 敘事
 - 驗證 `pnpm build` 通過（R5 Canadian GP race backfill 後）
+- 修正 Race mode 對 non-classified Cadillac drivers 的顯示：Perez 在 Canadian GP 不再因為 classification position 被誤顯示成 `P17`，改依 race status 顯示 `DNF`
+- 調整 `cadillacRaceBenchmark`：非 `classified` 車手不再計算 driver race score，避免 retired / DNS 被畫進 trend line 造成語義誤導
+- 更新 Race trend tooltip：同時顯示 driver result label（如 `P16` / `DNF` / `DNS`），讓圖表與卡片的完賽狀態語義一致
+- 驗證 `pnpm build` 通過（race DNF display + chart status fix 後）
 
 ### 2026-05-24
 - 新增 2026 R5 Canadian GP round JSON：補入完整 qualifying order、Q1/Q2/Q3 cutoffs，以及 Montreal qualifying-only `cadillac.historicalContext`

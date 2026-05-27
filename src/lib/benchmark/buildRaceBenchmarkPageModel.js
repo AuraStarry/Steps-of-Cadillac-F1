@@ -7,10 +7,25 @@ function formatGap(seconds) {
   return `${sign}${seconds.toFixed(3)}s`;
 }
 
+function formatRaceResultLabel(driver) {
+  const status = String(driver?.status || '').toLowerCase();
+
+  if (status === 'classified' && driver?.finishPosition != null) {
+    return `P${driver.finishPosition}`;
+  }
+
+  if (status === 'retired') return 'DNF';
+  if (status === 'dns') return 'DNS';
+  if (status === 'dsq') return 'DSQ';
+
+  return driver?.officialStatus ?? driver?.status ?? 'N/A';
+}
+
 function mapRoundToCard(round) {
   const withBenchmark = attachCadillacRaceBenchmark(round);
   const benchmark = withBenchmark.cadillac?.raceBenchmark;
   const driverNotes = withBenchmark.cadillac?.driverNotes ?? {};
+  const raceEntriesByCode = Object.fromEntries((withBenchmark.race?.entries ?? []).map((entry) => [entry.driverCode, entry]));
 
   const isPositionFallback = benchmark?.benchmark?.scaleMode === 'position-gap-fallback';
 
@@ -42,21 +57,31 @@ function mapRoundToCard(round) {
           : formatGap(benchmark?.benchmark?.p15GapToP10Seconds),
       },
     ],
-    drivers: (benchmark?.drivers ?? []).map((driver) => ({
-      driverCode: driver.driverCode,
-      primaryValue: driver.finishPosition != null ? `P${driver.finishPosition}` : driver.status ?? 'N/A',
-      score: driver.raceScore,
-      note: driverNotes?.[driver.driverCode]?.headline ?? null,
-    })),
+    drivers: (benchmark?.drivers ?? []).map((driver) => {
+      const sourceEntry = raceEntriesByCode[driver.driverCode] ?? {};
+
+      return {
+        driverCode: driver.driverCode,
+        primaryValue: formatRaceResultLabel({ ...sourceEntry, ...driver }),
+        score: driver.raceScore,
+        note: driverNotes?.[driver.driverCode]?.headline ?? null,
+      };
+    }),
     chartPoint: {
       round: withBenchmark.round,
       grandPrixName: withBenchmark.grandPrixName,
       date: withBenchmark.date,
       teamScore: benchmark?.bestCadillac?.raceScore ?? null,
-      drivers: (benchmark?.drivers ?? []).map((driver) => ({
-        driverCode: driver.driverCode,
-        score: driver.raceScore,
-      })),
+      drivers: (benchmark?.drivers ?? []).map((driver) => {
+        const sourceEntry = raceEntriesByCode[driver.driverCode] ?? {};
+
+        return {
+          driverCode: driver.driverCode,
+          score: driver.raceScore,
+          resultLabel: formatRaceResultLabel({ ...sourceEntry, ...driver }),
+          status: sourceEntry.status ?? driver.status ?? null,
+        };
+      }),
     },
   };
 }
