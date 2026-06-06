@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-05-27 Session 51（Race chart non-classified markers refined with status symbols）
+- **最後更新**: 2026-06-06 Session 52（Monaco GP qualifying data backfilled; Cadillac Key Context deferred）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-06-06
+- 新增 2026 R6 Monaco GP round JSON：補入完整 qualifying order、Q1/Q2/Q3 cutoffs，先將 Cadillac `historicalContext` 留空，依 Gore 指示暫不更新 Key Context / report
+- 更新 `src/data/seasons/2026/season.json`，把 Monaco GP 納入 2026 賽季 round 清單
+- 先建立 Monaco GP `race` placeholder（empty `entries`），讓本輪只上線排位資料
+- 驗證 `pnpm build` 通過（R6 Monaco GP qualifying backfill 後）
+
 ### 2026-05-27
 - 補齊 2026 R5 Canadian GP `race.entries`：依正式完賽結果寫入 68-lap classification、Perez 退賽與 Lindblad DNS
 - 新增 Canadian GP `cadillac.driverNotes`：Perez 的 intermediate 起跑誤判 + lap 39 suspension failure，以及 Bottas 的 race-long oversteer / sole-finisher 敘事

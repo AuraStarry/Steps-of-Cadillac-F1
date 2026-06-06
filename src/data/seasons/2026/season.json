@@ -43,6 +43,13 @@
       "name": "Canadian Grand Prix",
       "date": "2026-05-24",
       "file": "./rounds/05-canadian.json"
+    },
+    {
+      "round": 6,
+      "slug": "monaco",
+      "name": "Monaco Grand Prix",
+      "date": "2026-06-07",
+      "file": "./rounds/06-monaco.json"
     }
   ]
 }
