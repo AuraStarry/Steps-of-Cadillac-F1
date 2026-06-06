@@ -74,7 +74,7 @@
 }
 
 .chartMeta {
-  display: grid;
+  display: none;
   gap: 12px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -131,8 +131,8 @@
   border-top: 2px dashed currentColor;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 768px) {
   .chartMeta {
-    grid-template-columns: 1fr;
+    display: grid;
   }
 }

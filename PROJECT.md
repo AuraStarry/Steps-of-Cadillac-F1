@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-06 Session 53（Mobile trend stat cards hidden across qualifying/race views）
+- **最後更新**: 2026-06-06 Session 54（Fixed mobile trend stat cards CSS override bug）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,9 @@
 
 ## 📝 Change Log
 ### 2026-06-06
+- 修正 mobile trend stat cards 仍顯示的真正原因：`PageQualifyingBenchmark.module.scss` 的 `.chartMeta { display: grid; }` 蓋過了 JSX 的 `hidden md:grid`
+- 改為由 SCSS 直接控制 `.chartMeta`：手機版預設 `display: none`，`min-width: 768px` 才切回 `display: grid`，確保 Qualifying / Race 都一致隱藏
+- 驗證 `pnpm build` 通過（mobile chartMeta CSS override fix 後）
 - 將 trend / season view 的 `Latest / Season High / Season Avg` 三張統計卡在手機版統一隱藏，桌機版維持顯示
 - 補齊舊版 `CadillacQualifyingTrendChart` 的同樣 mobile hidden 規則，避免未來回用時出現不一致
 - 驗證 `pnpm build` 通過（mobile trend stat cards hidden 後）
