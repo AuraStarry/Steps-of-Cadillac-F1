@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-06 Session 52（Monaco GP qualifying data backfilled; Cadillac Key Context deferred）
+- **最後更新**: 2026-06-06 Session 53（Mobile trend stat cards hidden across qualifying/race views）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-06-06
+- 將 trend / season view 的 `Latest / Season High / Season Avg` 三張統計卡在手機版統一隱藏，桌機版維持顯示
+- 補齊舊版 `CadillacQualifyingTrendChart` 的同樣 mobile hidden 規則，避免未來回用時出現不一致
+- 驗證 `pnpm build` 通過（mobile trend stat cards hidden 後）
+
 ### 2026-06-06
 - 新增 2026 R6 Monaco GP round JSON：補入完整 qualifying order、Q1/Q2/Q3 cutoffs，先將 Cadillac `historicalContext` 留空，依 Gore 指示暫不更新 Key Context / report
 - 更新 `src/data/seasons/2026/season.json`，把 Monaco GP 納入 2026 賽季 round 清單
