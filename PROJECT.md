@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-06 Session 54（Fixed mobile trend stat cards CSS override bug）
+- **最後更新**: 2026-06-08 Session 56（Backfilled Monaco GP race data + Cadillac driver notes）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,16 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-06-08
+- 補齊 2026 R6 Monaco GP `race.entries`：依正式 classification 寫入 78-lap finishers、Perez 因賽後 10 秒罰時掉回 P15，以及 Bottas / Verstappen 等退賽順序
+- 新增 Monaco GP `cadillac.driverNotes`：Perez 的 on-road P10 因起跑 / restart grid penalties 失去首分，Bottas 則在 lap 15 因煞車溫度問題退賽
+- 驗證 `pnpm build` 通過（R6 Monaco GP race backfill 後）
+
+### 2026-06-07
+- 補完 2026 R6 Monaco GP `cadillac.historicalContext`：聚焦 Canada momentum、Monaco-specific upgrades、Perez 幾乎闖進 Q2 但仍受 ride / curbing 限制的 qualifying-only 脈絡
+- 維持 Monaco 站只更新排位資料與 Key Context，不混入 Sunday race 敘事，遵守 `ROUND_UPDATE_RULES.md`
+- 驗證 `pnpm build` 通過（R6 Monaco GP Key Context backfill 後）
+
 ### 2026-06-06
 - 修正 mobile trend stat cards 仍顯示的真正原因：`PageQualifyingBenchmark.module.scss` 的 `.chartMeta { display: grid; }` 蓋過了 JSX 的 `hidden md:grid`
 - 改為由 SCSS 直接控制 `.chartMeta`：手機版預設 `display: none`，`min-width: 768px` 才切回 `display: grid`，確保 Qualifying / Race 都一致隱藏
