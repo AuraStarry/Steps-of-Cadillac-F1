@@ -220,7 +220,7 @@ function TrendChartSvg({ rounds, width, height }) {
                 <text {...tickProps} x={x} y={y} textAnchor="middle" dominantBaseline="middle">
                   <tspan x={x} fill={chartTheme.textDim}>{formattedValue}</tspan>
                   {showRetirementAxisCounts && retirementCount != null ? (
-                    <tspan x={x} dy="1.25em" fill={chartTheme.retirement} opacity={0.82}>{retirementCount}</tspan>
+                    <tspan x={x} dy="1.25em" fill={chartTheme.retirement} opacity={0.82}>-{retirementCount}</tspan>
                   ) : null}
                 </text>
               );
@@ -340,8 +340,8 @@ export default function CadillacBenchmarkTrendChart({ chart }) {
           </div>
           {chart.retirementLegend ? (
             <div className={`${styles.chartLegendItem} px-3 py-2`}>
-              <span className={styles.chartLegendSwatch} style={{ color: chartTheme.retirement }}><span className={styles.chartLegendNumber}>#</span></span>
-              <span><strong className="font-medium" style={{ color: chartTheme.retirement }}>Purple axis number</strong> · {chart.retirementLegend}</span>
+              <span className={styles.chartLegendSwatch} style={{ color: chartTheme.retirement }}><span className={styles.chartLegendNumber}>-</span></span>
+              <span>{chart.retirementLegend}</span>
             </div>
           ) : null}
         </div>

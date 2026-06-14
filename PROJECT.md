@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-14 Session 58（Added Race trend retirement-count axis labels）
+- **最後更新**: 2026-06-14 Session 59（Refined race retirement-count label copy）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,9 @@
 
 ## 📝 Change Log
 ### 2026-06-14
+- Race Score Trend X-axis retirement count now uses a prefixed purple `-` marker on the second line
+- Shortened the retirement-count legend copy to `Number cars retired & DNF` and removed the `Purple axis number` wording
+- 驗證 `pnpm build` 通過（race trend retirement-count label copy refinement 後）
 - Race Score Trend X-axis labels now add a muted purple second-line number showing each race’s retired / DNF car count
 - Added matching legend explanation for the purple axis number in the chart color guide, tuned for the dark Cadillac theme
 - 驗證 `pnpm build` 通過（race trend retirement-count axis labels 後）

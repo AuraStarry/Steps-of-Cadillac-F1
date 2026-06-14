@@ -103,7 +103,7 @@ export async function buildRaceBenchmarkPageModel() {
       description:
         'Race score measures how close Cadillac’s best classified finisher came to the points window, using the P10-to-P15 gap as the normalized reference band.',
       teamLegend: 'Best classified Cadillac score',
-      retirementLegend: 'cars officially listed as retired / DNF in that race',
+      retirementLegend: 'Number cars retired & DNF',
       latestLabel: 'Latest',
       highestLabel: 'Season High',
       averageLabel: 'Season Avg',
