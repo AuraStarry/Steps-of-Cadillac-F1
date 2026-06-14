@@ -25,7 +25,9 @@ function mapRoundToCard(round) {
   const withBenchmark = attachCadillacRaceBenchmark(round);
   const benchmark = withBenchmark.cadillac?.raceBenchmark;
   const driverNotes = withBenchmark.cadillac?.driverNotes ?? {};
-  const raceEntriesByCode = Object.fromEntries((withBenchmark.race?.entries ?? []).map((entry) => [entry.driverCode, entry]));
+  const raceEntries = withBenchmark.race?.entries ?? [];
+  const raceEntriesByCode = Object.fromEntries(raceEntries.map((entry) => [entry.driverCode, entry]));
+  const retirementCount = raceEntries.filter((entry) => String(entry?.status || '').toLowerCase() === 'retired').length;
 
   const isPositionFallback = benchmark?.benchmark?.scaleMode === 'position-gap-fallback';
 
@@ -72,6 +74,7 @@ function mapRoundToCard(round) {
       grandPrixName: withBenchmark.grandPrixName,
       date: withBenchmark.date,
       teamScore: benchmark?.bestCadillac?.raceScore ?? null,
+      retirementCount,
       drivers: (benchmark?.drivers ?? []).map((driver) => {
         const sourceEntry = raceEntriesByCode[driver.driverCode] ?? {};
 
@@ -100,6 +103,7 @@ export async function buildRaceBenchmarkPageModel() {
       description:
         'Race score measures how close Cadillac’s best classified finisher came to the points window, using the P10-to-P15 gap as the normalized reference band.',
       teamLegend: 'Best classified Cadillac score',
+      retirementLegend: 'cars officially listed as retired / DNF in that race',
       latestLabel: 'Latest',
       highestLabel: 'Season High',
       averageLabel: 'Season Avg',

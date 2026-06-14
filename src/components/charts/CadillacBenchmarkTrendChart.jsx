@@ -20,6 +20,7 @@ const chartTheme = {
   pointActive: '#d21b1e',
   text: '#f5f5f5',
   textDim: '#a3a3a3',
+  retirement: '#a78bfa',
 };
 
 const driverColorMap = {
@@ -85,14 +86,16 @@ function TrendChartSvg({ rounds, width, height }) {
   const { showTooltip, hideTooltip, tooltipData, tooltipLeft = 0, tooltipTop = 0 } = useTooltip();
   const [pinnedTooltip, setPinnedTooltip] = useState(null);
 
-  const margin = { top: 20, right: 20, bottom: 42, left: 48 };
-  const innerWidth = Math.max(width - margin.left - margin.right, 10);
-  const innerHeight = Math.max(height - margin.top - margin.bottom, 10);
-
   const data = useMemo(
     () => rounds.filter((round) => round.teamScore != null).map((round) => ({ ...round, label: `R${String(round.round).padStart(2, '0')}` })),
     [rounds],
   );
+
+  const showRetirementAxisCounts = data.some((round) => round.retirementCount != null);
+  const retirementCountByLabel = new Map(data.map((round) => [round.label, round.retirementCount]));
+  const margin = { top: 20, right: 20, bottom: showRetirementAxisCounts ? 58 : 42, left: 48 };
+  const innerWidth = Math.max(width - margin.left - margin.right, 10);
+  const innerHeight = Math.max(height - margin.top - margin.bottom, 10);
 
   if (!data.length) {
     return <div className="flex h-full items-center justify-center text-sm text-[var(--cad-text-dim)]">No benchmark data available.</div>;
@@ -210,6 +213,18 @@ function TrendChartSvg({ rounds, width, height }) {
             stroke={chartTheme.axis}
             tickStroke={chartTheme.axis}
             tickLabelProps={() => ({ fill: chartTheme.textDim, fontSize: 11, textAnchor: 'middle', dy: '0.9em' })}
+            tickComponent={({ x, y, formattedValue, ...tickProps }) => {
+              const retirementCount = retirementCountByLabel.get(formattedValue);
+
+              return (
+                <text {...tickProps} x={x} y={y} textAnchor="middle" dominantBaseline="middle">
+                  <tspan x={x} fill={chartTheme.textDim}>{formattedValue}</tspan>
+                  {showRetirementAxisCounts && retirementCount != null ? (
+                    <tspan x={x} dy="1.25em" fill={chartTheme.retirement} opacity={0.82}>{retirementCount}</tspan>
+                  ) : null}
+                </text>
+              );
+            }}
           />
 
           {driverSeries.map((series) => (
@@ -323,6 +338,12 @@ export default function CadillacBenchmarkTrendChart({ chart }) {
             <span className={styles.chartLegendSwatch} style={{ color: chartTheme.per }}><span className={styles.chartLegendDash} /></span>
             <span><strong className="font-medium text-[var(--cad-text)]">PER</strong></span>
           </div>
+          {chart.retirementLegend ? (
+            <div className={`${styles.chartLegendItem} px-3 py-2`}>
+              <span className={styles.chartLegendSwatch} style={{ color: chartTheme.retirement }}><span className={styles.chartLegendNumber}>#</span></span>
+              <span><strong className="font-medium" style={{ color: chartTheme.retirement }}>Purple axis number</strong> · {chart.retirementLegend}</span>
+            </div>
+          ) : null}
         </div>
       </div>
 

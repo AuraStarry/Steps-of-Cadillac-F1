@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-14 Session 57（Added Barcelona-Catalunya GP qualifying data + Cadillac context）
+- **最後更新**: 2026-06-14 Session 58（Added Race trend retirement-count axis labels）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,9 @@
 
 ## 📝 Change Log
 ### 2026-06-14
+- Race Score Trend X-axis labels now add a muted purple second-line number showing each race’s retired / DNF car count
+- Added matching legend explanation for the purple axis number in the chart color guide, tuned for the dark Cadillac theme
+- 驗證 `pnpm build` 通過（race trend retirement-count axis labels 後）
 - 新增 2026 R7 Barcelona-Catalunya GP round JSON：補入完整 qualifying order、Q1/Q2/Q3 cutoffs，以及 Catalunya qualifying-only Cadillac context
 - 更新 `src/data/seasons/2026/season.json`，把 Barcelona Grand Prix 納入 2026 賽季 round 清單
 - 先建立 Barcelona-Catalunya `race` placeholder（empty `entries`），讓本輪只上線排位資料、不混入未完賽內容

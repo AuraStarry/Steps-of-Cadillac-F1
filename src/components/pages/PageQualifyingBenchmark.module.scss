@@ -131,6 +131,16 @@
   border-top: 2px dashed currentColor;
 }
 
+.chartLegendNumber {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -54%);
+  font-family: var(--font-heading), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+}
+
 @media (min-width: 768px) {
   .chartMeta {
     display: grid;
