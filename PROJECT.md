@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-08 Session 56（Backfilled Monaco GP race data + Cadillac driver notes）
+- **最後更新**: 2026-06-14 Session 57（Added Barcelona-Catalunya GP qualifying data + Cadillac context）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-06-14
+- 新增 2026 R7 Barcelona-Catalunya GP round JSON：補入完整 qualifying order、Q1/Q2/Q3 cutoffs，以及 Catalunya qualifying-only Cadillac context
+- 更新 `src/data/seasons/2026/season.json`，把 Barcelona Grand Prix 納入 2026 賽季 round 清單
+- 先建立 Barcelona-Catalunya `race` placeholder（empty `entries`），讓本輪只上線排位資料、不混入未完賽內容
+- 驗證 `pnpm build` 通過（R7 Barcelona-Catalunya GP qualifying update 後）
+
 ### 2026-06-08
 - 補齊 2026 R6 Monaco GP `race.entries`：依正式 classification 寫入 78-lap finishers、Perez 因賽後 10 秒罰時掉回 P15，以及 Bottas / Verstappen 等退賽順序
 - 新增 Monaco GP `cadillac.driverNotes`：Perez 的 on-road P10 因起跑 / restart grid penalties 失去首分，Bottas 則在 lap 15 因煞車溫度問題退賽

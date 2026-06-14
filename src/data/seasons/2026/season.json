@@ -50,6 +50,13 @@
       "name": "Monaco Grand Prix",
       "date": "2026-06-07",
       "file": "./rounds/06-monaco.json"
+    },
+    {
+      "round": 7,
+      "slug": "barcelona-catalunya",
+      "name": "Barcelona Grand Prix",
+      "date": "2026-06-14",
+      "file": "./rounds/07-barcelona-catalunya.json"
     }
   ]
 }
