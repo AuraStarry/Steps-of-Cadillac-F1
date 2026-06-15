@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-14 Session 59（Refined race retirement-count label copy）
+- **最後更新**: 2026-06-15 Session 60（Backfilled Barcelona-Catalunya race results）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -46,7 +46,7 @@
    - [x] 在共用 surface 內加入 Qualifying / Race mode switch，先完成內容切換，不先做數字翻牌動畫
    - [x] 將 race driver rows 接上 `driverNotes` 呈現
    - [x] 驗證 `pnpm build` 與必要互動流程
-   - [x] 補齊 round `race.entries` 原始資料（R1-R5 已補齊）
+   - [x] 補齊 round `race.entries` 原始資料（R1-R7 已補齊）
    - [ ] 第二階段視覺增強：研究數字牌翻轉 transition（可延後到主要功能完成後）
 11. [ ] 時間線視圖（Cadillac F1 發展節點）
 12. [ ] 資料卡片（車隊、車手、市場傳聞）
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-06-15
+- 補齊 2026 R7 Barcelona-Catalunya GP `race.entries`：依正式 race result 寫入 Hamilton 勝出、Perez P14 / +3 laps、Bottas lap 15 retired，以及 Albon NC / +11 laps
+- 更新 Barcelona-Catalunya `cadillac.driverNotes`：Perez 聚焦 soft-start degradation management 與 Cadillac best official finish；Bottas 聚焦 precautionary lap-15 retirement
+- 修正 `cadillacRaceBenchmark` 的 `toNumber` null / empty-string handling，避免 lapped / missing gaps 被誤轉成 `0` 秒
+- 驗證 `pnpm build` 通過（R7 Barcelona-Catalunya GP race backfill 後）
+
 ### 2026-06-14
 - Race Score Trend X-axis retirement count now uses a prefixed purple `-` marker on the second line
 - Shortened the retirement-count legend copy to `Number cars retired & DNF` and removed the `Purple axis number` wording
