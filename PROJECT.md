@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-15 Session 60（Backfilled Barcelona-Catalunya race results）
+- **最後更新**: 2026-06-28 Session 61（Added Austrian GP qualifying data）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-06-28
+- 新增 2026 R8 Austrian GP round JSON：依 Jolpica qualifying endpoint 補入完整排位名單、Q1/Q2/Q3 cutoffs，以及 Red Bull Ring qualifying-only Cadillac context
+- 更新 `src/data/seasons/2026/season.json`，把 Austrian Grand Prix 納入 2026 賽季 round 清單
+- 先建立 Austrian GP `race` placeholder（empty `entries`），依 Gore 指示暫不混入正賽資料與 race narrative
+- 驗證 `pnpm build` 通過（R8 Austrian GP qualifying update 後）
+
 ### 2026-06-15
 - 補齊 2026 R7 Barcelona-Catalunya GP `race.entries`：依正式 race result 寫入 Hamilton 勝出、Perez P14 / +3 laps、Bottas lap 15 retired，以及 Albon NC / +11 laps
 - 更新 Barcelona-Catalunya `cadillac.driverNotes`：Perez 聚焦 soft-start degradation management 與 Cadillac best official finish；Bottas 聚焦 precautionary lap-15 retirement

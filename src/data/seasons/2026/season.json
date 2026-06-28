@@ -57,6 +57,13 @@
       "name": "Barcelona Grand Prix",
       "date": "2026-06-14",
       "file": "./rounds/07-barcelona-catalunya.json"
+    },
+    {
+      "round": 8,
+      "slug": "austrian",
+      "name": "Austrian Grand Prix",
+      "date": "2026-06-28",
+      "file": "./rounds/08-austrian.json"
     }
   ]
 }
