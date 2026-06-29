@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-28 Session 62（Refined Austrian GP Key Context）
+- **最後更新**: 2026-06-29 Session 63（Backfilled Austrian GP race data）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-06-29
+- 補齊 2026 R8 Austrian GP `race.entries`：依 Jolpica race results 寫入 Russell 勝出、P10 積分線、lapped finishers，以及 Cadillac 雙退賽（Perez lap 4 / Bottas lap 2）
+- 新增 Austrian GP `cadillac.driverNotes`：依 Cadillac race report 補入雙車煞車過熱退賽、Bottas 早期 brake-fire / Perez cockpit-smoke race narrative
+- 維持 Austrian GP `cadillac.historicalContext` 不變，避免把 Sunday race outcome 混入 qualifying-only Key Context
+- 驗證 `pnpm build` 通過（R8 Austrian GP race backfill 後）
+
 ### 2026-06-28
 - 重寫 2026 R8 Austrian GP `cadillac.historicalContext`：減少單純狀態敘述，改聚焦 Cadillac major upgrade、FP1/FP2 顯現的正負訊號，並串回 P19/P20 與 Q2 差距的排位解讀
 - 新增 2026 R8 Austrian GP round JSON：依 Jolpica qualifying endpoint 補入完整排位名單、Q1/Q2/Q3 cutoffs，以及 Red Bull Ring qualifying-only Cadillac context
