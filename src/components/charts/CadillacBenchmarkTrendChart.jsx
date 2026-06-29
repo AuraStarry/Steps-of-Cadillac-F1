@@ -28,8 +28,8 @@ const driverColorMap = {
   PER: chartTheme.per,
 };
 
-function scoreLabel(score) {
-  if (score == null) return 'N/A';
+function scoreLabel(score, fallback = 'N/A') {
+  if (score == null) return fallback;
   return score.toFixed(3);
 }
 
@@ -73,9 +73,13 @@ function renderStatusMarker({ driverCode, point, xScale, yScale }) {
   );
 }
 
+function hasChartEvent(round) {
+  return round?.teamScore != null || (round?.drivers || []).some((driver) => isNonClassifiedDriverStatus(driver));
+}
+
 function buildChartStats(rounds) {
   const validScores = rounds.map((round) => round.teamScore).filter((score) => score != null);
-  const latest = rounds.filter((round) => round.teamScore != null).at(-1) ?? null;
+  const latest = rounds.filter(hasChartEvent).at(-1) ?? null;
   const highest = validScores.length ? Math.max(...validScores) : null;
   const average = validScores.length ? validScores.reduce((sum, score) => sum + score, 0) / validScores.length : null;
 
@@ -87,7 +91,7 @@ function TrendChartSvg({ rounds, width, height }) {
   const [pinnedTooltip, setPinnedTooltip] = useState(null);
 
   const data = useMemo(
-    () => rounds.filter((round) => round.teamScore != null).map((round) => ({ ...round, label: `R${String(round.round).padStart(2, '0')}` })),
+    () => rounds.filter(hasChartEvent).map((round) => ({ ...round, label: `R${String(round.round).padStart(2, '0')}` })),
     [rounds],
   );
 
@@ -102,8 +106,8 @@ function TrendChartSvg({ rounds, width, height }) {
   }
 
   const scores = data.flatMap((round) => [round.teamScore, ...(round.drivers || []).map((driver) => driver.score)]).filter((score) => score != null);
-  const minScore = Math.min(...scores);
-  const maxScore = Math.max(...scores);
+  const minScore = scores.length ? Math.min(...scores) : 0;
+  const maxScore = scores.length ? Math.max(...scores) : 1;
   const padding = Math.max((maxScore - minScore) * 0.2, 0.08);
   const statusDropDepth = Math.max((maxScore - minScore) * 0.35, 0.25);
   const chartFloorScore = minScore - padding - statusDropDepth;
@@ -126,7 +130,9 @@ function TrendChartSvg({ rounds, width, height }) {
         })
         .filter(Boolean),
     }))
-    .filter((series) => series.points.length > 1);
+    .filter((series) => series.points.length > 0);
+
+  const teamLineData = data.filter((round) => round.teamScore != null);
 
   const xScale = scalePoint({ domain: data.map((round) => round.label), range: [0, innerWidth], padding: 0.5 });
   const yScale = scaleLinear({ domain: [chartFloorScore, maxScore + padding], range: [innerHeight, 0], nice: true });
@@ -150,7 +156,7 @@ function TrendChartSvg({ rounds, width, height }) {
     showTooltip({
       tooltipData: nearest.datum,
       tooltipLeft: nearest.x + margin.left,
-      tooltipTop: (yScale(nearest.datum.teamScore) ?? 0) + margin.top,
+      tooltipTop: (yScale(nearest.datum.teamScore ?? chartFloorScore) ?? 0) + margin.top,
     });
   };
 
@@ -177,7 +183,7 @@ function TrendChartSvg({ rounds, width, height }) {
     ? {
         tooltipData: pinnedTooltip.datum,
         tooltipLeft: pinnedTooltip.x + margin.left,
-        tooltipTop: (yScale(pinnedTooltip.datum.teamScore) ?? 0) + margin.top,
+        tooltipTop: (yScale(pinnedTooltip.datum.teamScore ?? chartFloorScore) ?? 0) + margin.top,
       }
     : { tooltipData, tooltipLeft, tooltipTop };
 
@@ -243,9 +249,11 @@ function TrendChartSvg({ rounds, width, height }) {
             </g>
           ))}
 
-          <LinePath data={data} x={(datum) => xScale(datum.label) ?? 0} y={(datum) => yScale(datum.teamScore) ?? 0} stroke="url(#cadillac-line-glow)" strokeWidth={1.8} curve={null} />
+          {teamLineData.length > 1 ? (
+            <LinePath data={teamLineData} x={(datum) => xScale(datum.label) ?? 0} y={(datum) => yScale(datum.teamScore) ?? 0} stroke="url(#cadillac-line-glow)" strokeWidth={1.8} curve={null} />
+          ) : null}
 
-          {data.map((datum) => {
+          {teamLineData.map((datum) => {
             const isLatest = datum.round === latestRound.round;
             const isActive = activeTooltip.tooltipData?.round === datum.round;
             const x = xScale(datum.label) ?? 0;
@@ -270,7 +278,7 @@ function TrendChartSvg({ rounds, width, height }) {
             <div className="mt-1 text-xs text-[var(--cad-text-dim)]">{activeTooltip.tooltipData.date}</div>
             <div className="mt-3 flex items-end justify-between gap-4">
               <span className="text-[11px] uppercase tracking-[0.14rem] text-[var(--cad-text-dim)]">Team Score</span>
-              <strong className="text-base font-semibold text-[var(--cad-text-strong)]">{scoreLabel(activeTooltip.tooltipData.teamScore)}</strong>
+              <strong className="text-base font-semibold text-[var(--cad-text-strong)]">{scoreLabel(activeTooltip.tooltipData.teamScore, activeTooltip.tooltipData.outcomeLabel ?? 'N/A')}</strong>
             </div>
             {(activeTooltip.tooltipData.drivers || []).length ? (
               <div className="mt-3 space-y-2 border-t border-[var(--cad-line-soft)] pt-3">
@@ -282,7 +290,7 @@ function TrendChartSvg({ rounds, width, height }) {
                       </span>
                       {driver.resultLabel ? <span className="text-[10px] uppercase tracking-[0.12rem] text-[var(--cad-text-dim)]">{driver.resultLabel}</span> : null}
                     </div>
-                    <strong className="font-semibold text-[var(--cad-text)]">{shouldShowDriverScore(driver) ? scoreLabel(driver.score) : 'N/A'}</strong>
+                    <strong className="font-semibold text-[var(--cad-text)]">{shouldShowDriverScore(driver) ? scoreLabel(driver.score) : (driver.resultLabel ?? 'N/A')}</strong>
                   </div>
                 ))}
               </div>
@@ -311,7 +319,7 @@ export default function CadillacBenchmarkTrendChart({ chart }) {
         <div className={`${styles.chartMeta} hidden w-full md:grid md:max-w-lg`}>
           <div className={`${styles.chartMetaItem} px-3 py-3`}>
             <span className="block text-[11px] uppercase tracking-[0.14rem] text-[var(--cad-text-dim)]">{chart.latestLabel}</span>
-            <strong className="mt-1 block text-lg font-semibold text-[var(--cad-text-strong)]">{scoreLabel(stats.latest?.teamScore ?? null)}</strong>
+            <strong className="mt-1 block text-lg font-semibold text-[var(--cad-text-strong)]">{scoreLabel(stats.latest?.teamScore ?? null, stats.latest?.outcomeLabel ?? 'N/A')}</strong>
           </div>
           <div className={`${styles.chartMetaItem} px-3 py-3`}>
             <span className="block text-[11px] uppercase tracking-[0.14rem] text-[var(--cad-text-dim)]">{chart.highestLabel}</span>

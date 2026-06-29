@@ -6,8 +6,8 @@ const driverColorMap = {
   PER: '#A9BE57',
 };
 
-function scoreLabel(score) {
-  if (score == null) return 'N/A';
+function scoreLabel(score, fallback = 'N/A') {
+  if (score == null) return fallback;
   return score.toFixed(3);
 }
 
@@ -73,7 +73,7 @@ export default function BenchmarkDashboard({ model, mode, setMode, modeLabels })
             <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <div className={`rounded-none p-3 ${styles.scoreAccent}`}>
                 <span className="block text-[11px] uppercase tracking-[0.14rem] text-zinc-300">{card.heroMetric.label}</span>
-                <strong className="mt-1 block text-xl font-semibold text-[var(--cad-text-strong)]">{scoreLabel(card.heroMetric.value)}</strong>
+                <strong className="mt-1 block text-xl font-semibold text-[var(--cad-text-strong)]">{scoreLabel(card.heroMetric.value, card.heroMetric.displayValue ?? 'N/A')}</strong>
               </div>
               {card.supportingStats.map((stat) => {
                 const hideOnMobile = shouldHideStatOnMobile(mode, stat.label);

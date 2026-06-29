@@ -7,6 +7,17 @@ function formatGap(seconds) {
   return `${sign}${seconds.toFixed(3)}s`;
 }
 
+function formatNoCadillacClassifiedLabel(benchmark) {
+  const count = benchmark?.outcome?.cadillacNonClassifiedCount ?? 0;
+  if (count >= 2) return 'Double DNF';
+  if (count === 1) return 'DNF';
+  return 'No classified finish';
+}
+
+function hasRaceData(withBenchmark) {
+  return (withBenchmark.race?.entries ?? []).length > 0;
+}
+
 function formatRaceResultLabel(driver) {
   const status = String(driver?.status || '').toLowerCase();
 
@@ -30,6 +41,9 @@ function mapRoundToCard(round) {
   const retirementCount = raceEntries.filter((entry) => String(entry?.status || '').toLowerCase() === 'retired').length;
 
   const isPositionFallback = benchmark?.benchmark?.scaleMode === 'position-gap-fallback';
+  const hasNoCadillacClassified = benchmark?.outcome?.status === 'no-cadillac-classified';
+  const noCadillacClassifiedLabel = hasNoCadillacClassified ? formatNoCadillacClassifiedLabel(benchmark) : null;
+  const noRaceDataLabel = !hasRaceData(withBenchmark) ? 'No race data' : null;
 
   return {
     id: `${withBenchmark.year}-r-${String(withBenchmark.round).padStart(2, '0')}`,
@@ -40,11 +54,12 @@ function mapRoundToCard(round) {
     heroMetric: {
       label: 'Race Score',
       value: benchmark?.bestCadillac?.raceScore ?? null,
+      displayValue: noCadillacClassifiedLabel ?? noRaceDataLabel ?? null,
     },
     supportingStats: [
       {
         label: 'Best Cadillac Finish',
-        value: benchmark?.bestCadillac?.finishPosition != null ? `P${benchmark.bestCadillac.finishPosition}` : 'N/A',
+        value: benchmark?.bestCadillac?.finishPosition != null ? `P${benchmark.bestCadillac.finishPosition}` : (noCadillacClassifiedLabel ?? noRaceDataLabel ?? 'N/A'),
       },
       {
         label: isPositionFallback ? 'Best Cadillac vs P10 (Positions)' : 'Best Cadillac vs P10',
@@ -74,6 +89,8 @@ function mapRoundToCard(round) {
       grandPrixName: withBenchmark.grandPrixName,
       date: withBenchmark.date,
       teamScore: benchmark?.bestCadillac?.raceScore ?? null,
+      outcomeStatus: benchmark?.outcome?.status ?? null,
+      outcomeLabel: noCadillacClassifiedLabel ?? noRaceDataLabel ?? null,
       retirementCount,
       drivers: (benchmark?.drivers ?? []).map((driver) => {
         const sourceEntry = raceEntriesByCode[driver.driverCode] ?? {};

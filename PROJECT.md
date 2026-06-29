@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-29 Session 63（Backfilled Austrian GP race data）
+- **最後更新**: 2026-06-29 Session 64（Fixed Race Benchmark double-DNF display）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,10 @@
 
 ## 📝 Change Log
 ### 2026-06-29
+- 修正 Race Benchmark 首次遇到 Cadillac 雙 DNF 時的資料語義：`cadillacRaceBenchmark` 現在保留 `no-cadillac-classified` outcome，不再把雙退賽等同於缺資料
+- 修正 Race Score Trend：無 classified Cadillac 但有 DNF/DNS/DSQ 事件的 round 仍會進入圖表，Austrian GP 可顯示 BOT / PER 雙叉記號與 tooltip 狀態
+- 修正 Race card / chart meta 顯示：`Race Score`、`Best Cadillac Finish`、Latest 與 tooltip 在雙 DNF 時顯示 `Double DNF`，與真正 `No race data` / `N/A` 區分
+- 驗證 `pnpm build` 通過（Race Benchmark double-DNF display fix 後）
 - 補齊 2026 R8 Austrian GP `race.entries`：依 Jolpica race results 寫入 Russell 勝出、P10 積分線、lapped finishers，以及 Cadillac 雙退賽（Perez lap 4 / Bottas lap 2）
 - 新增 Austrian GP `cadillac.driverNotes`：依 Cadillac race report 補入雙車煞車過熱退賽、Bottas 早期 brake-fire / Perez cockpit-smoke race narrative
 - 維持 Austrian GP `cadillac.historicalContext` 不變，避免把 Sunday race outcome 混入 qualifying-only Key Context
