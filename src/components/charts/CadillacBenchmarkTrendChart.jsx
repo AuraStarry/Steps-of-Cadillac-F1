@@ -268,7 +268,7 @@ function TrendChartSvg({ rounds, width, height }) {
                     point,
                     xScale,
                     yScale,
-                    markerScale: statusMarkerCountByKey.get(overlapKey) > 1 && overlapIndex === 0 ? 1.07 : 1,
+                    markerScale: statusMarkerCountByKey.get(overlapKey) > 1 && overlapIndex === 0 ? 1.15 : 1,
                   });
                 })}
             </g>

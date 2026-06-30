@@ -65,8 +65,8 @@
 
 ## 📝 Change Log
 ### 2026-06-30
-- 調整 Race Score Trend non-classified marker：當同一站 BOT / PER 雙退賽叉記號完全重疊時，底層 marker 放大 1.07 倍，讓底層顏色能從前景 marker 外緣露出、視覺上能辨識雙 DNF
-- 驗證 `pnpm build` 通過（overlapping double-DNF marker scale correction 後）
+- 調整 Race Score Trend non-classified marker：當同一站 BOT / PER 雙退賽叉記號完全重疊時，底層 marker 放大 1.15 倍，讓底層顏色能從前景 marker 外緣露出、視覺上能辨識雙 DNF
+- 驗證 `pnpm build` 通過（overlapping double-DNF marker scale adjustment 後）
 
 ### 2026-06-29
 - 修正 Race Benchmark 首次遇到 Cadillac 雙 DNF 時的資料語義：`cadillacRaceBenchmark` 現在保留 `no-cadillac-classified` outcome，不再把雙退賽等同於缺資料
