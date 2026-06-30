@@ -44,17 +44,18 @@ function isNonClassifiedDriverStatus(driver) {
   return ['retired', 'dns', 'dsq'].includes(status);
 }
 
-function renderStatusMarker({ driverCode, point, xScale, yScale }) {
+function renderStatusMarker({ driverCode, point, xScale, yScale, markerScale = 1 }) {
   const x = xScale(point.label) ?? 0;
   const y = yScale(point.score) ?? 0;
   const color = driverColorMap[driverCode] ?? chartTheme.textDim;
   const status = String(point.status || '').toLowerCase();
+  const crossHalfSize = 4 * markerScale;
 
   if (status === 'retired') {
     return (
       <g key={`${driverCode}-${point.round}-status-drop`} opacity={0.96}>
-        <line x1={x - 4} y1={y - 4} x2={x + 4} y2={y + 4} stroke={color} strokeWidth={1.7} strokeLinecap="round" />
-        <line x1={x - 4} y1={y + 4} x2={x + 4} y2={y - 4} stroke={color} strokeWidth={1.7} strokeLinecap="round" />
+        <line x1={x - crossHalfSize} y1={y - crossHalfSize} x2={x + crossHalfSize} y2={y + crossHalfSize} stroke={color} strokeWidth={1.7} strokeLinecap="round" />
+        <line x1={x - crossHalfSize} y1={y + crossHalfSize} x2={x + crossHalfSize} y2={y - crossHalfSize} stroke={color} strokeWidth={1.7} strokeLinecap="round" />
       </g>
     );
   }
@@ -64,7 +65,7 @@ function renderStatusMarker({ driverCode, point, xScale, yScale }) {
       key={`${driverCode}-${point.round}-status-drop`}
       cx={x}
       cy={y}
-      r={3.6}
+      r={3.6 * markerScale}
       fill="var(--cad-panel)"
       stroke={color}
       strokeWidth={1.5}
@@ -188,6 +189,7 @@ function TrendChartSvg({ rounds, width, height }) {
     : { tooltipData, tooltipLeft, tooltipTop };
 
   const latestRound = data.at(-1);
+  const statusMarkerOccurrenceByKey = new Map();
 
   return (
     <div className="relative h-full w-full" onPointerLeave={handlePointerLeave}>
@@ -245,7 +247,21 @@ function TrendChartSvg({ rounds, width, height }) {
                 strokeDasharray="4 6"
                 curve={null}
               />
-              {series.points.filter((point) => point.isStatusDrop).map((point) => renderStatusMarker({ driverCode: series.driverCode, point, xScale, yScale }))}
+              {series.points
+                .filter((point) => point.isStatusDrop)
+                .map((point) => {
+                  const overlapKey = `${point.label}-${point.score}`;
+                  const overlapIndex = statusMarkerOccurrenceByKey.get(overlapKey) ?? 0;
+                  statusMarkerOccurrenceByKey.set(overlapKey, overlapIndex + 1);
+
+                  return renderStatusMarker({
+                    driverCode: series.driverCode,
+                    point,
+                    xScale,
+                    yScale,
+                    markerScale: overlapIndex > 0 ? 1.07 : 1,
+                  });
+                })}
             </g>
           ))}
 
