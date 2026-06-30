@@ -65,7 +65,7 @@
 
 ## 📝 Change Log
 ### 2026-06-30
-- 調整 Race Score Trend non-classified marker：當同一站 BOT / PER 雙退賽叉記號完全重疊時，底層 marker 放大 1.15 倍，讓底層顏色能從前景 marker 外緣露出、視覺上能辨識雙 DNF
+- 調整 Race Score Trend non-classified marker：當同一站 BOT / PER 雙退賽叉記號完全重疊時，底層 marker 放大 1.3 倍，讓底層顏色能從前景 marker 外緣露出、視覺上能辨識雙 DNF
 - 驗證 `pnpm build` 通過（overlapping double-DNF marker scale adjustment 後）
 
 ### 2026-06-29
