@@ -189,6 +189,15 @@ function TrendChartSvg({ rounds, width, height }) {
     : { tooltipData, tooltipLeft, tooltipTop };
 
   const latestRound = data.at(-1);
+  const statusMarkerCountByKey = new Map();
+  driverSeries.forEach((series) => {
+    series.points
+      .filter((point) => point.isStatusDrop)
+      .forEach((point) => {
+        const overlapKey = `${point.label}-${point.score}`;
+        statusMarkerCountByKey.set(overlapKey, (statusMarkerCountByKey.get(overlapKey) ?? 0) + 1);
+      });
+  });
   const statusMarkerOccurrenceByKey = new Map();
 
   return (
@@ -259,7 +268,7 @@ function TrendChartSvg({ rounds, width, height }) {
                     point,
                     xScale,
                     yScale,
-                    markerScale: overlapIndex > 0 ? 1.07 : 1,
+                    markerScale: statusMarkerCountByKey.get(overlapKey) > 1 && overlapIndex === 0 ? 1.07 : 1,
                   });
                 })}
             </g>
