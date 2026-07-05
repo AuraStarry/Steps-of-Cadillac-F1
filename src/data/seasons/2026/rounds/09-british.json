@@ -1,0 +1,360 @@
+{
+  "year": 2026,
+  "round": 9,
+  "slug": "british",
+  "grandPrixName": "British Grand Prix",
+  "circuit": "Silverstone Circuit",
+  "country": "United Kingdom",
+  "date": "2026-07-05",
+  "cadillac": {
+    "historicalContext": "Silverstone gave Cadillac a sharper read on its Austria-era package on a high-speed, long-lap circuit: the team used Saturday's Sprint running to gather tire and high-speed balance information, then still ended Grand Prix qualifying with both MAC-26s in Q1. Bottas maximized what he called one of his better qualifying sessions of the year for P18, 0.547s shy of the Q2 cut, while Pérez struggled with high-speed balance and front-end grip on the way to P20, keeping Cadillac ahead of Aston Martin but still behind the Williams/Haas/Alpine edge of the midfield.",
+    "driverNotes": {}
+  },
+  "qualifying": {
+    "sessionDate": "2026-07-04",
+    "entries": [
+      {
+        "position": 1,
+        "driver": "Andrea Kimi Antonelli",
+        "driverCode": "ANT",
+        "team": "Mercedes",
+        "bestTime": "1:28.111",
+        "status": "classified",
+        "reached": "Q3",
+        "segments": {
+          "Q1": "1:29.719",
+          "Q2": "1:28.493",
+          "Q3": "1:28.111"
+        }
+      },
+      {
+        "position": 2,
+        "driver": "Charles Leclerc",
+        "driverCode": "LEC",
+        "team": "Ferrari",
+        "bestTime": "1:28.286",
+        "status": "classified",
+        "reached": "Q3",
+        "segments": {
+          "Q1": "1:29.534",
+          "Q2": "1:28.626",
+          "Q3": "1:28.286"
+        }
+      },
+      {
+        "position": 3,
+        "driver": "Lewis Hamilton",
+        "driverCode": "HAM",
+        "team": "Ferrari",
+        "bestTime": "1:28.458",
+        "status": "classified",
+        "reached": "Q3",
+        "segments": {
+          "Q1": "1:29.644",
+          "Q2": "1:28.864",
+          "Q3": "1:28.458"
+        }
+      },
+      {
+        "position": 4,
+        "driver": "George Russell",
+        "driverCode": "RUS",
+        "team": "Mercedes",
+        "bestTime": "1:28.481",
+        "status": "classified",
+        "reached": "Q3",
+        "segments": {
+          "Q1": "1:29.985",
+          "Q2": "1:28.920",
+          "Q3": "1:28.481"
+        }
+      },
+      {
+        "position": 5,
+        "driver": "Isack Hadjar",
+        "driverCode": "HAD",
+        "team": "Red Bull",
+        "bestTime": "1:28.746",
+        "status": "classified",
+        "reached": "Q3",
+        "segments": {
+          "Q1": "1:29.276",
+          "Q2": "1:29.069",
+          "Q3": "1:28.746"
+        }
+      },
+      {
+        "position": 6,
+        "driver": "Lando Norris",
+        "driverCode": "NOR",
+        "team": "McLaren",
+        "bestTime": "1:28.877",
+        "status": "classified",
+        "reached": "Q3",
+        "segments": {
+          "Q1": "1:30.186",
+          "Q2": "1:29.383",
+          "Q3": "1:28.877"
+        }
+      },
+      {
+        "position": 7,
+        "driver": "Max Verstappen",
+        "driverCode": "VER",
+        "team": "Red Bull",
+        "bestTime": "1:28.893",
+        "status": "classified",
+        "reached": "Q3",
+        "segments": {
+          "Q1": "1:29.549",
+          "Q2": "1:29.113",
+          "Q3": "1:28.893"
+        }
+      },
+      {
+        "position": 8,
+        "driver": "Oscar Piastri",
+        "driverCode": "PIA",
+        "team": "McLaren",
+        "bestTime": "1:29.032",
+        "status": "classified",
+        "reached": "Q3",
+        "segments": {
+          "Q1": "1:29.971",
+          "Q2": "1:29.218",
+          "Q3": "1:29.032"
+        }
+      },
+      {
+        "position": 9,
+        "driver": "Arvid Lindblad",
+        "driverCode": "LIN",
+        "team": "RB F1 Team",
+        "bestTime": "1:29.305",
+        "status": "classified",
+        "reached": "Q3",
+        "segments": {
+          "Q1": "1:29.661",
+          "Q2": "1:29.324",
+          "Q3": "1:29.305"
+        }
+      },
+      {
+        "position": 10,
+        "driver": "Liam Lawson",
+        "driverCode": "LAW",
+        "team": "RB F1 Team",
+        "bestTime": "1:29.716",
+        "status": "classified",
+        "reached": "Q3",
+        "segments": {
+          "Q1": "1:29.300",
+          "Q2": "1:29.429",
+          "Q3": "1:29.716"
+        }
+      },
+      {
+        "position": 11,
+        "driver": "Gabriel Bortoleto",
+        "driverCode": "BOR",
+        "team": "Audi",
+        "bestTime": "1:29.461",
+        "status": "classified",
+        "reached": "Q2",
+        "segments": {
+          "Q1": "1:30.269",
+          "Q2": "1:29.461",
+          "Q3": null
+        }
+      },
+      {
+        "position": 12,
+        "driver": "Pierre Gasly",
+        "driverCode": "GAS",
+        "team": "Alpine F1 Team",
+        "bestTime": "1:30.063",
+        "status": "classified",
+        "reached": "Q2",
+        "segments": {
+          "Q1": "1:30.345",
+          "Q2": "1:30.063",
+          "Q3": null
+        }
+      },
+      {
+        "position": 13,
+        "driver": "Nico Hülkenberg",
+        "driverCode": "HUL",
+        "team": "Audi",
+        "bestTime": "1:30.076",
+        "status": "classified",
+        "reached": "Q2",
+        "segments": {
+          "Q1": "1:29.539",
+          "Q2": "1:30.076",
+          "Q3": null
+        }
+      },
+      {
+        "position": 14,
+        "driver": "Oliver Bearman",
+        "driverCode": "BEA",
+        "team": "Haas F1 Team",
+        "bestTime": "1:30.501",
+        "status": "classified",
+        "reached": "Q2",
+        "segments": {
+          "Q1": "1:30.570",
+          "Q2": "1:30.501",
+          "Q3": null
+        }
+      },
+      {
+        "position": 15,
+        "driver": "Carlos Sainz",
+        "driverCode": "SAI",
+        "team": "Williams",
+        "bestTime": "1:30.623",
+        "status": "classified",
+        "reached": "Q2",
+        "segments": {
+          "Q1": "1:30.562",
+          "Q2": "1:30.623",
+          "Q3": null
+        }
+      },
+      {
+        "position": 16,
+        "driver": "Alexander Albon",
+        "driverCode": "ALB",
+        "team": "Williams",
+        "bestTime": "1:31.341",
+        "status": "classified",
+        "reached": "Q2",
+        "segments": {
+          "Q1": "1:30.638",
+          "Q2": "1:31.341",
+          "Q3": null
+        }
+      },
+      {
+        "position": 17,
+        "driver": "Esteban Ocon",
+        "driverCode": "OCO",
+        "team": "Haas F1 Team",
+        "bestTime": "1:30.680",
+        "status": "classified",
+        "reached": "Q1",
+        "segments": {
+          "Q1": "1:30.680",
+          "Q2": null,
+          "Q3": null
+        }
+      },
+      {
+        "position": 18,
+        "driver": "Valtteri Bottas",
+        "driverCode": "BOT",
+        "team": "Cadillac F1 Team",
+        "bestTime": "1:31.227",
+        "status": "classified",
+        "reached": "Q1",
+        "segments": {
+          "Q1": "1:31.227",
+          "Q2": null,
+          "Q3": null
+        }
+      },
+      {
+        "position": 19,
+        "driver": "Franco Colapinto",
+        "driverCode": "COL",
+        "team": "Alpine F1 Team",
+        "bestTime": "1:31.321",
+        "status": "classified",
+        "reached": "Q1",
+        "segments": {
+          "Q1": "1:31.321",
+          "Q2": null,
+          "Q3": null
+        }
+      },
+      {
+        "position": 20,
+        "driver": "Sergio Pérez",
+        "driverCode": "PER",
+        "team": "Cadillac F1 Team",
+        "bestTime": "1:31.451",
+        "status": "classified",
+        "reached": "Q1",
+        "segments": {
+          "Q1": "1:31.451",
+          "Q2": null,
+          "Q3": null
+        }
+      },
+      {
+        "position": 21,
+        "driver": "Lance Stroll",
+        "driverCode": "STR",
+        "team": "Aston Martin",
+        "bestTime": "1:32.863",
+        "status": "classified",
+        "reached": "Q1",
+        "segments": {
+          "Q1": "1:32.863",
+          "Q2": null,
+          "Q3": null
+        }
+      },
+      {
+        "position": 22,
+        "driver": "Fernando Alonso",
+        "driverCode": "ALO",
+        "team": "Aston Martin",
+        "bestTime": "1:33.025",
+        "status": "classified",
+        "reached": "Q1",
+        "segments": {
+          "Q1": "1:33.025",
+          "Q2": null,
+          "Q3": null
+        }
+      }
+    ],
+    "cutoffs": {
+      "Q1Eliminated": [
+        "OCO",
+        "BOT",
+        "COL",
+        "PER",
+        "STR",
+        "ALO"
+      ],
+      "Q2Eliminated": [
+        "BOR",
+        "GAS",
+        "HUL",
+        "BEA",
+        "SAI",
+        "ALB"
+      ],
+      "Q3": [
+        "ANT",
+        "LEC",
+        "HAM",
+        "RUS",
+        "HAD",
+        "NOR",
+        "VER",
+        "PIA",
+        "LIN",
+        "LAW"
+      ]
+    }
+  },
+  "race": {
+    "sessionDate": "2026-07-05",
+    "entries": []
+  }
+}

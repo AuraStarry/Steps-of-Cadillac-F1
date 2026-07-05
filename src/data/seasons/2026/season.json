@@ -64,6 +64,13 @@
       "name": "Austrian Grand Prix",
       "date": "2026-06-28",
       "file": "./rounds/08-austrian.json"
+    },
+    {
+      "round": 9,
+      "slug": "british",
+      "name": "British Grand Prix",
+      "date": "2026-07-05",
+      "file": "./rounds/09-british.json"
     }
   ]
 }

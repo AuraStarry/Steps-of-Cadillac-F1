@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-06-30 Session 65（Adjusted overlapping double-DNF chart markers）
+- **最後更新**: 2026-07-05 Session 66（Added British GP qualifying data）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-07-05
+- 新增 2026 R9 British GP round JSON：依 Jolpica qualifying endpoint 補入 Silverstone 完整排位名單、Q1/Q2/Q3 cutoffs，以及 qualifying-only Cadillac context
+- 更新 `src/data/seasons/2026/season.json`，把 British Grand Prix 納入 2026 賽季 round 清單
+- 先建立 British GP `race` placeholder（empty `entries`），維持本輪只上線排位資料、不混入 Sunday race outcome
+- 驗證 `pnpm build` 通過（R9 British GP qualifying update 後）
+
 ### 2026-06-30
 - 調整 Race Score Trend non-classified marker：當同一站 BOT / PER 雙退賽叉記號完全重疊時，底層 marker 放大 1.3 倍，讓底層顏色能從前景 marker 外緣露出、視覺上能辨識雙 DNF
 - 驗證 `pnpm build` 通過（overlapping double-DNF marker scale adjustment 後）
