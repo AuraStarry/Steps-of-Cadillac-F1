@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-07-06 Session 67（Added British GP final race classification after post-race penalties）
+- **最後更新**: 2026-07-06 Session 68（Race trend team line now drops to double-DNF floor marker）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,8 @@
 
 ## 📝 Change Log
 ### 2026-07-06
+- 修正 Race Score Trend 在 Cadillac 雙 DNF / 無 classified finisher 站的 team red line：不再略過該站，而是把 red line 拉到底部 DNF X marker 的 floor 位置；同時避免在無 team score 的 floor 位置額外畫一般紅點
+- 驗證 `pnpm build` 通過（double-DNF race trend team-line floor rendering 後）
 - 補齊 2026 R9 British GP `race.entries`：依 Jolpica / final classification 寫入 Leclerc 勝出、Gasly P10 積分線、Perez P14 / Bottas P16，以及 Sainz 因 Safety Car infringement 被加罰一圈後的 P17 位置
 - 新增 British GP `cadillac.driverNotes`：Perez 聚焦 P20 起跑、Lap 22 VSC pit window 與最終 P14；Bottas 聚焦 Cadillac Austria upgrade 首次完整 race distance 與賽後判罰後 P16
 - 驗證 `pnpm build` 通過（R9 British GP final race classification update 後）

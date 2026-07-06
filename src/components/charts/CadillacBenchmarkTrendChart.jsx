@@ -74,8 +74,12 @@ function renderStatusMarker({ driverCode, point, xScale, yScale, markerScale = 1
   );
 }
 
+function isNoCadillacClassifiedRound(round) {
+  return String(round?.outcomeStatus || '').toLowerCase() === 'no-cadillac-classified';
+}
+
 function hasChartEvent(round) {
-  return round?.teamScore != null || (round?.drivers || []).some((driver) => isNonClassifiedDriverStatus(driver));
+  return round?.teamScore != null || isNoCadillacClassifiedRound(round) || (round?.drivers || []).some((driver) => isNonClassifiedDriverStatus(driver));
 }
 
 function buildChartStats(rounds) {
@@ -133,7 +137,12 @@ function TrendChartSvg({ rounds, width, height }) {
     }))
     .filter((series) => series.points.length > 0);
 
-  const teamLineData = data.filter((round) => round.teamScore != null);
+  const teamLineData = data
+    .filter((round) => round.teamScore != null || isNoCadillacClassifiedRound(round))
+    .map((round) => ({
+      ...round,
+      chartScore: round.teamScore ?? chartFloorScore,
+    }));
 
   const xScale = scalePoint({ domain: data.map((round) => round.label), range: [0, innerWidth], padding: 0.5 });
   const yScale = scaleLinear({ domain: [chartFloorScore, maxScore + padding], range: [innerHeight, 0], nice: true });
@@ -275,19 +284,22 @@ function TrendChartSvg({ rounds, width, height }) {
           ))}
 
           {teamLineData.length > 1 ? (
-            <LinePath data={teamLineData} x={(datum) => xScale(datum.label) ?? 0} y={(datum) => yScale(datum.teamScore) ?? 0} stroke="url(#cadillac-line-glow)" strokeWidth={1.8} curve={null} />
+            <LinePath data={teamLineData} x={(datum) => xScale(datum.label) ?? 0} y={(datum) => yScale(datum.chartScore) ?? 0} stroke="url(#cadillac-line-glow)" strokeWidth={1.8} curve={null} />
           ) : null}
 
           {teamLineData.map((datum) => {
             const isLatest = datum.round === latestRound.round;
             const isActive = activeTooltip.tooltipData?.round === datum.round;
             const x = xScale(datum.label) ?? 0;
-            const y = yScale(datum.teamScore) ?? 0;
+            const y = yScale(datum.chartScore) ?? 0;
+            const hasTeamScore = datum.teamScore != null;
 
             return (
               <g key={datum.round}>
                 {(isActive || isLatest) && <circle cx={x} cy={y} r={isLatest ? 7 : 6} fill="rgba(210, 27, 30, 0.12)" />}
-                <circle cx={x} cy={y} r={isActive || isLatest ? 3.8 : 2.8} fill={isActive || isLatest ? chartTheme.pointActive : chartTheme.point} stroke={chartTheme.line} strokeWidth={isActive || isLatest ? 1.25 : 0.9} />
+                {hasTeamScore ? (
+                  <circle cx={x} cy={y} r={isActive || isLatest ? 3.8 : 2.8} fill={isActive || isLatest ? chartTheme.pointActive : chartTheme.point} stroke={chartTheme.line} strokeWidth={isActive || isLatest ? 1.25 : 0.9} />
+                ) : null}
               </g>
             );
           })}
