@@ -142,7 +142,17 @@ function TrendChartSvg({ rounds, width, height }) {
     .map((round) => ({
       ...round,
       chartScore: round.teamScore ?? chartFloorScore,
+      isSyntheticFloorPoint: round.teamScore == null && isNoCadillacClassifiedRound(round),
     }));
+  const teamLineSegments = teamLineData.slice(1).map((datum, index) => {
+    const previousDatum = teamLineData[index];
+
+    return {
+      key: `${previousDatum.label}-${datum.label}`,
+      points: [previousDatum, datum],
+      isStatusTransition: previousDatum.isSyntheticFloorPoint || datum.isSyntheticFloorPoint,
+    };
+  });
 
   const xScale = scalePoint({ domain: data.map((round) => round.label), range: [0, innerWidth], padding: 0.5 });
   const yScale = scaleLinear({ domain: [chartFloorScore, maxScore + padding], range: [innerHeight, 0], nice: true });
@@ -283,9 +293,18 @@ function TrendChartSvg({ rounds, width, height }) {
             </g>
           ))}
 
-          {teamLineData.length > 1 ? (
-            <LinePath data={teamLineData} x={(datum) => xScale(datum.label) ?? 0} y={(datum) => yScale(datum.chartScore) ?? 0} stroke="url(#cadillac-line-glow)" strokeWidth={1.8} curve={null} />
-          ) : null}
+          {teamLineSegments.map((segment) => (
+            <LinePath
+              key={segment.key}
+              data={segment.points}
+              x={(datum) => xScale(datum.label) ?? 0}
+              y={(datum) => yScale(datum.chartScore) ?? 0}
+              stroke="url(#cadillac-line-glow)"
+              strokeWidth={1.8}
+              strokeDasharray={segment.isStatusTransition ? '5 6' : undefined}
+              curve={null}
+            />
+          ))}
 
           {teamLineData.map((datum) => {
             const isLatest = datum.round === latestRound.round;
