@@ -71,6 +71,13 @@
       "name": "British Grand Prix",
       "date": "2026-07-05",
       "file": "./rounds/09-british.json"
+    },
+    {
+      "round": 10,
+      "slug": "belgian",
+      "name": "Belgian Grand Prix",
+      "date": "2026-07-19",
+      "file": "./rounds/10-belgian.json"
     }
   ]
 }
