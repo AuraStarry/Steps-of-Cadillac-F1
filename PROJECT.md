@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-07-19 Session 70（R10 Belgian GP qualifying-only update）
+- **最後更新**: 2026-07-20 Session 71（R10 Belgian GP final race classification update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-07-20
+- 補齊 2026 R10 Belgian GP `race.entries`：依 Jolpica / final classification 寫入 Antonelli 勝出、Colapinto P10 積分線、Bottas P18 / +1 lap，以及 Pérez lap-13 rear inboard suspension failure 退賽
+- 新增 Belgian GP `cadillac.driverNotes`：Bottas 聚焦 Cadillac 唯一完賽與 Spa race data；Pérez 聚焦追近 Ocon 後因 rear inboard suspension failure 退賽
+- 維持 Belgian GP `cadillac.historicalContext` 不變，避免把 Sunday race outcome 混入 qualifying-only Key Context
+- 驗證 `pnpm build` 通過（R10 Belgian GP final race classification update 後）
+
 ### 2026-07-19
 - 新增 2026 R10 Belgian GP round JSON：依 Jolpica qualifying endpoint 補入 Spa-Francorchamps 完整排位名單、Q1/Q2/Q3 cutoffs，以及 qualifying-only Cadillac context
 - 更新 `src/data/seasons/2026/season.json`，把 Belgian Grand Prix 納入 2026 賽季 round 清單
