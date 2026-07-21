@@ -10,12 +10,12 @@
     "historicalContext": "Spa extended Cadillac's qualifying-only read of the Austria-era package on the calendar's longest lap: both MAC-26s were eliminated in Q1, with Bottas P19 on 1:47.823 and Pérez P20 on 1:47.971. The Q2 cut sat at Bearman's 1:47.113, leaving Bottas 0.710s short and Pérez 0.858s short; Cadillac still cleared Aston Martin, but remained behind the Williams/Haas edge of the lower midfield before Sunday.",
     "driverNotes": {
       "BOT": {
-        "headline": "Bottas brought Cadillac's only car to the flag in P18, one lap down, giving the team useful Spa race data while tire degradation and reliability remained open work.",
-        "tag": "sole-finish-data-p18"
+        "headline": "Bottas' P18 was damage limitation rather than a clean baseline: a slow lap-1 stop left him at the rear, then the finish became data-gathering on Spa tire degradation and reliability while still clearing both Aston Martins.",
+        "tag": "lap-one-stop-data-gathering"
       },
       "PER": {
-        "headline": "Perez had moved closer to Ocon from P18 before a lap-13 rear inboard suspension failure forced retirement, turning Spa into another reliability-limited race.",
-        "tag": "rear-suspension-dnf"
+        "headline": "Perez's DNF was not just a generic suspension issue: after a lap-12 stop and a 2:40.889 lap as the car failed, Cadillac traced the retirement to a rear inboard suspension failure while still investigating the root cause behind another reliability loss.",
+        "tag": "rear-inboard-suspension-investigation"
       }
     }
   },

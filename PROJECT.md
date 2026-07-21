@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-07-20 Session 71（R10 Belgian GP final race classification update）
+- **最後更新**: 2026-07-21 Session 72（R10 Belgian GP deeper race-notes research）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-07-21
+- 依 Gore 回饋重做 Belgian GP `cadillac.driverNotes`：不再停在表層事故描述，改納入 Cadillac 官方 race report、F1i team quotes、Jolpica lap / pit data 與 Pirelli / Spa tire context
+- Bottas note 改為 damage-limitation / lap-1 slow stop / data-gathering / tire degradation 與 reliability 的脈絡，而不是只寫 P18 完賽
+- Pérez note 改為 rear inboard suspension failure + lap-12 stop / lap-13 2:40.889 failure trace / root-cause still under investigation，避免把未確認原因寫死
+- 驗證 `pnpm build` 通過（R10 Belgian GP deeper race-notes research 後）
+
 ### 2026-07-20
 - 補齊 2026 R10 Belgian GP `race.entries`：依 Jolpica / final classification 寫入 Antonelli 勝出、Colapinto P10 積分線、Bottas P18 / +1 lap，以及 Pérez lap-13 rear inboard suspension failure 退賽
 - 新增 Belgian GP `cadillac.driverNotes`：Bottas 聚焦 Cadillac 唯一完賽與 Spa race data；Pérez 聚焦追近 Ocon 後因 rear inboard suspension failure 退賽
