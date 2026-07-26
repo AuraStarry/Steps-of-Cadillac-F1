@@ -78,6 +78,13 @@
       "name": "Belgian Grand Prix",
       "date": "2026-07-19",
       "file": "./rounds/10-belgian.json"
+    },
+    {
+      "round": 11,
+      "slug": "hungarian",
+      "name": "Hungarian Grand Prix",
+      "date": "2026-07-26",
+      "file": "./rounds/11-hungarian.json"
     }
   ]
 }

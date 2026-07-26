@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-07-21 Session 72（R10 Belgian GP deeper race-notes research）
+- **最後更新**: 2026-07-26 Session 73（R11 Hungarian GP qualifying update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-07-26
+- 新增 2026 R11 Hungarian GP round JSON：依 Jolpica qualifying endpoint 補入 Hungaroring 完整排位名單、Q1/Q2/Q3 cutoffs，以及 qualifying-only Cadillac context
+- 更新 `src/data/seasons/2026/season.json`，把 Hungarian Grand Prix 納入 2026 賽季 round 清單
+- 先建立 Hungarian GP `race` placeholder（empty `entries`），維持本輪只上線排位資料、不混入 Sunday race outcome
+- 驗證 `pnpm build` 通過（R11 Hungarian GP qualifying update 後）
+
 ### 2026-07-21
 - 依 Gore 回饋重做 Belgian GP `cadillac.driverNotes`：不再停在表層事故描述，改納入 Cadillac 官方 race report、F1i team quotes、Jolpica lap / pit data 與 Pirelli / Spa tire context
 - Bottas note 改為 damage-limitation / lap-1 slow stop / data-gathering / tire degradation 與 reliability 的脈絡，而不是只寫 P18 完賽
