@@ -249,6 +249,23 @@ Do not use `historicalContext` for:
 - in-race penalties or steward consequences served on Sunday
 - any Sunday race narrative that belongs to `driverNotes`
 
+Quality gate for `historicalContext`:
+- Lead with the causal or historical angle, not the classification.
+- At least one clause must contain information beyond raw qualifying order / gaps / cutoffs.
+- Grid slots, Q1/Q2 cutoffs, and gap numbers are allowed only after the causal angle has been established.
+- If the paragraph would still be obvious to someone who watched the session and read the timing screen, reject it and rewrite.
+- Prefer a sentence shaped like: `Because X was already true before qualifying, the P19/P20 result should be read as Y`, without literally using that template every time.
+
+Mandatory report-back after writing or revising `historicalContext`:
+```text
+Key Context audit:
+- Causal angle kept: <upgrade / practice disruption / reliability / setup / execution / competitive shift>
+- Raw recap avoided: <classification-only detail demoted or removed>
+- Evidence class: <official | observed | reported | corroborated>
+```
+
+Do not report the task as complete if this audit cannot be filled with a concrete causal angle.
+
 ### B. Driver-level output
 Use this when the race card needs one special note per Cadillac driver.
 
@@ -398,6 +415,8 @@ For each round, ask:
 - What is the **single most important piece of historical context** that changes how this result should be read?
 - Is that context mainly about progress, disruption, or both at once?
 - What background context makes this one point historically meaningful?
+- Would this still be useful to a reader who already knows the grid order and Q1 cutoffs?
+- Did I demote raw results to evidence instead of making them the story?
 - Which claims are official, observed, reported, or corroborated?
 - What is the one sentence worth keeping after everything else is forgotten?
 - Can the draft be cut by another `15-25%` without losing the point?
@@ -429,4 +448,3 @@ Write directly into round data when possible.
 Load these when you need more detail:
 - `references/source-map.md`
 - `../DATA_FETCH_SKILL.md`
-

@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-07-28 Session 74（R11 Hungarian GP race update）
+- **最後更新**: 2026-07-28 Session 75（Key Context quality gate fix）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,8 @@
 
 ## 📝 Change Log
 ### 2026-07-28
+- 依 Gore 回饋重寫最近兩站排位 `cadillac.historicalContext`：Belgian GP 改聚焦 Austria-era package 的完整週末 baseline + Pérez FP1 起的 deployment fault；Hungarian GP 改聚焦 Bottas setup window、Pérez FP3 disruption 與 Aston Martin upgrade 改變 Q2 target，避免只重述排位名次 / gap
+- 強化 `ROUND_UPDATE_RULES.md` 與 `skills/cadillac-reporter-mode/SKILL.md`：新增 Key Context quality gate 與 report-back audit，要求每次 qualifying update 明確回報 causal angle、被降級的 raw recap、以及 evidence class，防止 Key Context 再退化成 timing-screen recap
 - 補齊 2026 R11 Hungarian GP `race.entries`：依 Jolpica / final classification 寫入 Norris 勝出、Lindblad P10 積分線、Pérez lap-48 DNF 與 Bottas lap-13 DNF
 - 新增 Hungarian GP `cadillac.driverNotes`：Bottas 聚焦 brake overheating / cooling upgrades still insufficient；Pérez 聚焦 pit-lane start、first-stint balance struggle 與 unresolved internal/front-end failure
 - 維持 Hungarian GP `cadillac.historicalContext` 不變，避免把 Sunday race outcome 混入 qualifying-only Key Context
