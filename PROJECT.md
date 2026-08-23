@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-07-28 Session 75（Key Context quality gate fix）
+- **最後更新**: 2026-08-23 Session 76（Dutch GP qualifying + team-principal context）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-08-23
+- 新增 2026 R12 Dutch GP round JSON：依 Jolpica qualifying endpoint 補入 Zandvoort 完整排位名單、Q1/Q2/Q3 cutoffs，以及 qualifying-only Cadillac Key Context
+- 在 Dutch GP `cadillac.historicalContext` 明確記錄 Graeme Lowdon → Marcin Budkowski 的 team-principal transition，並把本站解讀定位為 Budkowski 首個 trackside weekend 的 baseline audit
+- 更新 `src/data/seasons/2026/season.json`，把 Dutch Grand Prix 納入 2026 賽季 round 清單；先保留 Dutch GP `race.entries` placeholder，避免把 Sunday race outcome 混入排位更新
+- 驗證 `pnpm build` 通過（R12 Dutch GP qualifying update 後）
+
 ### 2026-07-28
 - 依 Gore 回饋重寫最近兩站排位 `cadillac.historicalContext`：Belgian GP 改聚焦 Austria-era package 的完整週末 baseline + Pérez FP1 起的 deployment fault；Hungarian GP 改聚焦 Bottas setup window、Pérez FP3 disruption 與 Aston Martin upgrade 改變 Q2 target，避免只重述排位名次 / gap
 - 強化 `ROUND_UPDATE_RULES.md` 與 `skills/cadillac-reporter-mode/SKILL.md`：新增 Key Context quality gate 與 report-back audit，要求每次 qualifying update 明確回報 causal angle、被降級的 raw recap、以及 evidence class，防止 Key Context 再退化成 timing-screen recap
