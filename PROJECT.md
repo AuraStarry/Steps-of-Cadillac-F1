@@ -67,6 +67,7 @@
 ### 2026-08-24
 - 補齊 2026 R12 Dutch GP `race.entries`：依 Jolpica / FIA final classification 寫入 Norris 勝出、Gasly P10 積分線、Pérez P15 / +2 laps，以及 Bottas lap-61 hydraulic retirement
 - 新增 Dutch GP `cadillac.driverNotes`：Pérez 聚焦 pit-lane start、overcut clear Bottas、Hard-Hard-Soft race 與 lap-56 VSC 破壞 late-window opportunity；Bottas 聚焦 first stint 仍貼近 Williams、second stint learning 與 rear-wing hydraulic issue forced retirement
+- 修正 Dutch GP `cadillac.driverNotes` schema：由 plain string 改為 `{ headline, tag }`，讓 Race mode 車手敘述能正確渲染
 - 維持 Dutch GP `cadillac.historicalContext` 不變，保留 Lowdon → Budkowski team-principal transition 的 qualifying-only Key Context，避免把 Sunday race outcome 混入排位解讀
 - 驗證 `pnpm build` 通過（R12 Dutch GP final race classification update 後）
 

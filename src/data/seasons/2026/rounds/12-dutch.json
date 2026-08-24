@@ -9,8 +9,14 @@
   "cadillac": {
     "historicalContext": "Zandvoort was Cadillac's first on-track weekend under Marcin Budkowski after the planned Lowdon-to-Budkowski team-principal transition, so the back-row qualifying reads as a baseline audit for the new racing-performance phase. Perez's FP1 steering issue, Saturday hydraulic work and split setup approaches left the team gathering data rather than chasing a Q2 step.",
     "driverNotes": {
-      "PER": "Perez started from the pit lane after setup changes and used the overcut to clear Bottas, then ran a Hard-Hard-Soft race to finish P15, two laps down but ahead of both Williams cars. Cadillac's report framed the pace as encouraging, while the lap-56 VSC for Ocon's retirement removed the late-window opportunity Perez had been building toward.",
-      "BOT": "Bottas started P20 and kept Cadillac close to the Williams battle in the first stint, but his second stint exposed the same hydraulic weakness that had affected Perez earlier in the weekend. A rear-wing hydraulic issue forced retirement on lap 61, turning Budkowski's first race in charge into another reliability audit rather than a two-car finish."
+      "PER": {
+        "headline": "Perez started from the pit lane after setup changes and used the overcut to clear Bottas, then ran a Hard-Hard-Soft race to finish P15, two laps down but ahead of both Williams cars. Cadillac's report framed the pace as encouraging, while the lap-56 VSC for Ocon's retirement removed the late-window opportunity Perez had been building toward.",
+        "tag": "pit-lane-start-vsc-window"
+      },
+      "BOT": {
+        "headline": "Bottas started P20 and kept Cadillac close to the Williams battle in the first stint, but his second stint exposed the same hydraulic weakness that had affected Perez earlier in the weekend. A rear-wing hydraulic issue forced retirement on lap 61, turning Budkowski's first race in charge into another reliability audit rather than a two-car finish.",
+        "tag": "rear-wing-hydraulic-retirement"
+      }
     }
   },
   "qualifying": {
