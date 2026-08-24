@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-08-23 Session 76（Dutch GP qualifying + team-principal context）
+- **最後更新**: 2026-08-24 Session 77（Dutch GP race classification + driver notes）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-08-24
+- 補齊 2026 R12 Dutch GP `race.entries`：依 Jolpica / FIA final classification 寫入 Norris 勝出、Gasly P10 積分線、Pérez P15 / +2 laps，以及 Bottas lap-61 hydraulic retirement
+- 新增 Dutch GP `cadillac.driverNotes`：Pérez 聚焦 pit-lane start、overcut clear Bottas、Hard-Hard-Soft race 與 lap-56 VSC 破壞 late-window opportunity；Bottas 聚焦 first stint 仍貼近 Williams、second stint learning 與 rear-wing hydraulic issue forced retirement
+- 維持 Dutch GP `cadillac.historicalContext` 不變，保留 Lowdon → Budkowski team-principal transition 的 qualifying-only Key Context，避免把 Sunday race outcome 混入排位解讀
+- 驗證 `pnpm build` 通過（R12 Dutch GP final race classification update 後）
+
 ### 2026-08-23
 - 新增 2026 R12 Dutch GP round JSON：依 Jolpica qualifying endpoint 補入 Zandvoort 完整排位名單、Q1/Q2/Q3 cutoffs，以及 qualifying-only Cadillac Key Context
 - 在 Dutch GP `cadillac.historicalContext` 明確記錄 Graeme Lowdon → Marcin Budkowski 的 team-principal transition，並把本站解讀定位為 Budkowski 首個 trackside weekend 的 baseline audit

@@ -8,7 +8,10 @@
   "date": "2026-08-23",
   "cadillac": {
     "historicalContext": "Zandvoort was Cadillac's first on-track weekend under Marcin Budkowski after the planned Lowdon-to-Budkowski team-principal transition, so the back-row qualifying reads as a baseline audit for the new racing-performance phase. Perez's FP1 steering issue, Saturday hydraulic work and split setup approaches left the team gathering data rather than chasing a Q2 step.",
-    "driverNotes": {}
+    "driverNotes": {
+      "PER": "Perez started from the pit lane after setup changes and used the overcut to clear Bottas, then ran a Hard-Hard-Soft race to finish P15, two laps down but ahead of both Williams cars. Cadillac's report framed the pace as encouraging, while the lap-56 VSC for Ocon's retirement removed the late-window opportunity Perez had been building toward.",
+      "BOT": "Bottas started P20 and kept Cadillac close to the Williams battle in the first stint, but his second stint exposed the same hydraulic weakness that had affected Perez earlier in the weekend. A rear-wing hydraulic issue forced retirement on lap 61, turning Budkowski's first race in charge into another reliability audit rather than a two-car finish."
+    }
   },
   "qualifying": {
     "sessionDate": "2026-08-22",
@@ -355,6 +358,249 @@
   },
   "race": {
     "sessionDate": "2026-08-23",
-    "entries": []
+    "entries": [
+      {
+        "position": 1,
+        "driver": "Lando Norris",
+        "driverCode": "NOR",
+        "team": "McLaren",
+        "laps": 72,
+        "status": "classified",
+        "officialStatus": "Finished",
+        "finishTime": "2:04:44.859",
+        "gapToLeaderSeconds": 0
+      },
+      {
+        "position": 2,
+        "driver": "Andrea Kimi Antonelli",
+        "driverCode": "ANT",
+        "team": "Mercedes",
+        "laps": 72,
+        "status": "classified",
+        "officialStatus": "Finished",
+        "finishTime": "+11.536",
+        "gapToLeaderSeconds": 11.536
+      },
+      {
+        "position": 3,
+        "driver": "George Russell",
+        "driverCode": "RUS",
+        "team": "Mercedes",
+        "laps": 72,
+        "status": "classified",
+        "officialStatus": "Finished",
+        "finishTime": "+15.906",
+        "gapToLeaderSeconds": 15.906
+      },
+      {
+        "position": 4,
+        "driver": "Lewis Hamilton",
+        "driverCode": "HAM",
+        "team": "Ferrari",
+        "laps": 72,
+        "status": "classified",
+        "officialStatus": "Finished",
+        "finishTime": "+16.755",
+        "gapToLeaderSeconds": 16.755
+      },
+      {
+        "position": 5,
+        "driver": "Charles Leclerc",
+        "driverCode": "LEC",
+        "team": "Ferrari",
+        "laps": 72,
+        "status": "classified",
+        "officialStatus": "Finished",
+        "finishTime": "+17.258",
+        "gapToLeaderSeconds": 17.258
+      },
+      {
+        "position": 6,
+        "driver": "Oscar Piastri",
+        "driverCode": "PIA",
+        "team": "McLaren",
+        "laps": 72,
+        "status": "classified",
+        "officialStatus": "Finished",
+        "finishTime": "+32.332",
+        "gapToLeaderSeconds": 32.332
+      },
+      {
+        "position": 7,
+        "driver": "Liam Lawson",
+        "driverCode": "LAW",
+        "team": "Red Bull",
+        "laps": 72,
+        "status": "classified",
+        "officialStatus": "Finished",
+        "finishTime": "+1:19.915",
+        "gapToLeaderSeconds": 79.915
+      },
+      {
+        "position": 8,
+        "driver": "Nico Hülkenberg",
+        "driverCode": "HUL",
+        "team": "Audi",
+        "laps": 71,
+        "status": "classified",
+        "officialStatus": "Lapped",
+        "finishTime": "+1 lap",
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 9,
+        "driver": "Fernando Alonso",
+        "driverCode": "ALO",
+        "team": "Aston Martin",
+        "laps": 71,
+        "status": "classified",
+        "officialStatus": "Lapped",
+        "finishTime": "+1 lap",
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 10,
+        "driver": "Pierre Gasly",
+        "driverCode": "GAS",
+        "team": "Alpine F1 Team",
+        "laps": 71,
+        "status": "classified",
+        "officialStatus": "Lapped",
+        "finishTime": "+1 lap",
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 11,
+        "driver": "Yuki Tsunoda",
+        "driverCode": "TSU",
+        "team": "RB F1 Team",
+        "laps": 71,
+        "status": "classified",
+        "officialStatus": "Lapped",
+        "finishTime": "+1 lap",
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 12,
+        "driver": "Arvid Lindblad",
+        "driverCode": "LIN",
+        "team": "RB F1 Team",
+        "laps": 71,
+        "status": "classified",
+        "officialStatus": "Lapped",
+        "finishTime": "+1 lap",
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 13,
+        "driver": "Gabriel Bortoleto",
+        "driverCode": "BOR",
+        "team": "Audi",
+        "laps": 71,
+        "status": "classified",
+        "officialStatus": "Lapped",
+        "finishTime": "+1 lap",
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 14,
+        "driver": "Franco Colapinto",
+        "driverCode": "COL",
+        "team": "Alpine F1 Team",
+        "laps": 70,
+        "status": "classified",
+        "officialStatus": "Lapped",
+        "finishTime": "+2 laps",
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 15,
+        "driver": "Sergio Pérez",
+        "driverCode": "PER",
+        "team": "Cadillac F1 Team",
+        "laps": 70,
+        "status": "classified",
+        "officialStatus": "Lapped",
+        "finishTime": "+2 laps",
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 16,
+        "driver": "Carlos Sainz",
+        "driverCode": "SAI",
+        "team": "Williams",
+        "laps": 70,
+        "status": "classified",
+        "officialStatus": "Lapped",
+        "finishTime": "+2 laps",
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 17,
+        "driver": "Alexander Albon",
+        "driverCode": "ALB",
+        "team": "Williams",
+        "laps": 66,
+        "status": "retired",
+        "officialStatus": "Retired",
+        "finishTime": null,
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 18,
+        "driver": "Valtteri Bottas",
+        "driverCode": "BOT",
+        "team": "Cadillac F1 Team",
+        "laps": 61,
+        "status": "retired",
+        "officialStatus": "Retired",
+        "finishTime": null,
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 19,
+        "driver": "Esteban Ocon",
+        "driverCode": "OCO",
+        "team": "Haas F1 Team",
+        "laps": 52,
+        "status": "retired",
+        "officialStatus": "Retired",
+        "finishTime": null,
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 20,
+        "driver": "Lance Stroll",
+        "driverCode": "STR",
+        "team": "Aston Martin",
+        "laps": 45,
+        "status": "retired",
+        "officialStatus": "Retired",
+        "finishTime": null,
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 21,
+        "driver": "Oliver Bearman",
+        "driverCode": "BEA",
+        "team": "Haas F1 Team",
+        "laps": 2,
+        "status": "retired",
+        "officialStatus": "Retired",
+        "finishTime": null,
+        "gapToLeaderSeconds": null
+      },
+      {
+        "position": 22,
+        "driver": "Max Verstappen",
+        "driverCode": "VER",
+        "team": "Red Bull",
+        "laps": 0,
+        "status": "retired",
+        "officialStatus": "Retired",
+        "finishTime": null,
+        "gapToLeaderSeconds": null
+      }
+    ]
   }
 }
