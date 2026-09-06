@@ -141,6 +141,33 @@
   line-height: 1;
 }
 
+.chartHistoryControls {
+  position: relative;
+  z-index: 1;
+}
+
+.chartHistoryButton {
+  border: 1px solid var(--cad-line-soft);
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--cad-text);
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.chartHistoryButton:hover:not(:disabled) {
+  border-color: var(--cad-accent-soft);
+  background: rgba(196, 18, 21, 0.12);
+  color: var(--cad-text-strong);
+}
+
+.chartHistoryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
 @media (min-width: 768px) {
   .chartMeta {
     display: grid;

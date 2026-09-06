@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { scaleLinear, scalePoint } from '@visx/scale';
 import { LinePath } from '@visx/shape';
 import { Group } from '@visx/group';
@@ -27,6 +27,8 @@ const driverColorMap = {
   BOT: chartTheme.bot,
   PER: chartTheme.per,
 };
+
+const MOBILE_ROUND_WINDOW_SIZE = 10;
 
 function scoreLabel(score, fallback = 'N/A') {
   if (score == null) return fallback;
@@ -91,16 +93,37 @@ function buildChartStats(rounds) {
   return { latest, highest, average };
 }
 
+function useIsMobileChart() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+    const updateMatch = () => setIsMobile(mediaQuery.matches);
+
+    updateMatch();
+    mediaQuery.addEventListener('change', updateMatch);
+
+    return () => mediaQuery.removeEventListener('change', updateMatch);
+  }, []);
+
+  return isMobile;
+}
+
+function getRoundLabel(round) {
+  return `R${String(round.round).padStart(2, '0')}`;
+}
+
 function TrendChartSvg({ rounds, width, height }) {
   const { showTooltip, hideTooltip, tooltipData, tooltipLeft = 0, tooltipTop = 0 } = useTooltip();
   const [pinnedTooltip, setPinnedTooltip] = useState(null);
 
   const data = useMemo(
-    () => rounds.filter(hasChartEvent).map((round) => ({ ...round, label: `R${String(round.round).padStart(2, '0')}` })),
+    () => rounds.filter(hasChartEvent).map((round) => ({ ...round, label: getRoundLabel(round) })),
     [rounds],
   );
 
   const showRetirementAxisCounts = data.some((round) => round.retirementCount != null);
+  const showRoundAxisLabels = data.length <= MOBILE_ROUND_WINDOW_SIZE;
   const retirementCountByLabel = new Map(data.map((round) => [round.label, round.retirementCount]));
   const margin = { top: 20, right: 20, bottom: showRetirementAxisCounts ? 58 : 42, left: 48 };
   const innerWidth = Math.max(width - margin.left - margin.right, 10);
@@ -254,8 +277,8 @@ function TrendChartSvg({ rounds, width, height }) {
 
               return (
                 <text {...tickProps} x={x} y={y} textAnchor="middle" dominantBaseline="middle">
-                  <tspan x={x} fill={chartTheme.textDim}>{formattedValue}</tspan>
-                  {showRetirementAxisCounts && retirementCount != null ? (
+                  {showRoundAxisLabels ? <tspan x={x} fill={chartTheme.textDim}>{formattedValue}</tspan> : null}
+                  {showRoundAxisLabels && showRetirementAxisCounts && retirementCount != null ? (
                     <tspan x={x} dy="1.25em" fill={chartTheme.retirement} opacity={0.82}>-{retirementCount}</tspan>
                   ) : null}
                 </text>
@@ -360,6 +383,30 @@ function TrendChartSvg({ rounds, width, height }) {
 
 export default function CadillacBenchmarkTrendChart({ chart }) {
   const stats = buildChartStats(chart.rounds || []);
+  const isMobile = useIsMobileChart();
+  const chartEventRounds = useMemo(() => (chart.rounds || []).filter(hasChartEvent), [chart.rounds]);
+  const [visibleRoundCount, setVisibleRoundCount] = useState(null);
+  const [historyTouched, setHistoryTouched] = useState(false);
+
+  useEffect(() => {
+    if (!chartEventRounds.length || historyTouched) return;
+
+    if (isMobile && chartEventRounds.length > MOBILE_ROUND_WINDOW_SIZE) {
+      setVisibleRoundCount(MOBILE_ROUND_WINDOW_SIZE);
+      return;
+    }
+
+    setVisibleRoundCount(null);
+  }, [chartEventRounds.length, historyTouched, isMobile]);
+
+  const resolvedVisibleRoundCount = Math.min(visibleRoundCount ?? chartEventRounds.length, chartEventRounds.length);
+  const visibleRounds = chartEventRounds.slice(Math.max(chartEventRounds.length - resolvedVisibleRoundCount, 0));
+  const hasOlderRounds = resolvedVisibleRoundCount < chartEventRounds.length;
+  const firstVisibleRound = visibleRounds.at(0);
+  const lastVisibleRound = visibleRounds.at(-1);
+  const roundWindowLabel = firstVisibleRound && lastVisibleRound
+    ? `${getRoundLabel(firstVisibleRound)}–${getRoundLabel(lastVisibleRound)} of ${chartEventRounds.length}`
+    : 'No rounds';
 
   return (
     <section className={`${styles.chartShell} ${styles.chartFrame} p-5 md:p-6`}>
@@ -411,8 +458,49 @@ export default function CadillacBenchmarkTrendChart({ chart }) {
         </div>
       </div>
 
+      {chartEventRounds.length > MOBILE_ROUND_WINDOW_SIZE ? (
+        <div className={`${styles.chartHistoryControls} mt-4 flex flex-wrap items-center justify-between gap-2 border border-[var(--cad-line-soft)] bg-[var(--cad-panel-2)] px-3 py-2 text-xs text-[var(--cad-text-dim)]`}>
+          <span className="heading-cadillac tracking-[0.12rem] text-zinc-300">Showing {roundWindowLabel}</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              className={styles.chartHistoryButton}
+              onClick={() => {
+                setHistoryTouched(true);
+                setVisibleRoundCount((currentCount) => Math.min((currentCount ?? MOBILE_ROUND_WINDOW_SIZE) + MOBILE_ROUND_WINDOW_SIZE, chartEventRounds.length));
+              }}
+              disabled={!hasOlderRounds}
+            >
+              Add previous 10
+            </button>
+            <button
+              type="button"
+              className={styles.chartHistoryButton}
+              onClick={() => {
+                setHistoryTouched(true);
+                setVisibleRoundCount(MOBILE_ROUND_WINDOW_SIZE);
+              }}
+              disabled={resolvedVisibleRoundCount <= MOBILE_ROUND_WINDOW_SIZE}
+            >
+              Latest 10
+            </button>
+            <button
+              type="button"
+              className={styles.chartHistoryButton}
+              onClick={() => {
+                setHistoryTouched(true);
+                setVisibleRoundCount(chartEventRounds.length);
+              }}
+              disabled={resolvedVisibleRoundCount >= chartEventRounds.length}
+            >
+              Full history
+            </button>
+          </div>
+        </div>
+      ) : null}
+
       <div className="mt-5 h-[320px] w-full md:h-[380px]">
-        <ParentSize>{({ width, height }) => <TrendChartSvg rounds={chart.rounds || []} width={width} height={height} />}</ParentSize>
+        <ParentSize>{({ width, height }) => <TrendChartSvg rounds={visibleRounds} width={width} height={height} />}</ParentSize>
       </div>
     </section>
   );
