@@ -17,7 +17,9 @@ Use it as a **single research workflow with multiple export targets**. The same 
 
 Crucial boundary:
 - `cadillac.historicalContext` on the **Qualifying** surface must stop at the team state **before the race starts**.
-- It may include build-up, practice, sprint, qualifying execution, deleted laps, upgrades, and pre-race operational context.
+- It should prioritize team-state changes since the previous round, official team news/quotes, and formal qualifying context.
+- It may include build-up, sprint, qualifying execution, deleted laps, upgrades, pre-race operational context, and only practice details that materially explain Cadillac's qualifying state.
+- Do not spend the final `historicalContext` paragraph on routine practice positions, lap counts, or generic FP mileage; keep those in research notes unless they explain the competitive/reliability state carried into qualifying.
 - It must **not** include race incidents, Safety Cars, opening-lap contact, tyre-strategy outcomes, finishing positions, in-race penalties, or any explanation that only became true during Sunday's race.
 - When updating a round after the Grand Prix, the default action is to update `race.entries` and `cadillac.driverNotes.*` only; do **not** rewrite `cadillac.historicalContext` unless the pre-race reading itself was wrong.
 - Those Sunday consequences belong in `cadillac.driverNotes.*` for the **Race** surface.
@@ -231,10 +233,13 @@ Target field:
 - `cadillac.historicalContext`
 
 If the field is shown on the **Qualifying** surface, constrain it to:
+- team-state changes since the previous round: leadership, reliability, upgrade direction, operating mode, known carry-over limitation, or clearly changed competitive target
+- official team news / quotes that explain how Cadillac entered qualifying
+- formal qualifying context: execution, deleted laps, FIA rulings, penalties that shape the published grid, Q1/Q2 cutoffs, and who Cadillac cleared or narrowly missed
 - upgrade package introduced before or during qualifying
 - revised setup direction seen before the race
 - qualifying-specific execution issue
-- practice / sprint / parc ferme context that shaped the grid position
+- practice / sprint / parc ferme context that directly shaped the grid position
 - operational milestone that was already true before lights-out
 
 Lock rule after race day:
@@ -253,6 +258,7 @@ Quality gate for `historicalContext`:
 - Lead with the causal or historical angle, not the classification.
 - At least one clause must contain information beyond raw qualifying order / gaps / cutoffs.
 - Grid slots, Q1/Q2 cutoffs, and gap numbers are allowed only after the causal angle has been established.
+- Practice details are allowed only if they are evidence for team-state change or a qualifying constraint; if the paragraph reads like a Friday/Saturday practice recap, reject and rewrite.
 - If the paragraph would still be obvious to someone who watched the session and read the timing screen, reject it and rewrite.
 - Prefer a sentence shaped like: `Because X was already true before qualifying, the P19/P20 result should be read as Y`, without literally using that template every time.
 

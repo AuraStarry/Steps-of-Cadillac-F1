@@ -11,11 +11,18 @@ It exists to explain how to read Cadillac's grid position **before Sunday's race
 Allowed in `historicalContext`:
 - pre-event background
 - upgrade package introduction
-- practice learning
+- practice learning only when it materially changes the qualifying read; do not spend space on routine FP positions, lap counts, or generic setup mileage
 - sprint effects that changed the qualifying read
 - qualifying execution issues
 - deleted laps / FIA qualifying rulings
 - parc fermé / setup direction already known before lights-out
+
+Priority for qualifying `Key Context` / `historicalContext`:
+1. Team state changes since the previous round: leadership, reliability, upgrade direction, operating mode, known carry-over limitation, or clearly changed competitive target.
+2. Official team news and quotes that explain how Cadillac entered qualifying or why the result should be interpreted differently.
+3. Formal qualifying context: session execution, deleted laps, FIA rulings, penalties that shape the published grid, Q1/Q2 cutoffs, and who Cadillac cleared or narrowly missed.
+
+Practice information is supporting evidence only. Include it only if it explains a state change or qualifying constraint; otherwise compress it away.
 
 Forbidden in `historicalContext`:
 - race incidents
@@ -50,6 +57,7 @@ Before a new qualifying `historicalContext` is accepted, it must pass all of the
 2. It uses grid positions, gaps, Q1/Q2 cutoffs, or “both cars out in Q1” only as supporting evidence, not as the main point.
 3. It includes at least one piece of context a viewer would not learn merely by watching the qualifying classification.
 4. It can answer: “What changed how Cadillac's qualifying should be interpreted?”
+5. It does **not** become a free-practice summary. Routine FP running belongs in research notes, not in the final Key Context, unless it is the shortest route to explain a team-state change since the previous round.
 
 Reject and rewrite if the paragraph is mainly a tidy recap of the session result.
 

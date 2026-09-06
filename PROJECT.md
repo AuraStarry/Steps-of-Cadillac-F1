@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-09-06 Session 78（Italian GP qualifying update）
+- **最後更新**: 2026-09-06 Session 79（Key Context research rule + Italian GP context refinement）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,9 +65,11 @@
 
 ## 📝 Change Log
 ### 2026-09-06
+- 依 Gore 回饋強化 Key Context 研究指令：`historicalContext` 需優先追「相較前一站的車隊狀態異動」、官方新聞 / quote、以及正式排位賽背景；練習狀況只能作為狀態變化或排位限制的 supporting evidence，不可寫成 FP recap
+- 同步更新 `ROUND_UPDATE_RULES.md` 與 `skills/cadillac-reporter-mode/SKILL.md`，新增 practice-compression quality gate
+- 重寫 Italian GP `cadillac.historicalContext`：拿掉 FP1/FP2 recap 篇幅，改聚焦 Zandvoort 後 hydraulic-hit baseline、Monza 賽前狀態更乾淨、Bottas setup-detail quote、清掉 Aston Martin，以及外部罰退使 P19/P20 轉成 P16/P17 的背景解釋
 - 新增 2026 R13 Italian GP round JSON：依 Jolpica qualifying endpoint 補入 Monza 完整排位名單、Q1/Q2/Q3 cutoffs，以及 qualifying-only Cadillac Key Context
 - 更新 `src/data/seasons/2026/season.json`，把 Italian Grand Prix 納入 2026 賽季 round 清單
-- Key Context 聚焦 Monza low-drag benchmark、Herta FP1 suspected hydraulic PU issue、Bottas/Perez clean FP2、較小 gap / straight-line confidence 與清掉 Aston Martin 後因前方罰退提升起跑順位；避免混入 Sunday race outcome
 - 先建立 Italian GP `race.entries` placeholder，維持本輪只上線排位資料、不混入正賽敘事
 - 驗證 `pnpm build` 通過（R13 Italian GP qualifying update 後）
 
