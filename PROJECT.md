@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-08-24 Session 77（Dutch GP race classification + driver notes）
+- **最後更新**: 2026-09-06 Session 78（Italian GP qualifying update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,13 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-09-06
+- 新增 2026 R13 Italian GP round JSON：依 Jolpica qualifying endpoint 補入 Monza 完整排位名單、Q1/Q2/Q3 cutoffs，以及 qualifying-only Cadillac Key Context
+- 更新 `src/data/seasons/2026/season.json`，把 Italian Grand Prix 納入 2026 賽季 round 清單
+- Key Context 聚焦 Monza low-drag benchmark、Herta FP1 suspected hydraulic PU issue、Bottas/Perez clean FP2、較小 gap / straight-line confidence 與清掉 Aston Martin 後因前方罰退提升起跑順位；避免混入 Sunday race outcome
+- 先建立 Italian GP `race.entries` placeholder，維持本輪只上線排位資料、不混入正賽敘事
+- 驗證 `pnpm build` 通過（R13 Italian GP qualifying update 後）
+
 ### 2026-08-24
 - 補齊 2026 R12 Dutch GP `race.entries`：依 Jolpica / FIA final classification 寫入 Norris 勝出、Gasly P10 積分線、Pérez P15 / +2 laps，以及 Bottas lap-61 hydraulic retirement
 - 新增 Dutch GP `cadillac.driverNotes`：Pérez 聚焦 pit-lane start、overcut clear Bottas、Hard-Hard-Soft race 與 lap-56 VSC 破壞 late-window opportunity；Bottas 聚焦 first stint 仍貼近 Williams、second stint learning 與 rear-wing hydraulic issue forced retirement

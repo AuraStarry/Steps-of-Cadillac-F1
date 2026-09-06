@@ -92,6 +92,13 @@
       "name": "Dutch Grand Prix",
       "date": "2026-08-23",
       "file": "./rounds/12-dutch.json"
+    },
+    {
+      "round": 13,
+      "slug": "italian",
+      "name": "Italian Grand Prix",
+      "date": "2026-09-06",
+      "file": "./rounds/13-italian.json"
     }
   ]
 }
