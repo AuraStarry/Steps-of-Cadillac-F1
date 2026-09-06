@@ -402,11 +402,6 @@ export default function CadillacBenchmarkTrendChart({ chart }) {
   const resolvedVisibleRoundCount = Math.min(visibleRoundCount ?? chartEventRounds.length, chartEventRounds.length);
   const visibleRounds = chartEventRounds.slice(Math.max(chartEventRounds.length - resolvedVisibleRoundCount, 0));
   const hasOlderRounds = resolvedVisibleRoundCount < chartEventRounds.length;
-  const firstVisibleRound = visibleRounds.at(0);
-  const lastVisibleRound = visibleRounds.at(-1);
-  const roundWindowLabel = firstVisibleRound && lastVisibleRound
-    ? `${getRoundLabel(firstVisibleRound)}–${getRoundLabel(lastVisibleRound)} of ${chartEventRounds.length}`
-    : 'No rounds';
 
   return (
     <section className={`${styles.chartShell} ${styles.chartFrame} p-5 md:p-6`}>
@@ -458,50 +453,47 @@ export default function CadillacBenchmarkTrendChart({ chart }) {
         </div>
       </div>
 
-      {chartEventRounds.length > MOBILE_ROUND_WINDOW_SIZE ? (
-        <div className={`${styles.chartHistoryControls} mt-4 flex flex-wrap items-center justify-between gap-2 border border-[var(--cad-line-soft)] bg-[var(--cad-panel-2)] px-3 py-2 text-xs text-[var(--cad-text-dim)]`}>
-          <span className="heading-cadillac tracking-[0.12rem] text-zinc-300">Showing {roundWindowLabel}</span>
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              className={styles.chartHistoryButton}
-              onClick={() => {
-                setHistoryTouched(true);
-                setVisibleRoundCount((currentCount) => Math.min((currentCount ?? MOBILE_ROUND_WINDOW_SIZE) + MOBILE_ROUND_WINDOW_SIZE, chartEventRounds.length));
-              }}
-              disabled={!hasOlderRounds}
-            >
-              Add previous 10
-            </button>
-            <button
-              type="button"
-              className={styles.chartHistoryButton}
-              onClick={() => {
-                setHistoryTouched(true);
-                setVisibleRoundCount(MOBILE_ROUND_WINDOW_SIZE);
-              }}
-              disabled={resolvedVisibleRoundCount <= MOBILE_ROUND_WINDOW_SIZE}
-            >
-              Latest 10
-            </button>
-            <button
-              type="button"
-              className={styles.chartHistoryButton}
-              onClick={() => {
-                setHistoryTouched(true);
-                setVisibleRoundCount(chartEventRounds.length);
-              }}
-              disabled={resolvedVisibleRoundCount >= chartEventRounds.length}
-            >
-              Full history
-            </button>
-          </div>
-        </div>
-      ) : null}
-
       <div className="mt-5 h-[320px] w-full md:h-[380px]">
         <ParentSize>{({ width, height }) => <TrendChartSvg rounds={visibleRounds} width={width} height={height} />}</ParentSize>
       </div>
+
+      {chartEventRounds.length > MOBILE_ROUND_WINDOW_SIZE ? (
+        <div className={`${styles.chartHistoryControls} mt-3 flex flex-wrap items-center justify-center gap-2 text-xs text-[var(--cad-text-dim)]`}>
+          <button
+            type="button"
+            className={styles.chartHistoryButton}
+            onClick={() => {
+              setHistoryTouched(true);
+              setVisibleRoundCount((currentCount) => Math.min((currentCount ?? MOBILE_ROUND_WINDOW_SIZE) + MOBILE_ROUND_WINDOW_SIZE, chartEventRounds.length));
+            }}
+            disabled={!hasOlderRounds}
+          >
+            Add previous 10
+          </button>
+          <button
+            type="button"
+            className={styles.chartHistoryButton}
+            onClick={() => {
+              setHistoryTouched(true);
+              setVisibleRoundCount(MOBILE_ROUND_WINDOW_SIZE);
+            }}
+            disabled={resolvedVisibleRoundCount <= MOBILE_ROUND_WINDOW_SIZE}
+          >
+            Latest 10
+          </button>
+          <button
+            type="button"
+            className={styles.chartHistoryButton}
+            onClick={() => {
+              setHistoryTouched(true);
+              setVisibleRoundCount(chartEventRounds.length);
+            }}
+            disabled={resolvedVisibleRoundCount >= chartEventRounds.length}
+          >
+            Full history
+          </button>
+        </div>
+      ) : null}
     </section>
   );
 }

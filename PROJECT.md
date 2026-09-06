@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-09-06 Session 80（mobile chart history window controls）
+- **最後更新**: 2026-09-06 Session 81（chart history controls below plot）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,8 @@
 
 ## 📝 Change Log
 ### 2026-09-06
+- 依 Gore 指示將 benchmark trend chart 的 history controls 移到圖表下方、移除 Showing Rxx–Rxx summary、取消灰色控制列容器，改成 pill buttons 貼近圖表互動語感
+- 驗證 `pnpm build` 通過（chart history controls below plot 後）
 - 依 Gore 指示替 shared benchmark trend chart 加入 mobile-first 歷史區間控制：手機預設顯示最近 10 站；超過 10 站時提供 Add previous 10、Latest 10、Full history 按鈕；可見站數超過 10 時隱藏 X 軸 round / retirement labels，保留既有滑動/點擊 tooltip 細節互動
 - 驗證 `pnpm build` 通過（mobile chart history window controls 後）
 - 依 Gore 回饋強化 Key Context 研究指令：`historicalContext` 需優先追「相較前一站的車隊狀態異動」、官方新聞 / quote、以及正式排位賽背景；練習狀況只能作為狀態變化或排位限制的 supporting evidence，不可寫成 FP recap
