@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-09-06 Session 81（chart history controls below plot）
+- **最後更新**: 2026-09-07 Session 82（R13 Italian GP final race classification update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,12 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-09-07
+- 補齊 2026 R13 Italian GP `race.entries`：依 Jolpica final race results 寫入 Antonelli 勝出、Tsunoda P10 積分線、Pérez P18 / +1 lap、Bottas P19 / +2 laps，以及 Stroll / Alonso / Leclerc 退賽
+- 新增 Italian GP `cadillac.driverNotes`：Pérez 聚焦 Monza 直線速度弱點限制 Fernando Alonso 戰鬥後續；Bottas 聚焦正面的 first stint、slow pit stop 與 blue-flag traffic 對第二段的破壞
+- 維持 Italian GP `cadillac.historicalContext` 不變，遵守 post-race backfill freeze rule，避免把 Sunday race outcome 混入 qualifying-only Key Context
+- 驗證 `pnpm build` 通過（R13 Italian GP final race classification update 後）
+
 ### 2026-09-06
 - 依 Gore 指示將 benchmark trend chart 的 history controls 移到圖表下方、移除 Showing Rxx–Rxx summary、取消灰色控制列容器，改成 pill buttons 貼近圖表互動語感
 - 驗證 `pnpm build` 通過（chart history controls below plot 後）
