@@ -99,6 +99,13 @@
       "name": "Italian Grand Prix",
       "date": "2026-09-06",
       "file": "./rounds/13-italian.json"
+    },
+    {
+      "round": 14,
+      "slug": "spanish",
+      "name": "Spanish Grand Prix",
+      "date": "2026-09-13",
+      "file": "./rounds/14-spanish.json"
     }
   ]
 }

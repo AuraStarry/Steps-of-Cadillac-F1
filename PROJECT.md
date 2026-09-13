@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-09-07 Session 82（R13 Italian GP final race classification update）
+- **最後更新**: 2026-09-13 Session 83（R14 Spanish GP qualifying update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-09-13
+- 新增 2026 R14 Spanish GP（Madring）round JSON：依 FIA final qualifying classification 補入完整排位名單與 Q1/Q2/Q3 cutoffs；Bearman / Stroll 未錄得有效時間，依 FIA permission-to-start 狀態仍列入 provisional grid
+- 在 Cadillac qualifying-only Key Context 註記 Bottas 的 Q1 嘗試遭 Carlos Sainz 阻擋；FIA 對 Sainz（Car 55）作出三位罰退，因此 Pérez / Bottas 分別從排位 P19 / P20 上移至 P18 / P19 發車。此處特別校正，違規者並非 Pérez
+- 先建立 Spanish GP `race.entries` placeholder，維持本輪只上線排位資料、不混入 Sunday race outcome
+
 ### 2026-09-07
 - 補齊 2026 R13 Italian GP `race.entries`：依 Jolpica final race results 寫入 Antonelli 勝出、Tsunoda P10 積分線、Pérez P18 / +1 lap、Bottas P19 / +2 laps，以及 Stroll / Alonso / Leclerc 退賽
 - 新增 Italian GP `cadillac.driverNotes`：Pérez 聚焦 Monza 直線速度弱點限制 Fernando Alonso 戰鬥後續；Bottas 聚焦正面的 first stint、slow pit stop 與 blue-flag traffic 對第二段的破壞
