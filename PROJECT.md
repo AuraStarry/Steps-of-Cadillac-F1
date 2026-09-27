@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-09-14 Session 84（R14 Spanish GP race update）
+- **最後更新**: 2026-09-27 Session 85（R15 Azerbaijan GP qualifying update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-09-27
+- 新增 2026 R15 Azerbaijan GP（Baku）round JSON：依 FIA / Formula 1 final qualifying classification 補入完整排位名單與 Q1/Q2/Q3 cutoffs；Antonelli 雖從 Q1 晉級，但因撞牆無法跑 Q2，保留為 Q2 `no-time` 狀態
+- 新增 Cadillac qualifying-only Key Context：聚焦 Baku upgrade 與 Bottas 的 floor / suspension changes 已改善操作窗口，但雙黃旗刪除 Bottas 最快圈、失去 tow 計畫、Pérez 最後一圈中止，導致沒能把週末較佳訊號轉換為 Q2 成績；同步記錄 Pérez 妨礙 Piastri 的三位罰退及 Aston Martin power-unit penalties 對最終 P20 起跑位置的影響
+- 先建立 Azerbaijan GP `race.entries` placeholder，維持本輪只上線排位資料、不混入 Saturday race outcome
+
 ### 2026-09-14
 - 補齊 2026 R14 Spanish GP `race.entries`：依 Jolpica final classification 寫入 Antonelli 勝出、Hülkenberg P10 積分線、Bottas P18 / +3 laps，以及 Pérez lap-31 retirement；同時保留 Sainz、Stroll、Hamilton 的退賽分類
 - 新增 Spanish GP `cadillac.driverNotes`：Pérez 聚焦從 P18 推進至 P15、與 Williams / Racing Bulls 交戰後的 water-system / Power Unit issue；Bottas 聚焦 Lap-1 Turn-1 damage、brake-temperature management 與 blue-flag traffic

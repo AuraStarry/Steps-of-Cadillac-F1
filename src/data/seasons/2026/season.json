@@ -106,6 +106,13 @@
       "name": "Spanish Grand Prix",
       "date": "2026-09-13",
       "file": "./rounds/14-spanish.json"
+    },
+    {
+      "round": 15,
+      "slug": "azerbaijan",
+      "name": "Azerbaijan Grand Prix",
+      "date": "2026-09-26",
+      "file": "./rounds/15-azerbaijan.json"
     }
   ]
 }
