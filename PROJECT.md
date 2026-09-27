@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-09-27 Session 85（R15 Azerbaijan GP qualifying update）
+- **最後更新**: 2026-09-27 Session 86（R15 Azerbaijan GP race update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -65,6 +65,10 @@
 
 ## 📝 Change Log
 ### 2026-09-27
+- 補齊 2026 R15 Azerbaijan GP `race.entries`：依官方最終分類寫入 Russell 勝出、Sainz P10 積分線、Pérez P14 / +41.400 秒，以及 Bottas P16 / lap-49 retirement 和其餘 6 台退賽車
+- 新增 Azerbaijan GP `cadillac.driverNotes`：Pérez 聚焦從 P20 到 P14、首段能與更快車群抗衡但受限於直線速度；Bottas 聚焦 Turn 1 lock-up / run-wide 後的 harvesting 與後煞車感異常，最終 Turn 15 撞牆、車隊展開技術調查
+- 維持 Azerbaijan GP `cadillac.historicalContext` 不變，遵守 post-race backfill freeze rule，避免把 Saturday race outcome 混入 qualifying-only Key Context
+
 - 新增 2026 R15 Azerbaijan GP（Baku）round JSON：依 FIA / Formula 1 final qualifying classification 補入完整排位名單與 Q1/Q2/Q3 cutoffs；Antonelli 雖從 Q1 晉級，但因撞牆無法跑 Q2，保留為 Q2 `no-time` 狀態
 - 新增 Cadillac qualifying-only Key Context：聚焦 Baku upgrade 與 Bottas 的 floor / suspension changes 已改善操作窗口，但雙黃旗刪除 Bottas 最快圈、失去 tow 計畫、Pérez 最後一圈中止，導致沒能把週末較佳訊號轉換為 Q2 成績；同步記錄 Pérez 妨礙 Piastri 的三位罰退及 Aston Martin power-unit penalties 對最終 P20 起跑位置的影響
 - 先建立 Azerbaijan GP `race.entries` placeholder，維持本輪只上線排位資料、不混入 Saturday race outcome

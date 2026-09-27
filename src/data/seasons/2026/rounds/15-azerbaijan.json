@@ -8,7 +8,16 @@
   "date": "2026-09-26",
   "cadillac": {
     "historicalContext": "Cadillac brought upgrades to Baku and, after a difficult FP3, made floor and suspension changes that gave Bottas a much better operating window. The qualifying result nevertheless reflects a broken execution chain rather than a clean pace read: Bottas's stronger second run was deleted under double-waved yellows, while the planned Perez-Bottas tow dissolved after Bottas was sent to the weighbridge and Perez then had to abort his final attempt. Perez also received a three-place grid penalty for impeding Piastri, but Aston Martin's power-unit penalties left him starting P20.",
-    "driverNotes": {}
+    "driverNotes": {
+      "PER": {
+        "headline": "Perez converted P20 on the grid into P14, staying with quicker cars through the first stint before Cadillac's straight-line deficit left him exposed on Baku's long acceleration zones.",
+        "tag": "p20-to-p14-straight-line-deficit"
+      },
+      "BOT": {
+        "headline": "Bottas's race ended at Turn 15 after a late lock-up and run wide at Turn 1 preceded a loss of rear harvesting / braking feel; Cadillac classified the P16 result as a retirement and began a technical investigation.",
+        "tag": "turn-15-technical-retirement"
+      }
+    }
   },
   "qualifying": {
     "sessionDate": "2026-09-25",
@@ -44,6 +53,29 @@
   },
   "race": {
     "sessionDate": "2026-09-26",
-    "entries": []
+    "entries": [
+      { "position": 1, "driver": "George Russell", "driverCode": "RUS", "team": "Mercedes", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "1:38:02.143", "gapToLeaderSeconds": 0 },
+      { "position": 2, "driver": "Max Verstappen", "driverCode": "VER", "team": "Red Bull", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+0.196", "gapToLeaderSeconds": 0.196 },
+      { "position": 3, "driver": "Isack Hadjar", "driverCode": "HAD", "team": "Red Bull", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+10.704", "gapToLeaderSeconds": 10.704 },
+      { "position": 4, "driver": "Charles Leclerc", "driverCode": "LEC", "team": "Ferrari", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+14.136", "gapToLeaderSeconds": 14.136 },
+      { "position": 5, "driver": "Andrea Kimi Antonelli", "driverCode": "ANT", "team": "Mercedes", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+14.512", "gapToLeaderSeconds": 14.512 },
+      { "position": 6, "driver": "Lewis Hamilton", "driverCode": "HAM", "team": "Ferrari", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+22.382", "gapToLeaderSeconds": 22.382 },
+      { "position": 7, "driver": "Arvid Lindblad", "driverCode": "LIN", "team": "RB F1 Team", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+31.159", "gapToLeaderSeconds": 31.159 },
+      { "position": 8, "driver": "Esteban Ocon", "driverCode": "OCO", "team": "Haas F1 Team", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+31.189", "gapToLeaderSeconds": 31.189 },
+      { "position": 9, "driver": "Oliver Bearman", "driverCode": "BEA", "team": "Haas F1 Team", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+31.929", "gapToLeaderSeconds": 31.929 },
+      { "position": 10, "driver": "Carlos Sainz", "driverCode": "SAI", "team": "Williams", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+32.416", "gapToLeaderSeconds": 32.416 },
+      { "position": 11, "driver": "Nico Hülkenberg", "driverCode": "HUL", "team": "Audi", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+33.231", "gapToLeaderSeconds": 33.231 },
+      { "position": 12, "driver": "Liam Lawson", "driverCode": "LAW", "team": "RB F1 Team", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+34.013", "gapToLeaderSeconds": 34.013 },
+      { "position": 13, "driver": "Oscar Piastri", "driverCode": "PIA", "team": "McLaren", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+36.401", "gapToLeaderSeconds": 36.401 },
+      { "position": 14, "driver": "Sergio Pérez", "driverCode": "PER", "team": "Cadillac F1 Team", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+41.400", "gapToLeaderSeconds": 41.4 },
+      { "position": 15, "driver": "Gabriel Bortoleto", "driverCode": "BOR", "team": "Audi", "laps": 51, "status": "classified", "officialStatus": "Finished", "finishTime": "+44.230", "gapToLeaderSeconds": 44.23 },
+      { "position": 16, "driver": "Valtteri Bottas", "driverCode": "BOT", "team": "Cadillac F1 Team", "laps": 49, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null },
+      { "position": 17, "driver": "Franco Colapinto", "driverCode": "COL", "team": "Alpine F1 Team", "laps": 36, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null },
+      { "position": 18, "driver": "Pierre Gasly", "driverCode": "GAS", "team": "Alpine F1 Team", "laps": 35, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null },
+      { "position": 19, "driver": "Lando Norris", "driverCode": "NOR", "team": "McLaren", "laps": 35, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null },
+      { "position": 20, "driver": "Alexander Albon", "driverCode": "ALB", "team": "Williams", "laps": 29, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null },
+      { "position": 21, "driver": "Fernando Alonso", "driverCode": "ALO", "team": "Aston Martin", "laps": 20, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null },
+      { "position": 22, "driver": "Lance Stroll", "driverCode": "STR", "team": "Aston Martin", "laps": 7, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null }
+    ]
   }
 }
