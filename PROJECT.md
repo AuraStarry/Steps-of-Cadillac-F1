@@ -47,6 +47,7 @@
    - [x] 將 race driver rows 接上 `driverNotes` 呈現
    - [x] 驗證 `pnpm build` 與必要互動流程
    - [x] 補齊 round `race.entries` 原始資料（R1-R7 已補齊）
+   - [x] 補齊 2026 R16 Bahrain GP qualifying 資料
    - [ ] 第二階段視覺增強：研究數字牌翻轉 transition（可延後到主要功能完成後）
 11. [ ] 時間線視圖（Cadillac F1 發展節點）
 12. [ ] 資料卡片（車隊、車手、市場傳聞）
@@ -64,6 +65,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-10-04
+- 新增 2026 R16 Bahrain Grand Prix in Malaysia（Sepang）round JSON：依 FIA final qualifying classification 補入完整 22 車 Q1/Q2/Q3 名單與 cutoffs，Bottas / Pérez分別為 Q1 P21 / P22
+- 新增 qualifying-only Cadillac Key Context：保留 Baku 後較穩定的運作訊號，但以 Sepang 的高速彎、高溫與粗糙路面如何放大胎溫管理及單圈 pace 限制為主軸；同時記錄 Cadillac 選擇保留 Pérez 新引擎，以及 Colapinto / Lindblad 罰退使兩車由 P21/P22 上移至 P19/P20 起跑
+- 建立空白 race placeholder，維持本輪僅上線排位資料；`pnpm build` 與 R16 JSON schema checks 通過
+
 ### 2026-09-27
 - 補齊 2026 R15 Azerbaijan GP `race.entries`：依官方最終分類寫入 Russell 勝出、Sainz P10 積分線、Pérez P14 / +41.400 秒，以及 Bottas P16 / lap-49 retirement 和其餘 6 台退賽車
 - 新增 Azerbaijan GP `cadillac.driverNotes`：Pérez 聚焦從 P20 到 P14、首段能與更快車群抗衡但受限於直線速度；Bottas 聚焦 Turn 1 lock-up / run-wide 後的 harvesting 與後煞車感異常，最終 Turn 15 撞牆、車隊展開技術調查

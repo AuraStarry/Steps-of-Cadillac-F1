@@ -113,6 +113,13 @@
       "name": "Azerbaijan Grand Prix",
       "date": "2026-09-26",
       "file": "./rounds/15-azerbaijan.json"
+    },
+    {
+      "round": 16,
+      "slug": "bahrain",
+      "name": "Bahrain Grand Prix in Malaysia",
+      "date": "2026-10-04",
+      "file": "./rounds/16-bahrain.json"
     }
   ]
 }
