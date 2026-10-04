@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-09-27 Session 86（R15 Azerbaijan GP race update）
+- **最後更新**: 2026-10-04 Session 87（R16 Bahrain GP qualifying update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -47,7 +47,6 @@
    - [x] 將 race driver rows 接上 `driverNotes` 呈現
    - [x] 驗證 `pnpm build` 與必要互動流程
    - [x] 補齊 round `race.entries` 原始資料（R1-R7 已補齊）
-   - [x] 補齊 2026 R16 Bahrain GP qualifying 資料
    - [ ] 第二階段視覺增強：研究數字牌翻轉 transition（可延後到主要功能完成後）
 11. [ ] 時間線視圖（Cadillac F1 發展節點）
 12. [ ] 資料卡片（車隊、車手、市場傳聞）
