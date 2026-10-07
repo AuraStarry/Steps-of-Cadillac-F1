@@ -8,7 +8,16 @@
   "date": "2026-10-04",
   "cadillac": {
     "historicalContext": "Cadillac arrived at Sepang with the cleaner operating window it found in Baku, but a high-speed circuit, 58°C track temperatures and a rough surface exposed the MAC-26's remaining tyre-management and outright-pace deficit. Bottas described a smooth, issue-free weekend and both drivers were more comfortable with the balance, so the Q1 P21/P22 result is a circuit-fit limitation rather than a disrupted qualifying; the team also chose to save Pérez's new engine for a more favourable venue. Grid penalties for Colapinto and Lindblad lift Bottas and Pérez to P19 and P20 for the start.",
-    "driverNotes": {}
+    "driverNotes": {
+      "PER": {
+        "headline": "Perez finished P19 after Cadillac's slick-tyre gamble immediately gave way to intermediates, then a seven-stop race repeatedly had its recovery neutralised by Safety Cars; the team nevertheless completed all 55 laps and gathered its first competitive wet-weather data.",
+        "tag": "seven-stops-wet-weather-learning"
+      },
+      "BOT": {
+        "headline": "Bottas's soft-slick start was untenable on Sepang's wet surface: chasing the intermediate-shod pack, he lost the rear at Turn 13 on lap 9 and beached the MAC-26 in the gravel, triggering the first Safety Car.",
+        "tag": "lap-9-turn-13-wet-spin"
+      }
+    }
   },
   "qualifying": {
     "sessionDate": "2026-10-03",
@@ -44,6 +53,29 @@
   },
   "race": {
     "sessionDate": "2026-10-04",
-    "entries": []
+    "entries": [
+      { "position": 1, "driver": "Max Verstappen", "driverCode": "VER", "team": "Red Bull", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "1:47:14.808", "gapToLeaderSeconds": 0 },
+      { "position": 2, "driver": "Andrea Kimi Antonelli", "driverCode": "ANT", "team": "Mercedes", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+2.307", "gapToLeaderSeconds": 2.307 },
+      { "position": 3, "driver": "Lewis Hamilton", "driverCode": "HAM", "team": "Ferrari", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+4.919", "gapToLeaderSeconds": 4.919 },
+      { "position": 4, "driver": "Charles Leclerc", "driverCode": "LEC", "team": "Ferrari", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+7.258", "gapToLeaderSeconds": 7.258 },
+      { "position": 5, "driver": "Isack Hadjar", "driverCode": "HAD", "team": "Red Bull", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+8.571", "gapToLeaderSeconds": 8.571 },
+      { "position": 6, "driver": "Oscar Piastri", "driverCode": "PIA", "team": "McLaren", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+9.454", "gapToLeaderSeconds": 9.454 },
+      { "position": 7, "driver": "Liam Lawson", "driverCode": "LAW", "team": "RB F1 Team", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+12.753", "gapToLeaderSeconds": 12.753 },
+      { "position": 8, "driver": "Fernando Alonso", "driverCode": "ALO", "team": "Aston Martin", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+13.372", "gapToLeaderSeconds": 13.372 },
+      { "position": 9, "driver": "Lando Norris", "driverCode": "NOR", "team": "McLaren", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+13.993", "gapToLeaderSeconds": 13.993 },
+      { "position": 10, "driver": "Arvid Lindblad", "driverCode": "LIN", "team": "RB F1 Team", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+15.928", "gapToLeaderSeconds": 15.928 },
+      { "position": 11, "driver": "Nico Hülkenberg", "driverCode": "HUL", "team": "Audi", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+17.404", "gapToLeaderSeconds": 17.404 },
+      { "position": 12, "driver": "Lance Stroll", "driverCode": "STR", "team": "Aston Martin", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+18.052", "gapToLeaderSeconds": 18.052 },
+      { "position": 13, "driver": "Franco Colapinto", "driverCode": "COL", "team": "Alpine F1 Team", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+18.997", "gapToLeaderSeconds": 18.997 },
+      { "position": 14, "driver": "Oliver Bearman", "driverCode": "BEA", "team": "Haas F1 Team", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+22.305", "gapToLeaderSeconds": 22.305 },
+      { "position": 15, "driver": "Esteban Ocon", "driverCode": "OCO", "team": "Haas F1 Team", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+22.532", "gapToLeaderSeconds": 22.532 },
+      { "position": 16, "driver": "Pierre Gasly", "driverCode": "GAS", "team": "Alpine F1 Team", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+23.315", "gapToLeaderSeconds": 23.315 },
+      { "position": 17, "driver": "Carlos Sainz", "driverCode": "SAI", "team": "Williams", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+25.431", "gapToLeaderSeconds": 25.431 },
+      { "position": 18, "driver": "Gabriel Bortoleto", "driverCode": "BOR", "team": "Audi", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+28.233", "gapToLeaderSeconds": 28.233 },
+      { "position": 19, "driver": "Sergio Pérez", "driverCode": "PER", "team": "Cadillac F1 Team", "laps": 55, "status": "classified", "officialStatus": "Finished", "finishTime": "+29.310", "gapToLeaderSeconds": 29.31 },
+      { "position": 20, "driver": "George Russell", "driverCode": "RUS", "team": "Mercedes", "laps": 49, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null },
+      { "position": 21, "driver": "Alexander Albon", "driverCode": "ALB", "team": "Williams", "laps": 41, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null },
+      { "position": 22, "driver": "Valtteri Bottas", "driverCode": "BOT", "team": "Cadillac F1 Team", "laps": 7, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null }
+    ]
   }
 }

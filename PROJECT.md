@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-10-04 Session 87（R16 Bahrain GP qualifying update）
+- **最後更新**: 2026-10-07 Session 88（R16 Bahrain GP final race classification update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-10-07
+- 補齊 2026 R16 Bahrain Grand Prix in Malaysia `race.entries`：依 FIA final classification 寫入 Verstappen 勝出、Lindblad P10 積分線、Pérez P19 / +29.310 秒，以及 Russell、Albon、Bottas 的退賽分類
+- 新增 Bahrain `cadillac.driverNotes`：Pérez 聚焦濕地以 slick 起跑後轉 intermediate、七停與 Safety Car 中和 recovery；Bottas 聚焦濕地 soft slick 無法維持、Lap 9 Turn 13 失控進 gravel 退賽
+- 維持 Bahrain `cadillac.historicalContext` 不變，遵守 post-race backfill freeze rule，避免將 Sunday race narrative 混入 qualifying-only Key Context
+
 ### 2026-10-04
 - 新增 2026 R16 Bahrain Grand Prix in Malaysia（Sepang）round JSON：依 FIA final qualifying classification 補入完整 22 車 Q1/Q2/Q3 名單與 cutoffs，Bottas / Pérez分別為 Q1 P21 / P22
 - 新增 qualifying-only Cadillac Key Context：保留 Baku 後較穩定的運作訊號，但以 Sepang 的高速彎、高溫與粗糙路面如何放大胎溫管理及單圈 pace 限制為主軸；同時記錄 Cadillac 選擇保留 Pérez 新引擎，以及 Colapinto / Lindblad 罰退使兩車由 P21/P22 上移至 P19/P20 起跑
