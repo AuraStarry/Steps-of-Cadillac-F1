@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-10-07 Session 88（R16 Bahrain GP final race classification update）
+- **最後更新**: 2026-10-11 Session 89（R17 Singapore GP qualifying update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-10-11
+- 新增 2026 R17 Singapore Grand Prix（Marina Bay）round JSON：依 Jolpica final qualifying classification 補入完整 22 車 Q1/Q2/Q3 名單與 cutoffs；Hadjar 未設有效時間，保留為 Q1 `no-time`
+- 新增 qualifying-only Cadillac Key Context：把本站核心解讀放在 Cadillac 預期低速街道賽較適合 MAC-26、卻被更顛簸的 Marina Bay 放大 ride-height / mechanical-balance setup window 的問題；Sprint Qualifying 的 bottoming、traffic 與 Q1 P20/P21 僅作佐證，避免把結果名次寫成主敘事
+- 建立空白 race placeholder，維持本輪只上線排位資料；正賽完成後再補 classification 與 driver notes
+
 ### 2026-10-07
 - 補齊 2026 R16 Bahrain Grand Prix in Malaysia `race.entries`：依 FIA final classification 寫入 Verstappen 勝出、Lindblad P10 積分線、Pérez P19 / +29.310 秒，以及 Russell、Albon、Bottas 的退賽分類
 - 新增 Bahrain `cadillac.driverNotes`：Pérez 聚焦濕地以 slick 起跑後轉 intermediate、七停與 Safety Car 中和 recovery；Bottas 聚焦濕地 soft slick 無法維持、Lap 9 Turn 13 失控進 gravel 退賽
