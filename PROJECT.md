@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-10-11 Session 89（R17 Singapore GP qualifying update）
+- **最後更新**: 2026-10-12 Session 90（R17 Singapore GP race update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-10-12
+- 補齊 2026 R17 Singapore GP `race.entries`：依 Formula 1 official result / Jolpica final classification 寫入 Verstappen 勝出、Hadjar P10 積分線、Pérez P17 / +2 laps、Bottas P19 / +3 laps，以及 Albon、Stroll、Colapinto、Bortoleto 的退賽分類
+- 新增 Singapore GP `cadillac.driverNotes`：Pérez 聚焦 Soft–Medium–Soft two-stop 的策略嘗試與 race-pace deficit；Bottas 聚焦 Medium 起跑未如預期、early stint 脫離車群、limited grip / brake stress 的完整資料收集
+- 維持 Singapore `cadillac.historicalContext` 不變，遵守 post-race backfill freeze rule，避免把 Sunday race narrative 混入 qualifying-only Key Context
+
 ### 2026-10-11
 - 新增 2026 R17 Singapore Grand Prix（Marina Bay）round JSON：依 Jolpica final qualifying classification 補入完整 22 車 Q1/Q2/Q3 名單與 cutoffs；Hadjar 未設有效時間，保留為 Q1 `no-time`
 - 新增 qualifying-only Cadillac Key Context：把本站核心解讀放在 Cadillac 預期低速街道賽較適合 MAC-26、卻被更顛簸的 Marina Bay 放大 ride-height / mechanical-balance setup window 的問題；Sprint Qualifying 的 bottoming、traffic 與 Q1 P20/P21 僅作佐證，避免把結果名次寫成主敘事
