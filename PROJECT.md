@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-10-12 Session 90（R17 Singapore GP race update）
+- **最後更新**: 2026-10-25 Session 91（R18 United States GP qualifying update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-10-25
+- 新增 2026 R18 United States Grand Prix（COTA）round JSON：依 FIA final qualifying classification 補入完整 22 車 Q1/Q2/Q3 成績與 cutoffs；Lawson 進入 Q3 但未設有效時間，保留 `no-time` 狀態
+- 新增 qualifying-only Cadillac Key Context：聚焦主場週末帶來的 floor / cooling test items、COTA 顛簸下的 setup / tyre window 限制，以及 Pérez 的 KERS / final-corner traffic 損失；P21/P22 與 Colapinto、Bortoleto power-unit 罰退後上移至 P19/P20 僅作輔助背景
+- 建立空白 race placeholder，維持本輪只上線排位資料；正賽分類與 driver notes 待完賽後補入
+
 ### 2026-10-12
 - 補齊 2026 R17 Singapore GP `race.entries`：依 Formula 1 official result / Jolpica final classification 寫入 Verstappen 勝出、Hadjar P10 積分線、Pérez P17 / +2 laps、Bottas P19 / +3 laps，以及 Albon、Stroll、Colapinto、Bortoleto 的退賽分類
 - 新增 Singapore GP `cadillac.driverNotes`：Pérez 聚焦 Soft–Medium–Soft two-stop 的策略嘗試與 race-pace deficit；Bottas 聚焦 Medium 起跑未如預期、early stint 脫離車群、limited grip / brake stress 的完整資料收集

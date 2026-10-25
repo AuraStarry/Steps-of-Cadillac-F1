@@ -1,0 +1,49 @@
+{
+  "year": 2026,
+  "round": 18,
+  "slug": "united-states",
+  "grandPrixName": "United States Grand Prix",
+  "circuit": "Circuit of The Americas",
+  "country": "United States",
+  "date": "2026-10-25",
+  "cadillac": {
+    "historicalContext": "Cadillac used its second home weekend at COTA to evaluate small floor and cooling updates, but the bumpy circuit kept the MAC-26's setup and tyre window narrow. After Colton Herta's FP1 programme and a broad setup search, both race drivers extracted the available package in qualifying, yet the one-lap gap to Williams remained: Pérez lost roughly two tenths in the final sector when a KERS issue coincided with traffic at the final corner, while Bottas said the team had at least found a workable balance. They qualified P21 and P22, but power-unit penalties for Colapinto and Bortoleto promote them to P19 and P20 on the grid.",
+    "driverNotes": {}
+  },
+  "qualifying": {
+    "sessionDate": "2026-10-24",
+    "entries": [
+      { "position": 1, "driver": "Andrea Kimi Antonelli", "driverCode": "ANT", "team": "Mercedes", "bestTime": "1:34.035", "status": "classified", "reached": "Q3", "segments": { "Q1": "1:35.390", "Q2": "1:34.278", "Q3": "1:34.035" } },
+      { "position": 2, "driver": "Max Verstappen", "driverCode": "VER", "team": "Red Bull", "bestTime": "1:34.214", "status": "classified", "reached": "Q3", "segments": { "Q1": "1:35.215", "Q2": "1:34.471", "Q3": "1:34.214" } },
+      { "position": 3, "driver": "Isack Hadjar", "driverCode": "HAD", "team": "Red Bull", "bestTime": "1:34.250", "status": "classified", "reached": "Q3", "segments": { "Q1": "1:35.286", "Q2": "1:34.887", "Q3": "1:34.250" } },
+      { "position": 4, "driver": "Charles Leclerc", "driverCode": "LEC", "team": "Ferrari", "bestTime": "1:34.267", "status": "classified", "reached": "Q3", "segments": { "Q1": "1:35.200", "Q2": "1:34.198", "Q3": "1:34.267" } },
+      { "position": 5, "driver": "Lewis Hamilton", "driverCode": "HAM", "team": "Ferrari", "bestTime": "1:34.311", "status": "classified", "reached": "Q3", "segments": { "Q1": "1:35.355", "Q2": "1:34.833", "Q3": "1:34.311" } },
+      { "position": 6, "driver": "George Russell", "driverCode": "RUS", "team": "Mercedes", "bestTime": "1:34.476", "status": "classified", "reached": "Q3", "segments": { "Q1": "1:35.730", "Q2": "1:34.305", "Q3": "1:34.476" } },
+      { "position": 7, "driver": "Oscar Piastri", "driverCode": "PIA", "team": "McLaren", "bestTime": "1:34.803", "status": "classified", "reached": "Q3", "segments": { "Q1": "1:35.842", "Q2": "1:34.818", "Q3": "1:34.803" } },
+      { "position": 8, "driver": "Lando Norris", "driverCode": "NOR", "team": "McLaren", "bestTime": "1:35.049", "status": "classified", "reached": "Q3", "segments": { "Q1": "1:35.029", "Q2": "1:34.539", "Q3": "1:35.049" } },
+      { "position": 9, "driver": "Arvid Lindblad", "driverCode": "LIN", "team": "RB F1 Team", "bestTime": "1:36.049", "status": "classified", "reached": "Q3", "segments": { "Q1": "1:35.755", "Q2": "1:34.950", "Q3": "1:36.049" } },
+      { "position": 10, "driver": "Liam Lawson", "driverCode": "LAW", "team": "RB F1 Team", "bestTime": "1:35.058", "status": "no-time", "reached": "Q3", "segments": { "Q1": "1:35.662", "Q2": "1:35.058", "Q3": null } },
+      { "position": 11, "driver": "Pierre Gasly", "driverCode": "GAS", "team": "Alpine F1 Team", "bestTime": "1:35.080", "status": "eliminated", "reached": "Q2", "segments": { "Q1": "1:35.969", "Q2": "1:35.080", "Q3": null } },
+      { "position": 12, "driver": "Nico Hülkenberg", "driverCode": "HUL", "team": "Audi", "bestTime": "1:35.158", "status": "eliminated", "reached": "Q2", "segments": { "Q1": "1:35.704", "Q2": "1:35.158", "Q3": null } },
+      { "position": 13, "driver": "Gabriel Bortoleto", "driverCode": "BOR", "team": "Audi", "bestTime": "1:35.691", "status": "eliminated", "reached": "Q2", "segments": { "Q1": "1:35.632", "Q2": "1:35.691", "Q3": null } },
+      { "position": 14, "driver": "Franco Colapinto", "driverCode": "COL", "team": "Alpine F1 Team", "bestTime": "1:35.722", "status": "eliminated", "reached": "Q2", "segments": { "Q1": "1:35.898", "Q2": "1:35.722", "Q3": null } },
+      { "position": 15, "driver": "Fernando Alonso", "driverCode": "ALO", "team": "Aston Martin", "bestTime": "1:35.818", "status": "eliminated", "reached": "Q2", "segments": { "Q1": "1:36.240", "Q2": "1:35.818", "Q3": null } },
+      { "position": 16, "driver": "Oliver Bearman", "driverCode": "BEA", "team": "Haas F1 Team", "bestTime": "1:36.031", "status": "eliminated", "reached": "Q2", "segments": { "Q1": "1:36.175", "Q2": "1:36.031", "Q3": null } },
+      { "position": 17, "driver": "Esteban Ocon", "driverCode": "OCO", "team": "Haas F1 Team", "bestTime": "1:36.531", "status": "eliminated", "reached": "Q1", "segments": { "Q1": "1:36.531", "Q2": null, "Q3": null } },
+      { "position": 18, "driver": "Lance Stroll", "driverCode": "STR", "team": "Aston Martin", "bestTime": "1:36.677", "status": "eliminated", "reached": "Q1", "segments": { "Q1": "1:36.677", "Q2": null, "Q3": null } },
+      { "position": 19, "driver": "Carlos Sainz", "driverCode": "SAI", "team": "Williams", "bestTime": "1:36.770", "status": "eliminated", "reached": "Q1", "segments": { "Q1": "1:36.770", "Q2": null, "Q3": null } },
+      { "position": 20, "driver": "Alexander Albon", "driverCode": "ALB", "team": "Williams", "bestTime": "1:36.967", "status": "eliminated", "reached": "Q1", "segments": { "Q1": "1:36.967", "Q2": null, "Q3": null } },
+      { "position": 21, "driver": "Sergio Pérez", "driverCode": "PER", "team": "Cadillac F1 Team", "bestTime": "1:37.433", "status": "eliminated", "reached": "Q1", "segments": { "Q1": "1:37.433", "Q2": null, "Q3": null } },
+      { "position": 22, "driver": "Valtteri Bottas", "driverCode": "BOT", "team": "Cadillac F1 Team", "bestTime": "1:37.523", "status": "eliminated", "reached": "Q1", "segments": { "Q1": "1:37.523", "Q2": null, "Q3": null } }
+    ],
+    "cutoffs": {
+      "Q1Eliminated": ["OCO", "STR", "SAI", "ALB", "PER", "BOT"],
+      "Q2Eliminated": ["GAS", "HUL", "BOR", "COL", "ALO", "BEA"],
+      "Q3": ["ANT", "VER", "HAD", "LEC", "HAM", "RUS", "PIA", "NOR", "LIN", "LAW"]
+    }
+  },
+  "race": {
+    "sessionDate": "2026-10-25",
+    "entries": []
+  }
+}

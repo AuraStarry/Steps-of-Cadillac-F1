@@ -127,6 +127,13 @@
       "name": "Singapore Grand Prix",
       "date": "2026-10-11",
       "file": "./rounds/17-singapore.json"
+    },
+    {
+      "round": 18,
+      "slug": "united-states",
+      "name": "United States Grand Prix",
+      "date": "2026-10-25",
+      "file": "./rounds/18-united-states.json"
     }
   ]
 }
