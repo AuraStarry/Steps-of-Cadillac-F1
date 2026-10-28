@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-10-25 Session 91（R18 United States GP qualifying update）
+- **最後更新**: 2026-10-28 Session 92（R18 United States GP race update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,11 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-10-28
+- 補齊 2026 R18 United States GP `race.entries`：依 Jolpica final classification 寫入 Antonelli 勝出、Gasly P10 積分線、Pérez P19 / +1 lap，以及 Bottas lap-48 retirement 和 Colapinto、Bearman 的退賽分類
+- 新增 United States GP `cadillac.driverNotes`：Pérez 聚焦 Soft–Hard one-stop 與交通損失下較預期接近中場的 race pace；Bottas 聚焦 Hard 起跑的互補策略與 Turn 1 煞車時突發、造成 engine cut-outs 的疑似 power-unit issue
+- 只校正 United States `cadillac.historicalContext` 的 final-grid 事實（P18/P19）；其餘 qualifying-only Key Context 維持不變，未混入 Sunday race narrative
+
 ### 2026-10-25
 - 新增 2026 R18 United States Grand Prix（COTA）round JSON：依 FIA final qualifying classification 補入完整 22 車 Q1/Q2/Q3 成績與 cutoffs；Lawson 進入 Q3 但未設有效時間，保留 `no-time` 狀態
 - 新增 qualifying-only Cadillac Key Context：聚焦主場週末帶來的 floor / cooling test items、COTA 顛簸下的 setup / tyre window 限制，以及 Pérez 的 KERS / final-corner traffic 損失；P21/P22 與 Colapinto、Bortoleto power-unit 罰退後上移至 P19/P20 僅作輔助背景
