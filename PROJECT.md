@@ -69,7 +69,6 @@
 - 新增 qualifying-only Cadillac Key Context：明確記錄 Pérez 在 FP3 的 precautionary PU replacement 令他無法驗證賽車調整；Bottas 則換上第五具 ICE／turbo、第四組 ES／PU-CE／MGU-K，帶來 50-place grid penalty。因 Bottas 必從後排起跑，他在最後兩趟 Q1 以 tow 協助 Pérez，令 Pérez 略有增益、接近前車但仍不足以晉級；Bottas 的 P21 因此不是完整的自我性能嘗試。
 
 ### 2026-10-28
-### 2026-10-28
 - 補齊 2026 R18 United States GP `race.entries`：依 Jolpica final classification 寫入 Antonelli 勝出、Gasly P10 積分線、Pérez P19 / +1 lap，以及 Bottas lap-48 retirement 和 Colapinto、Bearman 的退賽分類
 - 新增 United States GP `cadillac.driverNotes`：Pérez 聚焦 Soft–Hard one-stop 與交通損失下較預期接近中場的 race pace；Bottas 聚焦 Hard 起跑的互補策略與 Turn 1 煞車時突發、造成 engine cut-outs 的疑似 power-unit issue
 - 只校正 United States `cadillac.historicalContext` 的 final-grid 事實（P18/P19）；其餘 qualifying-only Key Context 維持不變，未混入 Sunday race narrative
