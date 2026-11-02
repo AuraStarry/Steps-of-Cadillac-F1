@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-11-02 Session 93（R19 Mexico City GP qualifying update）
+- **最後更新**: 2026-11-02 Session 94（R19 Mexico City GP race update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,10 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-11-02
+- 補齊 2026 R19 Mexico City GP `race.entries`：依 FIA final classification 寫入 Verstappen 勝出、Hirakawa P10 積分線、Pérez P16 / +30.695 秒，以及 Bottas lap-42 retirement 和其餘 4 台退賽車。
+- 新增 Mexico City `cadillac.driverNotes`：Pérez 聚焦首段一度升至 P13、wheel-gun fault 造成慢停，以及 sensor-related pit-lane speeding 的五秒罰時；Bottas 聚焦從後排起跑後的 early progress、Turn 1 高速撞擊與尚在調查的 apparent front-suspension failure。排位 `historicalContext` 維持不變。
+
 ### 2026-11-02
 - 新增 2026 R19 Mexico City Grand Prix round JSON：依 FIA final qualifying classification 補入完整排位資料與 Q1/Q2/Q3 cutoffs，並保留 Lawson 因 technical nonconformity 被取消排位資格的獨立 `disqualified` entry；Pérez / Bottas 依最終分類為 P20 / P21，空白 race placeholder 依規則保留。
 - 新增 qualifying-only Cadillac Key Context：明確記錄 Pérez 在 FP3 的 precautionary PU replacement 令他無法驗證賽車調整；Bottas 則換上第五具 ICE／turbo、第四組 ES／PU-CE／MGU-K，帶來 50-place grid penalty。因 Bottas 必從後排起跑，他在最後兩趟 Q1 以 tow 協助 Pérez，令 Pérez 略有增益、接近前車但仍不足以晉級；Bottas 的 P21 因此不是完整的自我性能嘗試。
