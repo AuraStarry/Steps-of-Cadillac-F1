@@ -134,6 +134,13 @@
       "name": "United States Grand Prix",
       "date": "2026-10-25",
       "file": "./rounds/18-united-states.json"
+    },
+    {
+      "round": 19,
+      "slug": "mexico-city",
+      "name": "Mexico City Grand Prix",
+      "date": "2026-11-01",
+      "file": "./rounds/19-mexico-city.json"
     }
   ]
 }
