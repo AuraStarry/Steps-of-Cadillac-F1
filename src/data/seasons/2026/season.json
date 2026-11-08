@@ -141,6 +141,13 @@
       "name": "Mexico City Grand Prix",
       "date": "2026-11-01",
       "file": "./rounds/19-mexico-city.json"
+    },
+    {
+      "round": 20,
+      "slug": "sao-paulo",
+      "name": "São Paulo Grand Prix",
+      "date": "2026-11-08",
+      "file": "./rounds/20-sao-paulo.json"
     }
   ]
 }

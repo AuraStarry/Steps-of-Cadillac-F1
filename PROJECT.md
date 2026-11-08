@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-11-02 Session 94（R19 Mexico City GP race update）
+- **最後更新**: 2026-11-08 Session 95（R20 São Paulo GP qualifying update）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,10 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-11-08
+- 新增 2026 R20 São Paulo Grand Prix（Interlagos）round JSON：依 FIA final qualifying classification 與 Formula 1 official result 補入完整 22 車 Q1/Q2/Q3 成績與 cutoffs；Verstappen 在 Q1 後未繼續參加因已知 back-of-grid penalty，仍保留其 Q1 分類資料。
+- 新增 qualifying-only Cadillac Key Context：聚焦 Pérez 在 Mexico issue 後換上 ICE / turbo / MGU-K 的可靠度 reset，以及雨戰 Q1 末段的輪胎溫度與執行限制；Bottas P20、Pérez P21 只作佐證，並保留空白 race placeholder，避免混入 Sunday race narrative。
+
 ### 2026-11-02
 - 補齊 2026 R19 Mexico City GP `race.entries`：依 FIA final classification 寫入 Verstappen 勝出、Hirakawa P10 積分線、Pérez P16 / +30.695 秒，以及 Bottas lap-42 retirement 和其餘 4 台退賽車。
 - 新增 Mexico City `cadillac.driverNotes`：Pérez 聚焦首段一度升至 P13、wheel-gun fault 造成慢停，以及 sensor-related pit-lane speeding 的五秒罰時；Bottas 聚焦從後排起跑後的 early progress、Turn 1 高速撞擊與尚在調查的 apparent front-suspension failure。排位 `historicalContext` 維持不變。
