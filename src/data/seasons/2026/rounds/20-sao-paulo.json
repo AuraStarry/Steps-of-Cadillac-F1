@@ -9,8 +9,14 @@
   "cadillac": {
     "historicalContext": "Cadillac used the São Paulo weekend to reset Pérez's power-unit allocation after the issue that ended his Mexico City race, fitting a new ICE, turbo and MGU-K before a clean, dry FP3; the subsequent qualifying deficit was therefore not another carry-over reliability interruption. In a rain-delayed Q1, both cars briefly sat inside the top 16 on full wets, but Pérez lost tyre temperature for his final lap while Bottas's rear tyres overheated after initially switching on quickly. Their P20/P21 classification should consequently be read as a late-window tyre-temperature and execution loss in Cadillac's first wet qualifying of the season, while Pérez's component changes also committed him to a back-of-grid start.",
     "driverNotes": {
-      "PER": null,
-      "BOT": null
+      "PER": {
+        "headline": "Pérez made early progress past Bortoleto, Sainz and Câmara, but a repeat slow-stop issue undermined his one-stop plan before late rain reset the race; he finished P18, one lap down.",
+        "tag": "slow-stop-and-late-rain-compromise"
+      },
+      "BOT": {
+        "headline": "Bottas never took the start after a stuck wheel nut was found on the grid; Cadillac could not free it despite repeated attempts, turning the weekend into a DNS.",
+        "tag": "stuck-wheel-nut-dns"
+      }
     }
   },
   "qualifying": {
@@ -47,6 +53,29 @@
   },
   "race": {
     "sessionDate": "2026-11-08",
-    "entries": []
+    "entries": [
+      { "position": 1, "driver": "Lando Norris", "driverCode": "NOR", "team": "McLaren", "laps": 71, "status": "classified", "officialStatus": "Finished", "finishTime": "1:35:23.504", "gapToLeaderSeconds": 0 },
+      { "position": 2, "driver": "Max Verstappen", "driverCode": "VER", "team": "Red Bull", "laps": 71, "status": "classified", "officialStatus": "Finished", "finishTime": "+14.602", "gapToLeaderSeconds": 14.602 },
+      { "position": 3, "driver": "Isack Hadjar", "driverCode": "HAD", "team": "Red Bull", "laps": 71, "status": "classified", "officialStatus": "Finished", "finishTime": "+24.485", "gapToLeaderSeconds": 24.485 },
+      { "position": 4, "driver": "George Russell", "driverCode": "RUS", "team": "Mercedes", "laps": 71, "status": "classified", "officialStatus": "Finished", "finishTime": "+33.991", "gapToLeaderSeconds": 33.991 },
+      { "position": 5, "driver": "Andrea Kimi Antonelli", "driverCode": "ANT", "team": "Mercedes", "laps": 71, "status": "classified", "officialStatus": "Finished", "finishTime": "+41.017", "gapToLeaderSeconds": 41.017 },
+      { "position": 6, "driver": "Oscar Piastri", "driverCode": "PIA", "team": "McLaren", "laps": 71, "status": "classified", "officialStatus": "Finished", "finishTime": "+56.475", "gapToLeaderSeconds": 56.475 },
+      { "position": 7, "driver": "Liam Lawson", "driverCode": "LAW", "team": "RB F1 Team", "laps": 71, "status": "classified", "officialStatus": "Finished", "finishTime": "+1:15.402", "gapToLeaderSeconds": null },
+      { "position": 8, "driver": "Charles Leclerc", "driverCode": "LEC", "team": "Ferrari", "laps": 71, "status": "classified", "officialStatus": "Finished", "finishTime": "+1:18.586", "gapToLeaderSeconds": null },
+      { "position": 9, "driver": "Lewis Hamilton", "driverCode": "HAM", "team": "Ferrari", "laps": 70, "status": "classified", "officialStatus": "Lapped", "finishTime": "+1 lap", "gapToLeaderSeconds": null },
+      { "position": 10, "driver": "Nico Hülkenberg", "driverCode": "HUL", "team": "Audi", "laps": 70, "status": "classified", "officialStatus": "Lapped", "finishTime": "+1 lap", "gapToLeaderSeconds": null },
+      { "position": 11, "driver": "Arvid Lindblad", "driverCode": "LIN", "team": "RB F1 Team", "laps": 70, "status": "classified", "officialStatus": "Lapped", "finishTime": "+1 lap", "gapToLeaderSeconds": null },
+      { "position": 12, "driver": "Fernando Alonso", "driverCode": "ALO", "team": "Aston Martin", "laps": 70, "status": "classified", "officialStatus": "Lapped", "finishTime": "+1 lap", "gapToLeaderSeconds": null },
+      { "position": 13, "driver": "Franco Colapinto", "driverCode": "COL", "team": "Alpine F1 Team", "laps": 70, "status": "classified", "officialStatus": "Lapped", "finishTime": "+1 lap", "gapToLeaderSeconds": null },
+      { "position": 14, "driver": "Pierre Gasly", "driverCode": "GAS", "team": "Alpine F1 Team", "laps": 70, "status": "classified", "officialStatus": "Lapped", "finishTime": "+1 lap", "gapToLeaderSeconds": null },
+      { "position": 15, "driver": "Alexander Albon", "driverCode": "ALB", "team": "Williams", "laps": 70, "status": "classified", "officialStatus": "Lapped", "finishTime": "+1 lap", "gapToLeaderSeconds": null },
+      { "position": 16, "driver": "Gabriel Bortoleto", "driverCode": "BOR", "team": "Audi", "laps": 70, "status": "classified", "officialStatus": "Lapped", "finishTime": "+1 lap", "gapToLeaderSeconds": null },
+      { "position": 17, "driver": "Oliver Bearman", "driverCode": "BEA", "team": "Haas F1 Team", "laps": 70, "status": "classified", "officialStatus": "Lapped", "finishTime": "+1 lap", "gapToLeaderSeconds": null },
+      { "position": 18, "driver": "Sergio Pérez", "driverCode": "PER", "team": "Cadillac F1 Team", "laps": 69, "status": "classified", "officialStatus": "Lapped", "finishTime": "+2 laps", "gapToLeaderSeconds": null },
+      { "position": 19, "driver": "Carlos Sainz", "driverCode": "SAI", "team": "Williams", "laps": 69, "status": "classified", "officialStatus": "Lapped", "finishTime": "+2 laps", "gapToLeaderSeconds": null },
+      { "position": 20, "driver": "Rafael Câmara", "driverCode": "CAM", "team": "Haas F1 Team", "laps": 69, "status": "classified", "officialStatus": "Lapped", "finishTime": "+2 laps", "gapToLeaderSeconds": null },
+      { "position": 21, "driver": "Lance Stroll", "driverCode": "STR", "team": "Aston Martin", "laps": 30, "status": "retired", "officialStatus": "Retired", "finishTime": null, "gapToLeaderSeconds": null },
+      { "position": 22, "driver": "Valtteri Bottas", "driverCode": "BOT", "team": "Cadillac F1 Team", "laps": 0, "status": "dns", "officialStatus": "Did not start", "finishTime": null, "gapToLeaderSeconds": null }
+    ]
   }
 }

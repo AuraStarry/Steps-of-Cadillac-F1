@@ -148,6 +148,27 @@
       "name": "São Paulo Grand Prix",
       "date": "2026-11-08",
       "file": "./rounds/20-sao-paulo.json"
+    },
+    {
+      "round": 21,
+      "slug": "las-vegas",
+      "name": "Las Vegas Grand Prix",
+      "date": "2026-11-21",
+      "file": "./rounds/21-las-vegas.json"
+    },
+    {
+      "round": 22,
+      "slug": "qatar",
+      "name": "Qatar Grand Prix",
+      "date": "2026-11-29",
+      "file": "./rounds/22-qatar.json"
+    },
+    {
+      "round": 23,
+      "slug": "abu-dhabi",
+      "name": "Abu Dhabi Grand Prix",
+      "date": "2026-12-06",
+      "file": "./rounds/23-abu-dhabi.json"
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "year": 2026,
+  "round": 23,
+  "slug": "abu-dhabi",
+  "grandPrixName": "Abu Dhabi Grand Prix",
+  "circuit": "Yas Marina Circuit",
+  "country": "United Arab Emirates",
+  "date": "2026-12-06",
+  "cadillac": {
+    "historicalContext": null,
+    "driverNotes": { "PER": null, "BOT": null }
+  },
+  "qualifying": {
+    "sessionDate": null,
+    "entries": [],
+    "cutoffs": { "Q1Eliminated": [], "Q2Eliminated": [], "Q3": [] }
+  },
+  "race": { "sessionDate": "2026-12-06", "entries": [] }
+}

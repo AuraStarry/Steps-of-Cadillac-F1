@@ -1,0 +1,19 @@
+{
+  "year": 2026,
+  "round": 22,
+  "slug": "qatar",
+  "grandPrixName": "Qatar Grand Prix",
+  "circuit": "Lusail International Circuit",
+  "country": "Qatar",
+  "date": "2026-11-29",
+  "cadillac": {
+    "historicalContext": null,
+    "driverNotes": { "PER": null, "BOT": null }
+  },
+  "qualifying": {
+    "sessionDate": null,
+    "entries": [],
+    "cutoffs": { "Q1Eliminated": [], "Q2Eliminated": [], "Q3": [] }
+  },
+  "race": { "sessionDate": "2026-11-29", "entries": [] }
+}

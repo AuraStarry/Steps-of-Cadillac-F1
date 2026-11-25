@@ -5,7 +5,7 @@
 ## ⚡ 快速入口
 - **階段**: Phase 1 進行中（前端骨架已啟動）
 - **DOING**: 共用 Benchmark Framework 第二階段視覺增強（branding / header hierarchy / SEO polish）
-- **最後更新**: 2026-11-08 Session 95（R20 São Paulo GP qualifying update）
+- **最後更新**: 2026-11-25 Session 96（補齊 R20/R21 實績並完成季末賽程）
 
 ## 📋 當前 Phase TODO（按開發順序）
 
@@ -64,6 +64,13 @@
   3) Change Log
 
 ## 📝 Change Log
+### 2026-11-25
+- 補齊 2026 R20 São Paulo GP `race.entries`：依 Jolpica final classification 寫入 Norris 勝出、Pérez P18／+2 laps，以及 Bottas 因 grid 上 stuck wheel nut 未能起跑的 DNS。
+- 新增 São Paulo `cadillac.driverNotes`：Pérez 聚焦 early progress、repeat slow-stop 問題與 late-rain 對 one-stop 的破壞；Bottas 聚焦 grid 上無法排除的 stuck wheel nut，並維持既有 qualifying-only `historicalContext` 不變。
+- 新增完整 2026 R21 Las Vegas GP round JSON：依 Jolpica / Formula 1 official results 補入 22 車 qualifying、final classification、Q1/Q2/Q3 cutoffs，以及 Cadillac Key Context 與兩位車手 race notes。Pérez在 Turn 14 與 Câmara 碰撞後退賽，未能執行的 10-second penalty 轉為 Qatar 五位罰退；Bottas P18 完賽。
+- 完成 2026 年度賽程：加入 R22 Qatar GP（11/29，Lusail）與 R23 Abu Dhabi GP（12/06，Yas Marina）的空白 session placeholders；未開賽站不預寫 result 或 narrative。
+- JSON integrity check 與 `pnpm build` 通過。
+
 ### 2026-11-08
 - 新增 2026 R20 São Paulo Grand Prix（Interlagos）round JSON：依 FIA final qualifying classification 與 Formula 1 official result 補入完整 22 車 Q1/Q2/Q3 成績與 cutoffs；Verstappen 在 Q1 後未繼續參加因已知 back-of-grid penalty，仍保留其 Q1 分類資料。
 - 新增 qualifying-only Cadillac Key Context：聚焦 Pérez 在 Mexico issue 後換上 ICE / turbo / MGU-K 的可靠度 reset，以及雨戰 Q1 末段的輪胎溫度與執行限制；Bottas P20、Pérez P21 只作佐證，並保留空白 race placeholder，避免混入 Sunday race narrative。
